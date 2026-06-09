@@ -1,5 +1,7 @@
 import React, { useCallback, useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { ProjectSEO } from "../../assets/components/seo/ProjectSEO";
+import { useLanguage } from "../../context/LanguageContext";
 import { FiExternalLink } from "react-icons/fi";
 import { FaCode, FaStar, FaGithub, FaClock } from "react-icons/fa";
 import { portfolioItems } from "../../assets/components/portofolio/ProjectContent";
@@ -43,6 +45,7 @@ const staggerContainerVariants = {
 };
 
 export const Portofolio = () => {
+  const { t } = useLanguage();
   const { id } = useParams();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
@@ -112,6 +115,8 @@ export const Portofolio = () => {
 
   return (
     <>
+      <ProjectSEO project={project} />
+
       <Navbar />
 
       <motion.div
@@ -130,10 +135,10 @@ export const Portofolio = () => {
           >
             <a
               href="/"
-              onClick={(e) => handleProjectLinkClick(e, "home")}
+              onClick={(e) => handleProjectLinkClickBreadcrumb(e, "home")}
               className="hover:text-cyan-400"
             >
-              Home
+              {t("project.breadcrumbHome")}
             </a>
             <span>/</span>
             <a
@@ -141,7 +146,7 @@ export const Portofolio = () => {
               onClick={(e) => handleProjectLinkClickBreadcrumb(e, "portfolio")}
               className="hover:text-cyan-400"
             >
-              Project
+              {t("project.breadcrumbProject")}
             </a>
             <span>/</span>
             <span className="cursor-default font-medium text-cyan-400 underline">
@@ -199,7 +204,7 @@ export const Portofolio = () => {
                     className="bg-linear-to-r inline-flex flex-1 items-center justify-center rounded-lg from-cyan-600 to-blue-700 px-6 py-3 text-lg font-bold text-white shadow-lg transition duration-300 hover:scale-[1.02] hover:bg-cyan-500"
                     variants={itemVariants}
                   >
-                    Live Demo
+                    {t("project.liveDemo")}
                     <FiExternalLink className="ml-2 h-5 w-5" />
                   </motion.a>
                   <motion.a
@@ -209,7 +214,7 @@ export const Portofolio = () => {
                     className="inline-flex flex-1 items-center justify-center rounded-lg border border-gray-600 px-6 py-3 text-lg font-bold text-gray-300 shadow transition duration-300 hover:bg-gray-800 hover:text-white"
                     variants={itemVariants}
                   >
-                    GitHub
+                    {t("project.github")}
                     <FaGithub className="ml-2 h-5 w-5" />
                   </motion.a>
                 </motion.div>
@@ -219,7 +224,7 @@ export const Portofolio = () => {
                   variants={staggerContainerVariants}
                 >
                   <h2 className="mb-4 flex items-center text-xl font-bold text-white">
-                    <FaCode className="mr-2 text-cyan-400" /> Technologies Used
+                    <FaCode className="mr-2 text-cyan-400" />                     {t("project.techUsed")}
                   </h2>
                   <div className="flex flex-wrap gap-2">
                     {technologiesList.map((tech, index) => (
@@ -253,7 +258,7 @@ export const Portofolio = () => {
                 variants={staggerContainerVariants}
               >
                 <h2 className="mb-5 flex items-center text-2xl font-bold text-white">
-                  <FaStar className="mr-3 text-yellow-400" /> Key Features
+                  <FaStar className="mr-3 text-yellow-400" />                   {t("project.features")}
                 </h2>
                 <ul className="list-none space-y-3 pl-0">
                   {featuresList.map((feature, index) => (

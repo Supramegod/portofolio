@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useLanguage } from "../../../context/LanguageContext";
 
 const SCROLL_THRESHOLD = 100;
 const SECTION_IDS = ["home", "about", "services", "portfolio", "contact"];
@@ -8,6 +9,7 @@ const SECTION_IDS = ["home", "about", "services", "portfolio", "contact"];
 export const Navbar = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
+  const { t, lang, toggleLang } = useLanguage();
   const isHomePage = pathname === "/";
 
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -122,7 +124,7 @@ export const Navbar = () => {
           className="text-2xl font-extrabold tracking-wider text-cyan-400 transition duration-300 hover:text-cyan-300"
           onClick={(e) => handleLinkClick(e, "home")}
         >
-          BagusDev
+          JaluDev
         </a>
 
         {/* Responsive Hamburger */}
@@ -139,7 +141,7 @@ export const Navbar = () => {
         </button>
 
         {/* Section Kanan (Desktop) */}
-        <div className="hidden space-x-8 lg:flex">
+        <div className="hidden items-center space-x-8 lg:flex">
           {SECTION_IDS.map((id) => (
             <a
               key={id}
@@ -151,9 +153,16 @@ export const Navbar = () => {
                   : "text-gray-300 after:w-0 after:bg-gray-500"
               } after:absolute after:bottom-0 after:left-0 after:h-0.5 after:transition-all after:duration-300`}
             >
-              {id.charAt(0).toUpperCase() + id.slice(1)}
+              {t(`nav.${id}`)}
             </a>
           ))}
+
+          <button
+            onClick={toggleLang}
+            className="rounded-md border border-cyan-500/50 px-2 py-1 text-sm font-semibold text-cyan-400 transition duration-300 hover:bg-cyan-500/20"
+          >
+            {lang === "id" ? "EN" : "ID"}
+          </button>
         </div>
       </div>
 
@@ -177,7 +186,7 @@ export const Navbar = () => {
               }`}
               onClick={(e) => handleLinkClick(e, id)}
             >
-              {id.charAt(0).toUpperCase() + id.slice(1)}
+              {t(`nav.${id}`)}
             </a>
           ))}
         </div>

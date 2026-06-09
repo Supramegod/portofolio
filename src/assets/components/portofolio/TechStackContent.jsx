@@ -1,79 +1,35 @@
 import React from "react";
 
+import { FaPhp, FaGitAlt, FaGithub, FaNpm, FaDocker } from "react-icons/fa";
 import {
-  FaHtml5,
-  FaCss3Alt,
-  FaJs,
-  FaReact,
-  FaNodeJs,
-  FaBootstrap,
-  FaFigma,
-  FaGitAlt,
-  FaGithub,
-  FaTrello,
-  FaNpm,
-  FaYarn,
-  FaLaravel,
-  FaPhp,
-  FaGitlab,
-} from "react-icons/fa";
-import {
-  SiTailwindcss,
-  SiVite,
-  SiFirebase,
-  SiVercel,
-  SiRedux,
-  SiMui,
-  SiMongodb,
-  SiExpress,
-  SiPostgresql,
+  SiLaravel,
   SiMysql,
   SiPostman,
-  SiJsonwebtokens,
-  SiSwagger,
+  SiChartdotjs,
+  SiGitlab,
+  SiComposer,
 } from "react-icons/si";
-import { TbBrandPrisma, TbApi, TbBrandOffice } from "react-icons/tb";
-import { BiLogoVisualStudio, BiLogoGoogleCloud } from "react-icons/bi";
+import { TbApi, TbBrandVscode } from "react-icons/tb";
+import { BiLogoVisualStudio } from "react-icons/bi";
 
 const skillsData = [
-  // Frontend
-  { name: "HTML", icon: FaHtml5, color: "text-orange-600" },
-  { name: "CSS", icon: FaCss3Alt, color: "text-blue-500" },
-  { name: "JavaScript", icon: FaJs, color: "text-yellow-400" },
-  { name: "ReactJS", icon: FaReact, color: "text-cyan-400" },
-  { name: "Redux", icon: SiRedux, color: "text-purple-600" },
-  { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-cyan-300" },
-  { name: "Bootstrap", icon: FaBootstrap, color: "text-purple-700" },
-  { name: "Vite", icon: SiVite, color: "text-purple-400" },
-  { name: "Material UI", icon: SiMui, color: "text-blue-500" },
-
-  // Backend & Database
-  { name: "Node JS", icon: FaNodeJs, color: "text-green-500" },
-  { name: "Express", icon: SiExpress, color: "text-gray-400" },
+  // Backend
+  { name: "Laravel 12", icon: SiLaravel, color: "text-red-500" },
+  { name: "PHP 8.x", icon: FaPhp, color: "text-indigo-400" },
   { name: "RESTful API", icon: TbApi, color: "text-pink-500" },
-  { name: "JWT", icon: SiJsonwebtokens, color: "text-red-500" },
-  { name: "Prisma", icon: TbBrandPrisma, color: "text-cyan-400" },
-  { name: "PostgreSQL", icon: SiPostgresql, color: "text-blue-400" },
-  { name: "Swagger", icon: SiSwagger, color: "text-emerald-400" },
-  // { name: "MongoDB", icon: SiMongodb, color: "text-green-600" },
-  { name: "Laravel", icon: FaLaravel, color: "text-orange-400" },
-  { name: "PHP", icon: FaPhp, color: "text-indigo-400" },
+  { name: "Laravel Sanctum", icon: SiLaravel, color: "text-orange-500" },
   { name: "MySQL", icon: SiMysql, color: "text-orange-400" },
-  // { name: "Firebase", icon: SiFirebase, color: "text-yellow-500" },
+  { name: "Chart.js", icon: SiChartdotjs, color: "text-pink-400" },
 
-  // Tools & Lainnya
+  // Tools & DevOps
   { name: "Git", icon: FaGitAlt, color: "text-orange-700" },
   { name: "GitHub", icon: FaGithub, color: "text-white" },
-  { name: "Gitlab", icon: FaGitlab, color: "text-orange-400" },
-  { name: "Vercel", icon: SiVercel, color: "text-white" },
-  { name: "Trello", icon: FaTrello, color: "text-blue-500" },
-  { name: "NPM", icon: FaNpm, color: "text-red-600" },
-  { name: "Yarn", icon: FaYarn, color: "text-blue-500" },
-  { name: "Google Cloud", icon: BiLogoGoogleCloud, color: "text-blue-400" },
-  { name: "VS Code", icon: BiLogoVisualStudio, color: "text-blue-600" },
+  { name: "GitLab", icon: SiGitlab, color: "text-orange-400" },
   { name: "Postman", icon: SiPostman, color: "text-orange-500" },
-  { name: "MS Office", icon: TbBrandOffice, color: "text-red-400" },
-  // { name: "Figma", icon: FaFigma, color: "text-fuchsia-500" },
+  { name: "Docker", icon: FaDocker, color: "text-blue-500" },
+  { name: "Composer", icon: SiComposer, color: "text-yellow-500" },
+  { name: "NPM", icon: FaNpm, color: "text-red-600" },
+  { name: "VS Code", icon: BiLogoVisualStudio, color: "text-blue-600" },
 ];
 
 const SkillItem = ({ skill, Icon, color }) => (

@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useLanguage } from "../../../context/LanguageContext";
 import {
   FaEnvelope,
   FaMapMarkerAlt,
@@ -7,45 +8,45 @@ import {
   FaGithub,
   FaInstagram,
   FaPhoneAlt,
-  FaWhatsapp
+  FaWhatsapp,
 } from "react-icons/fa";
 import { BiLogoGmail } from "react-icons/bi";
 
-// Data Kontak Pribadi 
+// Data Kontak Pribadi
 const contactInfo = [
   {
     icon: BiLogoGmail,
     label: "Email",
-    value: "sugab.dwi88@gmail.com",
+    value: "jluppradipta@gmail.com",
   },
   {
     icon: FaPhoneAlt,
     label: "No Telepon",
-    value: "082229749462",
+    value: "+62 819-3738-5652",
   },
   {
     icon: FaGithub,
     label: "GitHub",
-    value: "Bagusdpa4",
+    value: "supramegod",
   },
   {
     icon: FaLinkedin,
     label: "LinkedIn",
-    value: "bagusdwiputraadiyono",
+    value: "jalupradipta",
   },
   {
     icon: FaInstagram,
     label: "Instagram",
-    value: "bagusdwiputraa",
+    value: "jluppradipta_728",
   },
   {
     icon: FaMapMarkerAlt,
     label: "Lokasi",
-    value: "Sidoarjo, Indonesia",
+    value: "Surabaya, Indonesia",
   },
 ];
 
-// Komponen Item Kontak 
+// Komponen Item Kontak
 const ContactItem = ({ icon: Icon, label, value, variants }) => (
   <motion.div
     className="flex cursor-default items-start space-x-3 rounded-lg border border-gray-700 bg-gray-900/50 p-3 transition duration-300 hover:border-cyan-400"
@@ -111,6 +112,7 @@ const itemVariants = {
 
 // Komponen Utama
 export const ContactSection = ({ SectionComponent }) => {
+  const { t } = useLanguage();
   return (
     <SectionComponent id="contact">
       <div className="w-full max-w-7xl">
@@ -126,12 +128,10 @@ export const ContactSection = ({ SectionComponent }) => {
             <FaEnvelope className="mr-2 h-4 w-4" /> Get in Touch
           </p>
           <h2 className="mb-4 text-4xl font-extrabold text-white sm:text-5xl lg:text-6xl">
-            Let's Collaborate
+            {t("contact.header")}
           </h2>
           <p className="mx-auto max-w-2xl text-base text-gray-400 sm:text-xl">
-            Tertarik untuk berdiskusi tentang peluang kerja, proyek, atau
-            kolaborasi? Anda dapat menghubungi saya melalui platform-platform di
-            bawah ini.
+            {t("contact.subtitle")}
           </p>
         </motion.div>
 
@@ -146,7 +146,7 @@ export const ContactSection = ({ SectionComponent }) => {
             viewport={{ once: true, amount: 0.3 }}
           >
             <p className="mb-6 text-base font-semibold text-gray-300 sm:text-lg">
-              Klik ikon di bawah ini untuk menghubungi saya.
+              {t("contact.click")}
             </p>
             <div className="relative flex h-56 w-56 items-center justify-center rounded-full sm:h-72 sm:w-72">
               {/* Efek Cincin Bercahaya (Pulsating Ring) */}
@@ -154,7 +154,7 @@ export const ContactSection = ({ SectionComponent }) => {
               <div className="absolute inset-0 h-full w-full rounded-full border-4 border-cyan-500/70 bg-gray-900/50 shadow-2xl shadow-cyan-500/30"></div>
 
               {/* Ikon */}
-              <a href="https://wa.me/+6282229749462" title="Hubungi Saya">
+              <a href="https://wa.me/+6281937385652" title="Hubungi Saya">
                 <FaWhatsapp className="relative z-10 h-28 w-28 text-cyan-400 transition duration-300 hover:scale-110 sm:h-36 sm:w-36" />
               </a>
             </div>

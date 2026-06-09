@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { FaLaptopCode, FaCode, FaLightbulb } from "react-icons/fa";
 import { GiGears } from "react-icons/gi";
 import { RiCustomerServiceFill } from "react-icons/ri";
+import { useLanguage } from "../../../context/LanguageContext";
 
 // Komponen Item Layanan
 const ServiceItem = ({
@@ -53,43 +54,38 @@ const ServiceItem = ({
   </motion.div>
 );
 
-// Data Layanan
-const services = [
+const getServices = (t) => [
   {
     icon: FaLaptopCode,
-    title: "Full-Stack Development (End-to-End)",
+    title: t("services.svc1Title"),
     color: "from-cyan-500/20 to-blue-500/20",
     ring: "ring-cyan-400/40",
     iconColor: "text-cyan-400",
-    description:
-      "Membangun aplikasi web secara menyeluruh mulai dari backend, RESTful API, integrasi database, hingga antarmuka pengguna yang aman, stabil, dan siap diskalakan.",
+    description: t("services.svc1Desc"),
   },
   {
     icon: FaCode,
-    title: "Frontend Development & Modern UI/UX",
+    title: t("services.svc2Title"),
     color: "from-purple-500/20 to-pink-500/20",
     ring: "ring-purple-400/40",
     iconColor: "text-purple-400",
-    description:
-      "Mengembangkan interface modern dan responsif menggunakan React.js dan Tailwind CSS dengan fokus pada kecepatan, kenyamanan, dan pengalaman pengguna.",
+    description: t("services.svc2Desc"),
   },
   {
     icon: FaLightbulb,
-    title: "API Integration & Third-Party Services",
+    title: t("services.svc3Title"),
     color: "from-yellow-500/20 to-orange-500/20",
     ring: "ring-yellow-400/40",
     iconColor: "text-yellow-300",
-    description:
-      "Mengintegrasikan aplikasi dengan layanan pihak ketiga secara aman dan efisien, termasuk pembayaran, autentikasi, dan sinkronisasi data real-time.",
+    description: t("services.svc3Desc"),
   },
   {
     icon: GiGears,
-    title: "Database Design & Optimization",
+    title: t("services.svc4Title"),
     color: "from-green-500/20 to-emerald-500/20",
     ring: "ring-green-400/40",
     iconColor: "text-green-400",
-    description:
-      "Merancang struktur database yang terorganisir serta mengoptimalkan query untuk performa cepat dan stabil menggunakan Prisma ORM atau SQL.",
+    description: t("services.svc4Desc"),
   },
 ];
 
@@ -141,6 +137,8 @@ const contentFadeInVariants = (direction = "up") => ({
 
 // Komponen Utama
 export const ServiceSection = ({ SectionComponent }) => {
+  const { t } = useLanguage();
+  const services = getServices(t);
   return (
     <SectionComponent id="services" className="relative overflow-hidden">
       {/* Decorative Blur */}
@@ -155,11 +153,11 @@ export const ServiceSection = ({ SectionComponent }) => {
           viewport={{ once: true, amount: 0.3 }}
         >
           <h2 className="mb-2 py-4 text-4xl font-extrabold text-white sm:text-5xl">
-            My Expertise & Services
+            {t("services.title")}
           </h2>
           <p className="flex items-center justify-center text-xs font-semibold uppercase tracking-wider text-cyan-400 sm:text-sm">
             <RiCustomerServiceFill className="mr-1 hidden h-4 w-4 lg:mr-2 lg:flex" />
-            Membangun Solusi Digital dengan Presisi & Performa Tinggi.
+            {t("services.subtitle")}
           </p>
         </motion.div>
 
@@ -185,8 +183,7 @@ export const ServiceSection = ({ SectionComponent }) => {
           viewport={{ once: true, amount: 0.3 }}
         >
           <p className="mx-auto max-w-2xl text-lg text-gray-400">
-            Layanan ini dapat disesuaikan dengan kebutuhan unik proyek Anda.
-            Hubungi saya untuk diskusi lebih lanjut!
+            {t("services.cta")}
           </p>
         </motion.div>
       </div>

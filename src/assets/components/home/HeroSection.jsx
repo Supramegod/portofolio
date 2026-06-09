@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Lottie from "lottie-react";
+import { useLanguage } from "../../../context/LanguageContext";
 import {
   FaBriefcase,
   FaEnvelope,
@@ -13,19 +14,19 @@ import { SiGmail } from "react-icons/si";
 import webDeveloperAnimation from "../animation/Coding.json";
 
 const socialLinks = [
-  { icon: FaGithub, href: "https://github.com/Bagusdpa4", label: "GitHub" },
+  { icon: FaGithub, href: "https://github.com/supramegod", label: "GitHub" },
   {
     icon: FaLinkedin,
-    href: "https://www.linkedin.com/in/bagusdwiputraadiyono/",
+    href: "https://www.linkedin.com/in/jalupradipta/",
     label: "LinkedIn",
   },
   {
     icon: FaInstagram,
-    href: "https://www.instagram.com/bagusdwiputraa/",
+    href: "https://www.instagram.com/jluppradipta_728/",
     label: "Instagram",
   },
-  { icon: FaWhatsapp, href: "https://wa.me/+6282229749462", label: "WhatsApp" },
-  { icon: SiGmail, href: "mailto:sugab.dwi88@gmail.com", label: "Email" },
+  { icon: FaWhatsapp, href: "https://wa.me/+6281937385652", label: "WhatsApp" },
+  { icon: SiGmail, href: "mailto:jluppradipta@gmail.com", label: "Email" },
 ];
 
 const Section = ({ id, children, className = "" }) => {
@@ -56,7 +57,10 @@ const contentFadeInVariants = (direction = "up") => ({
   },
 });
 
-export const HeroSection = ({ handleSmoothScroll }) => (
+export const HeroSection = ({ handleSmoothScroll }) => {
+  const { t } = useLanguage();
+
+  return (
   <Section
     id="home"
     className="from-gray-950 via-slate-800 to-blue-950 bg-linear-to-r overflow-hidden text-left"
@@ -73,38 +77,32 @@ export const HeroSection = ({ handleSmoothScroll }) => (
         >
           {/* Main Headline */}
           <h1 className="text-6xl font-extrabold leading-tight text-white sm:text-7xl md:text-8xl">
-            <span className="block text-cyan-400">Web</span>
-            <span className="mt-2 block">Developer</span>
+            <span className="block text-cyan-400">{t("hero.title1")}</span>
+            <span className="mt-2 block">{t("hero.title2")}</span>
           </h1>
 
-          {/* 1. Sub-tagline yang cocok */}
           <p className="mt-4 text-xl font-semibold text-gray-300 md:text-2xl">
-            Pengembangan Web Responsif dan Berbasis Data.
+            {t("hero.tagline")}
           </p>
 
-          {/* 2. Short Description (Minimal 2 baris) */}
           <p className="mx-auto mt-6 max-w-3xl text-lg text-gray-400 lg:mx-0 lg:max-w-none">
-            Fokus pada pengembangan website menggunakan teknologi terbaru. Saya
-            dapat membantu Anda membangun produk digital yang tidak hanya
-            terlihat indah tetapi juga memberikan pengalaman pengguna yang mulus
-            dan performa yang optimal
+            {t("hero.desc")}
           </p>
 
-          {/* 3. CTA Buttons (Disuaikan untuk mobile) */}
           <div className="mt-10 flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0 lg:justify-start">
             <a
               href="#portfolio"
               onClick={(e) => handleSmoothScroll(e, "portfolio")}
               className="inline-flex cursor-pointer items-center justify-center rounded-lg bg-cyan-600 px-6 py-3 text-base font-semibold text-white shadow-xl shadow-cyan-900/50 transition duration-300 hover:scale-[1.05] hover:bg-cyan-700 sm:px-8 sm:text-lg"
             >
-              <FaBriefcase className="mr-2 h-5 w-5" /> Lihat Portfolio
+              <FaBriefcase className="mr-2 h-5 w-5" /> {t("hero.btnPortfolio")}
             </a>
             <a
               href="#contact"
               onClick={(e) => handleSmoothScroll(e, "contact")}
               className="inline-flex items-center justify-center rounded-lg border border-white/30 px-6 py-3 text-base font-semibold text-white transition duration-300 hover:scale-[1.05] hover:bg-white/10 sm:px-8 sm:text-lg"
             >
-              <FaEnvelope className="mr-2 h-5 w-5" /> Hubungi Saya
+              <FaEnvelope className="mr-2 h-5 w-5" /> {t("hero.btnContact")}
             </a>
           </div>
 
@@ -148,5 +146,6 @@ export const HeroSection = ({ handleSmoothScroll }) => (
         </motion.div>
       </div>
     </div>
-  </Section>
-);
+    </Section>
+  );
+};

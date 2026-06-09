@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { AboutSEO } from "../../assets/components/seo/AboutSEO";
+import { useLanguage } from "../../context/LanguageContext";
 import {
   FaCode,
   FaGraduationCap,
@@ -14,85 +16,11 @@ import { Navbar } from "../../assets/components/navbar/Navbar";
 import { Loading } from "../../assets/components/loading/Loading";
 import { motion } from "framer-motion";
 
-const futureFocusAndAspiration =
-  "Saya berambisi untuk terus berkembang di dunia teknologi informasi melalui peningkatan kompetensi di bidang pengembangan aplikasi, analisis sistem, serta pengelolaan data. Ke depannya, saya ingin memperdalam pemahaman terkait arsitektur sistem modern, optimalisasi proses bisnis berbasis teknologi, serta pemanfaatan layanan cloud untuk mendukung efisiensi operasional. Saya berharap dapat berkontribusi dalam menciptakan solusi teknologi yang bermanfaat, berkelanjutan, dan mampu memberikan dampak positif bagi pengguna maupun organisasi.";
-const careerSummary1 =
-  "Saya merupakan lulusan S1 Sistem Informasi dari Universitas Pembangunan Nasional “Veteran” Jawa Timur dengan pengalaman lebih dari satu tahun dalam pengembangan aplikasi berbasis web. Saya terbiasa menggunakan berbagai tools, framework, dan pendekatan yang mendukung proses pembangunan aplikasi berbasis web, mulai dari pengembangan website, sistem e-commerce, integrasi RESTful API, hingga perancangan dan pengelolaan database. Saya mampu menangani proyek dari tahap analisis kebutuhan, perancangan, pengembangan, hingga implementasi dan pengujian, termasuk proyek yang telah digunakan dalam lingkungan perusahaan.";
-const careerSummary2 =
-  "Saya memiliki ketertarikan pada pengembangan teknologi informasi secara menyeluruh, baik di bidang pemrograman, analisis sistem, maupun pengelolaan data. Fokus saya adalah merancang solusi teknologi yang fungsional, aman, dan sesuai dengan kebutuhan operasional pengguna. Saya merupakan individu yang terstruktur, mampu berkolaborasi dengan baik dalam tim, memiliki kemampuan pemecahan masalah yang kuat, serta dapat berkomunikasi dengan jelas. Saya berkomitmen untuk terus belajar dan beradaptasi dengan perkembangan teknologi guna memberikan kontribusi terbaik dalam lingkungan kerja profesional.";
-
 const hobbies = [
   "Bermain Futsal",
   "Bermain Game",
   "Menonton Film",
   "Mendengarkan Musik",
-];
-
-const interest = ["Web Developer", "IT Programmer", "IT Support"];
-
-const categorizedSkills = {
-  Frontend: [
-    "JavaScript (ES6+)",
-    "React.JS",
-    "Tailwind CSS",
-    "Bootstrap",
-    "Redux",
-    "HTML5 & CSS3",
-    // "Next.js (Dasar)",
-  ],
-  Backend: [
-    "Node.js & Express.js",
-    "Prisma ORM",
-    "RESTful API Development",
-    "JWT Authentication",
-    "Error Handling",
-    "Google Cloud Platform",
-    "Laravel",
-  ],
-  Database: ["PostgreSQL", "MySQL (Dasar)"],
-  Tools: [
-    "Git & GitHub",
-    "Visual Studio Code",
-    "Postman",
-    "Vercel",
-    "Microsoft Office",
-  ],
-};
-
-const myExperiences = [
-  {
-    title: "Web Developer (Intern)",
-    company: "PT. Shelter Indonesia Gemilang",
-    duration: "Dec 2025 - Now",
-    jobdesk: [
-      "Membuat website admin panel untuk edit data penjualan perusahaan. (Frontend React.js)",
-      "Maintenance & penambahan fitur pada website deposit untuk pencatatan data kurir perusahaan. (Frontend React.js & Backend Laravel)",
-      "Membuat 5 tampilan website signage untuk acara branch launching aplikasi perusahaan. Terdapat 5 website signage untuk 5 aplikasi yang akan didemokan. (Frontend React.js)",
-      "Membuat website booking system untuk peminjaman ruangan, kendaraan & peralatan perusahaan. (Frontend React.js & Backend Laravel)",
-    ],
-  },
-];
-
-const myEducation = [
-  {
-    degree: "Sarjana Sistem Informasi",
-    institution: "Universitas Pembangunan Nasional 'Veteran' Jawa Timur",
-    duration: "2021 - 2025",
-    gpa: "3.88 / 4.00",
-  },
-];
-
-const myEducationNonFormal = [
-  {
-    degree: "Backend Javascript",
-    institution: "PT. Lentera Bangsa Benderang (Binar Academy)",
-    duration: "Februari - Juli 2024",
-  },
-  {
-    degree: "Frontend Javascript",
-    institution: "PT. Lentera Bangsa Benderang (Binar Academy)",
-    duration: "Agustus 2023 - Januari 2024",
-  },
 ];
 
 const fadeIn = {
@@ -115,6 +43,7 @@ const staggerContainer = {
 };
 
 export const AboutMe = () => {
+  const { t } = useLanguage();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -138,6 +67,57 @@ export const AboutMe = () => {
 
     return () => clearTimeout(timer);
   }, []);
+
+  const interest = [t("intro.badge1"), t("intro.badge2"), t("intro.badge3")];
+
+  const categorizedSkills = {
+    [t("aboutme.skillBackend")]: [
+      "Laravel 12",
+      "Laravel Sanctum",
+      "RESTful API Development",
+      "PHP 8.x",
+      "MySQL",
+      "Chart.js",
+    ],
+    [t("aboutme.skillSystem")]: [
+      "ERP System Design",
+      "Dashboard & Data Visualization",
+      "SSO Implementation",
+      "Production Deployment",
+    ],
+    [t("aboutme.skillTools")]: [
+      "Git & GitHub",
+      "Postman",
+      "Visual Studio Code",
+      "Composer",
+      "Docker",
+    ],
+  };
+
+  const myExperiences = [
+    {
+      title: t("aboutme.expTitle"),
+      company: t("aboutme.expCompany"),
+      duration: t("aboutme.expDuration"),
+      jobdesk: [
+        t("aboutme.expTask1"),
+        t("aboutme.expTask2"),
+        t("aboutme.expTask3"),
+        t("aboutme.expTask4"),
+      ],
+    },
+  ];
+
+  const myEducation = [
+    {
+      degree: t("aboutme.eduDegree"),
+      institution: t("aboutme.eduInstitution"),
+      duration: "2022-2025",
+      gpa: "3,48",
+    },
+  ];
+
+  const myEducationNonFormal = [];
 
   const handleSmoothScroll = (e, id) => {
     e.preventDefault();
@@ -164,6 +144,8 @@ export const AboutMe = () => {
         visible: { opacity: 1, transition: { duration: 0.5 } },
       }}
     >
+      <AboutSEO />
+
       <Navbar handleSmoothScroll={handleSmoothScroll} />
 
       <div className="mx-auto max-w-7xl pt-24 sm:pt-[100px]">
@@ -172,7 +154,7 @@ export const AboutMe = () => {
             About <span className="text-cyan-400">Me</span>
           </h1>
           <p className="mt-3 text-lg text-gray-400">
-            A deep dive into my journey, skills, and goals.
+            {t("aboutme.subtitle")}
           </p>
         </motion.header>
 
@@ -193,32 +175,32 @@ export const AboutMe = () => {
                   <img
                     src={Foto}
                     loading="lazy"
-                    alt="Foto Profil Bagus Dwi"
+                    alt="Foto Profil Jalu Pradipta"
                     className="h-full w-full object-cover"
                   />
                 </div>
               </div>
 
               <h2 className="mb-4 text-center text-3xl font-bold text-white">
-                Bagus Dwi Putra Adiyono
+                Jalu Pradipta
               </h2>
 
               <p className="mb-6 text-center text-lg text-gray-400">
-                S1 Sistem Informasi | Junior Web Developer
+                D3 Teknik Telekomunikasi | Backend Developer
               </p>
 
               <div className="space-y-3 text-gray-300">
                 <p className="flex justify-between border-b border-gray-700 pb-2">
                   <span className="font-medium text-cyan-400">Email:</span>
-                  <span className="text-right">sugab.dwi88@email.com</span>
+                  <span className="text-right">jluppradipta@gmail.com</span>
                 </p>
                 <p className="flex justify-between border-b border-gray-700 pb-2">
                   <span className="font-medium text-cyan-400">Telepon:</span>
-                  <span className="text-right">0822-2974-9462</span>
+                  <span className="text-right">+62 819-3738-5652</span>
                 </p>
                 <p className="flex justify-between">
                   <span className="font-medium text-cyan-400">Lokasi:</span>
-                  <span className="text-right">Sidoarjo, Indonesia</span>
+                  <span className="text-right">Surabaya, Indonesia</span>
                 </p>
               </div>
             </motion.div>
@@ -228,7 +210,7 @@ export const AboutMe = () => {
               variants={fadeInLeft}
             >
               <h2 className="mb-5 flex items-center text-2xl font-bold text-white">
-                <FaHeart className="mr-3 text-pink-400" /> Hobbies
+                <FaHeart className="mr-3 text-pink-400" /> {t("aboutme.hobbies")}
               </h2>
               <ul className="list-none space-y-2 pl-0 text-gray-300">
                 {hobbies.map((hobby, index) => (
@@ -239,7 +221,7 @@ export const AboutMe = () => {
                 ))}
               </ul>
               <h2 className="mb-5 mt-6 flex items-center text-2xl font-bold text-white">
-                <FaBriefcase className="mr-3 text-cyan-400" /> Career Interests
+                <FaBriefcase className="mr-3 text-cyan-400" /> {t("aboutme.interests")}
               </h2>
               <ul className="list-none space-y-2 pl-0 text-gray-300">
                 {interest.map((item, index) => (
@@ -257,7 +239,7 @@ export const AboutMe = () => {
             >
               <h2 className="flex items-center text-3xl font-bold text-white">
                 <FaCode className="mr-3 text-yellow-400" />
-                Technical Expertise
+                {t("aboutme.expertise")}
               </h2>
 
               {Object.keys(categorizedSkills).map((category) => (
@@ -298,25 +280,24 @@ export const AboutMe = () => {
               className="lg:order-0 order-2 space-y-4"
               variants={fadeInRight}
             >
-              <h2 className="flex items-center border-b border-cyan-500/50 pb-2 text-3xl font-bold text-white">
-                <FaUserTie className="mr-3 text-cyan-400" /> Summary
-              </h2>
-              <p className="text-lg leading-relaxed text-gray-300">
-                {careerSummary1}
-              </p>
-              <p className="text-lg leading-relaxed text-gray-300">
-                {careerSummary2}
-              </p>
+                <h2 className="flex items-center border-b border-cyan-500/50 pb-2 text-3xl font-bold text-white">
+                  <FaUserTie className="mr-3 text-cyan-400" /> {t("aboutme.summary")}
+                </h2>
+                <p className="text-lg leading-relaxed text-gray-300">
+                  {t("aboutme.summary1")}
+                </p>
+                <p className="text-lg leading-relaxed text-gray-300">
+                  {t("aboutme.summary2")}
+                </p>
             </motion.section>
 
             <motion.section
               className="lg:order-0 order-3 space-y-6"
               variants={fadeInRight}
             >
-              <h2 className="flex items-center border-b border-cyan-500/50 pb-2 text-3xl font-bold text-white">
-                <MdWorkHistory className="mr-3 text-green-400" /> Work
-                Experience
-              </h2>
+                <h2 className="flex items-center border-b border-cyan-500/50 pb-2 text-3xl font-bold text-white">
+                  <MdWorkHistory className="mr-3 text-green-400" /> {t("aboutme.experience")}
+                </h2>
               <div className="space-y-6">
                 {myExperiences.map((exp, index) => (
                   <motion.div
@@ -364,9 +345,9 @@ export const AboutMe = () => {
               className="lg:order-0 order-4 space-y-6"
               variants={fadeInRight}
             >
-              <h2 className="flex items-center border-b border-cyan-500/50 pb-2 text-3xl font-bold text-white">
-                <FaGraduationCap className="mr-3 text-red-400" /> Education
-              </h2>
+                <h2 className="flex items-center border-b border-cyan-500/50 pb-2 text-3xl font-bold text-white">
+                  <FaGraduationCap className="mr-3 text-red-400" /> {t("aboutme.education")}
+                </h2>
               <div className="space-y-4">
                 {myEducation.map((edu, index) => (
                   <motion.div
@@ -380,45 +361,48 @@ export const AboutMe = () => {
                     <p className="font-medium text-gray-300">
                       {edu.institution} | {edu.duration}
                     </p>
-                    <p className="mt-1 text-sm text-gray-400">GPA: {edu.gpa}</p>
                   </motion.div>
                 ))}
               </div>
             </motion.section>
 
-            <motion.section
-              className="lg:order-0 order-4 space-y-6"
-              variants={fadeInRight}
-            >
-              <h2 className="flex items-center border-b border-cyan-500/50 pb-2 text-3xl font-bold text-white">
-                <GiBookmarklet className="mr-3 text-blue-400" /> Education
-                Non-Formal
-              </h2>
-              <div className="space-y-4">
-                {myEducationNonFormal.map((edu, index) => (
-                  <motion.div
-                    key={index}
-                    className="border-l-4 border-cyan-400 pl-4"
-                    variants={fadeInRight}
-                  >
-                    <h3 className="text-xl font-semibold text-white">
-                      {edu.degree}
-                    </h3>
-                    <p className="font-medium text-gray-300">
-                      {edu.institution}
-                    </p>
-                    <p className="mt-1 text-sm text-gray-400">{edu.duration}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.section>
+            {myEducationNonFormal.length > 0 && (
+              <motion.section
+                className="lg:order-0 order-4 space-y-6"
+                variants={fadeInRight}
+              >
+                <h2 className="flex items-center border-b border-cyan-500/50 pb-2 text-3xl font-bold text-white">
+                  <GiBookmarklet className="mr-3 text-blue-400" /> Education
+                  Non-Formal
+                </h2>
+                <div className="space-y-4">
+                  {myEducationNonFormal.map((edu, index) => (
+                    <motion.div
+                      key={index}
+                      className="border-l-4 border-cyan-400 pl-4"
+                      variants={fadeInRight}
+                    >
+                      <h3 className="text-xl font-semibold text-white">
+                        {edu.degree}
+                      </h3>
+                      <p className="font-medium text-gray-300">
+                        {edu.institution}
+                      </p>
+                      <p className="mt-1 text-sm text-gray-400">
+                        {edu.duration}
+                      </p>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.section>
+            )}
 
             <motion.div
               className="bg-slate-800/60 lg:order-0 order-5 rounded-xl border border-gray-700 p-8 shadow-2xl lg:hidden"
               variants={fadeInRight}
             >
               <h2 className="mb-5 flex items-center text-2xl font-bold text-white">
-                <FaHeart className="mr-3 text-pink-400" /> Hobbies
+                <FaHeart className="mr-3 text-pink-400" /> {t("aboutme.hobbies")}
               </h2>
               <ul className="list-none space-y-2 pl-0 text-gray-300">
                 {hobbies.map((hobby, index) => (
@@ -430,7 +414,7 @@ export const AboutMe = () => {
               </ul>
 
               <h2 className="mb-5 mt-6 flex items-center text-2xl font-bold text-white">
-                <FaBriefcase className="mr-3 text-cyan-400" /> Career Interests
+                <FaBriefcase className="mr-3 text-cyan-400" /> {t("aboutme.interests")}
               </h2>
               <ul className="list-none space-y-2 pl-0 text-gray-300">
                 {interest.map((interest, index) => (
@@ -447,11 +431,10 @@ export const AboutMe = () => {
               variants={fadeInRight}
             >
               <h2 className="flex items-center text-3xl font-bold text-white">
-                <FaLightbulb className="mr-3 text-amber-400" /> Future Goals &
-                Aspirations
+                <FaLightbulb className="mr-3 text-amber-400" /> {t("aboutme.future")}
               </h2>
               <p className="text-lg leading-relaxed text-gray-300">
-                {futureFocusAndAspiration}
+                {t("aboutme.futureText")}
               </p>
             </motion.section>
 
@@ -461,7 +444,7 @@ export const AboutMe = () => {
             >
               <h2 className="flex items-center text-3xl font-bold text-white">
                 <FaCode className="mr-3 text-yellow-400" />
-                Technical Expertise
+                {t("aboutme.expertise")}
               </h2>
 
               {Object.keys(categorizedSkills).map((category) => (

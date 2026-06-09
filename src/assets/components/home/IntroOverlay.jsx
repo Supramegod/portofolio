@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "../../../context/LanguageContext";
 
 // --- Komponen Internal: Section ---
 const Section = ({ id, children, className = "" }) => {
@@ -118,7 +119,8 @@ const badgeAnimationVariants = {
 
 // Komponen Badge Animasi
 const AnimatedBadges = () => {
-  const badges = ["Web Developer", "IT Programmer", "IT Support"];
+  const { t } = useLanguage();
+  const badges = [t("intro.badge1"), t("intro.badge2"), t("intro.badge3")];
 
   return (
     <motion.div
@@ -168,7 +170,7 @@ const AnimatedBadges = () => {
 
 // Komponen Intro Overlay Utama
 export const IntroOverlay = ({ showIntro }) => {
-  // Durasi animasi keluar dari overlay
+  const { t } = useLanguage();
   const EXIT_DURATION_MS = 1500;
 
   useEffect(() => {
@@ -188,8 +190,7 @@ export const IntroOverlay = ({ showIntro }) => {
     };
   }, [showIntro]);
 
-  // Tagline
-  const tagline = "Membangun Solusi Digital dengan Presisi.";
+  const tagline = t("intro.tagline");
 
   // Menghitung kecepatan ketik
   const typingSpeed = EXIT_DURATION_MS / tagline.length;
@@ -212,7 +213,7 @@ export const IntroOverlay = ({ showIntro }) => {
                 className="mb-4 text-3xl font-light tracking-widest text-white opacity-80 sm:text-5xl"
                 variants={textVariants}
               >
-                Welcome To My
+                {t("intro.welcome")}
               </motion.p>
               <motion.h1
                 className="text-slate-500 text-5xl font-extrabold leading-tight tracking-tighter sm:text-7xl lg:text-9xl"
@@ -234,7 +235,7 @@ export const IntroOverlay = ({ showIntro }) => {
                       "0 0 10px rgba(6, 182, 212, 0.8), 0 0 20px rgba(6, 182, 212, 0.5)",
                   }}
                 >
-                  Portfolio
+                  {t("intro.portfolio")}
                 </span>
                 <span
                   style={{
@@ -242,7 +243,7 @@ export const IntroOverlay = ({ showIntro }) => {
                       "0 0 10px rgba(6, 182, 212, 0.3), 0 0 20px rgba(6, 182, 212, 0.1)",
                   }}
                 >
-                  Website
+                  {t("intro.website")}
                 </span>
               </motion.h1>
               <motion.div variants={textVariants} className="mt-20">

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { HomeSEO } from "../assets/components/seo/HomeSEO";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "../context/LanguageContext";
 
 // Component
 import Profile from "../assets/img/Profile.jpg";
@@ -11,7 +13,6 @@ import { IntroOverlay } from "../assets/components/home/IntroOverlay";
 import { HeroSection } from "../assets/components/home/HeroSection";
 import { ProjectContent } from "../assets/components/portofolio/ProjectContent";
 import { CertificateContent } from "../assets/components/portofolio/CertificateContent";
-import { ArticleContent } from "../assets/components/portofolio/ArticleContent";
 import { TechStackContent } from "../assets/components/portofolio/TechStackContent";
 import { ServiceSection } from "../assets/components/home/ServiceSection";
 import { ContactSection } from "../assets/components/home/ContactSection";
@@ -19,7 +20,6 @@ import { ContactSection } from "../assets/components/home/ContactSection";
 // Icons
 import { FaUser, FaBriefcase, FaClock } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
-import { GrArticle } from "react-icons/gr";
 import { PiCertificateFill } from "react-icons/pi";
 import { GiGears } from "react-icons/gi";
 import { HiCode } from "react-icons/hi";
@@ -206,6 +206,7 @@ const TypewriterText = ({
 };
 
 export const Homepage = () => {
+  const { t } = useLanguage();
   const [isLoading, setIsLoading] = useState(true);
   const [activeTab, setActiveTab] = useState("project");
   const initialShowIntro = sessionStorage.getItem(INTRO_SHOWN_KEY) !== "true";
@@ -285,17 +286,14 @@ export const Homepage = () => {
   };
 
   // Kolom Statistik Section 2
-  const totalProjects = 14;
-  const totalCertificates = 13;
-  const totalArticles = 3;
-  const yearsOfExperience = 2;
+  const totalProjects = 1;
+  const totalCertificates = 1;
+  const yearsOfExperience = 1;
 
   // Component Section Portfolio
   let PortfolioContentComponent;
   if (activeTab === "certificate") {
     PortfolioContentComponent = CertificateContent;
-  } else if (activeTab === "article") {
-    PortfolioContentComponent = ArticleContent;
   } else if (activeTab === "techstack") {
     PortfolioContentComponent = TechStackContent;
   } else {
@@ -319,6 +317,8 @@ export const Homepage = () => {
       initial="hidden"
       animate="visible"
     >
+      <HomeSEO />
+
       <Navbar handleSmoothScroll={handleSmoothScroll} />
 
       <main>
@@ -338,13 +338,12 @@ export const Homepage = () => {
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
             >
-              <h2 className="mb-2 text-4xl font-extrabold text-white sm:text-5xl">
-                About Me
-              </h2>
-              <p className="flex items-center justify-center text-xs font-semibold uppercase tracking-wider text-cyan-400 sm:text-sm">
-                <FaUser className="mr-1 h-4 w-4 lg:mr-2" /> Transforming ideas
-                into functional code.
-              </p>
+                <h2 className="mb-2 text-4xl font-extrabold text-white sm:text-5xl">
+                  {t("about.title")}
+                </h2>
+                <p className="flex items-center justify-center text-xs font-semibold uppercase tracking-wider text-cyan-400 sm:text-sm">
+                  <FaUser className="mr-1 h-4 w-4 lg:mr-2" /> {t("about.subtitle")}
+                </p>
             </motion.div>
 
             {/* Konten Utama */}
@@ -363,7 +362,7 @@ export const Homepage = () => {
                   <div className="relative z-10 flex h-full w-full items-center justify-center rounded-full border-4 border-cyan-500/50 bg-gray-700 shadow-2xl shadow-cyan-500/20">
                     <img
                       src={Profile}
-                      alt="Foto Profil Bagus Dwi"
+                      alt="Foto Profil Jalu Pradipta"
                       className="h-full w-full rounded-full object-cover"
                     />
                   </div>
@@ -379,14 +378,18 @@ export const Homepage = () => {
                 viewport={{ once: true, amount: 0.3 }}
               >
                 <p className="text-2xl font-light text-white sm:text-3xl">
-                  <span className="block sm:inline">Hello, I'm </span>
+                  <span className="block sm:inline">{t("about.hello")} </span>
                   <span className="font-semibold text-cyan-400">
-                    Bagus Dwi Putra Adiyono
+                    {t("about.name")}
                   </span>
                 </p>
                 <motion.div>
                   <TypewriterText
-                    texts={["Web Developer", "IT Programmer", "IT Support"]}
+                    texts={[
+                      t("about.typewriter1"),
+                      t("about.typewriter2"),
+                      t("about.typewriter3"),
+                    ]}
                     typingSpeed={50}
                     deletingSpeed={25}
                     pauseDelay={1000}
@@ -395,23 +398,17 @@ export const Homepage = () => {
                   />
                 </motion.div>
                 <p className="text-base text-gray-300 sm:text-lg">
-                  Saya merupakan lulusan Sistem Informasi dengan minat pada
-                  pengembangan aplikasi berbasis web, analisis sistem, dan
-                  manajemen data. Saya berpengalaman dalam merancang dan
-                  membangun solusi berbasis web yang fungsional, aman, serta
-                  sesuai kebutuhan operasional pengguna. Saya terus
-                  mengembangkan kemampuan teknis dan analitis untuk mendukung
-                  terciptanya solusi teknologi yang efektif dan berkelanjutan.
+                  {t("about.desc")}
                 </p>
 
                 {/* Button */}
                 <div className="flex flex-col space-y-3 pt-4 sm:flex-row sm:space-x-4 sm:space-y-0">
                   <a
-                    href="/docs/CV_Bagus Dwi Putra Adiyono.pdf"
+                    href="#"
                     target="_blank"
                     className="bg-linear-to-r inline-flex cursor-pointer items-center justify-center rounded-lg from-cyan-600 to-blue-700 px-6 py-3 font-semibold text-white shadow-lg transition duration-300 hover:scale-105"
                   >
-                    <span className="mr-2">💾</span> Download CV
+                    <span className="mr-2">💾</span> {t("about.downloadCV")}
                   </a>
                   <a
                     href="/about-me"
@@ -420,7 +417,7 @@ export const Homepage = () => {
                     <span className="mr-2">
                       <CgProfile size={20} />
                     </span>{" "}
-                    Learn More About Me
+                    {t("about.learnMore")}
                   </a>
                 </div>
               </motion.div>
@@ -435,29 +432,24 @@ export const Homepage = () => {
               viewport={{ once: true, amount: 0.3 }}
             >
               <motion.div
-                className="grid grid-cols-2 divide-x divide-gray-700 rounded-xl border border-gray-600 bg-gray-800/50 lg:grid-cols-4"
+                className="grid grid-cols-3 divide-x divide-gray-700 rounded-xl border border-gray-600 bg-gray-800/50"
                 variants={staggerContainerVariants}
               >
                 {[
                   {
                     icon: HiCode,
                     number: totalProjects,
-                    label: "PROJECTS + Magang",
+                    label: t("about.statProjects"),
                   },
                   {
                     icon: PiCertificateFill,
                     number: totalCertificates,
-                    label: "CERTIFICATES",
-                  },
-                  {
-                    icon: GrArticle,
-                    number: totalArticles,
-                    label: "ARTICLES",
+                    label: t("about.statCertificates"),
                   },
                   {
                     icon: FaClock,
                     number: `${yearsOfExperience}+`,
-                    label: "YEARS OF EXPERIENCE",
+                    label: t("about.statExperience"),
                   },
                 ].map((stat, index) => (
                   <motion.div key={index} variants={itemVariants}>
@@ -514,44 +506,34 @@ export const Homepage = () => {
               {/* Tombol Project */}
               <button
                 onClick={() => setActiveTab("project")}
-                className={`flex w-1/4 flex-col items-center justify-center rounded-lg px-3 py-3 font-semibold transition duration-300 sm:px-4 sm:py-4 ${
+                className={`flex w-1/3 flex-col items-center justify-center rounded-lg px-3 py-3 font-semibold transition duration-300 sm:px-4 sm:py-4 ${
                   activeTab === "project" ? activeTabStyle : inactiveTabStyle
                 }`}
               >
                 <HiCode className="mb-1 h-6 w-6" />
-                <span className="text-sm sm:text-base">Projects</span>
+                <span className="text-sm sm:text-base">{t("portfolio.tabProjects")}</span>
               </button>
               {/* Tombol Certificate */}
               <button
                 onClick={() => setActiveTab("certificate")}
-                className={`flex w-1/4 flex-col items-center justify-center rounded-lg px-3 py-3 font-semibold transition duration-300 sm:px-4 sm:py-4 ${
+                className={`flex w-1/3 flex-col items-center justify-center rounded-lg px-3 py-3 font-semibold transition duration-300 sm:px-4 sm:py-4 ${
                   activeTab === "certificate"
                     ? activeTabStyle
                     : inactiveTabStyle
                 }`}
               >
                 <PiCertificateFill className="mb-1 h-6 w-6" />
-                <span className="text-sm sm:text-base">Certificates</span>
-              </button>
-              {/* Tombol Article */}
-              <button
-                onClick={() => setActiveTab("article")}
-                className={`flex w-1/4 flex-col items-center justify-center rounded-lg px-3 py-3 font-semibold transition duration-300 sm:px-4 sm:py-4 ${
-                  activeTab === "article" ? activeTabStyle : inactiveTabStyle
-                }`}
-              >
-                <GrArticle className="mb-1 h-6 w-6" />
-                <span className="text-sm sm:text-base">Articles</span>
+                <span className="text-sm sm:text-base">{t("portfolio.tabCertificates")}</span>
               </button>
               {/* Tombol Tech Stack */}
               <button
                 onClick={() => setActiveTab("techstack")}
-                className={`flex w-1/4 flex-col items-center justify-center rounded-lg px-3 py-3 font-semibold transition duration-300 sm:px-4 sm:py-4 ${
+                className={`flex w-1/3 flex-col items-center justify-center rounded-lg px-3 py-3 font-semibold transition duration-300 sm:px-4 sm:py-4 ${
                   activeTab === "techstack" ? activeTabStyle : inactiveTabStyle
                 }`}
               >
                 <GiGears className="mb-1 h-6 w-6" />
-                <span className="text-sm sm:text-base">Tech Stack</span>
+                <span className="text-sm sm:text-base">{t("portfolio.tabTechStack")}</span>
               </button>
             </motion.div>
 

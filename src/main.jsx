@@ -1,5 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import { HelmetProvider } from "react-helmet-async";
+import { LanguageProvider } from "./context/LanguageContext";
 import { App } from "./routes/App";
 
 // CSS
@@ -7,6 +9,10 @@ import "./assets/css/index.css";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <App />
+    <HelmetProvider>
+      <LanguageProvider>
+        <App />
+      </LanguageProvider>
+    </HelmetProvider>
   </StrictMode>,
 );
