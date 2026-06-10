@@ -113,7 +113,7 @@ public/
 
 ## 🌐 Deployment
 
-**Vercel** — `vercel.json` me-rewrite semua rute ke `/` (SPA fallback).
+**Cloudflare Pages** — `public/_redirects` me-rewrite semua rute ke `/index.html` (SPA fallback).
 
 ---
 

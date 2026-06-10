@@ -29,7 +29,7 @@ No test, typecheck, or codegen commands exist.
 
 ## Deployment
 
-- **Vercel** — `vercel.json` rewrites all routes to `/` (SPA fallback). Static assets in `public/docs/` and `public/images/` are served directly.
+- **Cloudflare Pages** — `public/_redirects` handles SPA fallback. Static assets in `public/docs/` and `public/images/` are served directly.
 - `public/robots.txt` and `public/sitemap.xml` are in place for SEO.
 
 ## Project Structure
@@ -56,6 +56,6 @@ src/
 - Add project screenshot at `public/images/project-cais.jpg`
 - Populate Certificates and Articles tab data
 - Update CV at `public/docs/`
-- Update sitemap.xml with real domain
+- [Done] sitemap.xml updated to jalupradipta.pages.dev
 
 No CI, no pre-commit hooks, no tests.
