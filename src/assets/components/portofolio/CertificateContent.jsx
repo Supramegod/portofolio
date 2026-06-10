@@ -1,6 +1,6 @@
 import React from "react";
 import { FiExternalLink } from "react-icons/fi";
-import { HiOutlineDocumentText } from "react-icons/hi2";
+import { motion } from "framer-motion";
 import { useLanguage } from "../../../context/LanguageContext";
 
 const certificateItems = (t) => [
@@ -9,49 +9,64 @@ const certificateItems = (t) => [
     title: t("portfolio.certTitle"),
     desc: t("portfolio.certDesc"),
     category: "Sertifikat",
-    fileUrl: "/docs/sertifikat.pdf",
-    thumbnailUrl: "",
+    fileUrl: "/docs/sertifikat1.pdf",
+    thumbnailUrl: "/images/sertifikat1.jpg",
   },
 ];
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { delayChildren: 0.15, staggerChildren: 0.1 },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
 
 export const CertificateContent = () => {
   const { t } = useLanguage();
   const items = certificateItems(t);
   return (
-    <div className="grid w-full grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
+    <motion.div
+      className="grid w-full grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3"
+      variants={staggerContainer}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1 }}
+    >
       {items.map((item) => (
-        <div
+        <motion.div
           key={item.id}
-          className="bg-slate-800/80 rounded-xl border border-gray-700 p-5 shadow-xl transition duration-300 hover:scale-105 hover:border-cyan-400"
+          className="group rounded-xl border border-[#5E00FF]/30 bg-[#2F006F]/15 p-5 backdrop-blur-sm transition-all duration-500 hover:scale-[1.02] hover:border-[#00FFB1]/25 hover:shadow-lg hover:shadow-[#00FFB1]/10 sm:p-6"
+          variants={cardVariants}
+          whileHover={{ y: -6, transition: { duration: 0.3 } }}
         >
-          <div className="relative mb-4 flex h-48 items-center justify-center overflow-hidden rounded-lg bg-gray-900 text-sm text-gray-500 sm:h-64">
-            {item.thumbnailUrl ? (
-              <img
-                src={item.thumbnailUrl}
-                alt={`Thumbnail ${item.title}`}
-                className="h-full w-full object-cover transition duration-500 hover:scale-110"
-              />
-            ) : (
-              <div className="absolute inset-0 flex items-center justify-center bg-cyan-900/40 text-cyan-400">
-                <HiOutlineDocumentText className="h-20 w-20" />
-              </div>
-            )}
+          <div className="relative mb-4 flex h-48 items-center justify-center overflow-hidden rounded-lg bg-[#000000] sm:h-64">
+            <img
+              src={item.thumbnailUrl}
+              alt={`Thumbnail ${item.title}`}
+              className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
+            />
           </div>
 
-          <h4 className="mb-1 text-lg font-bold text-white sm:text-xl">
+          <h4 className="mb-1 text-lg font-bold text-[#F8F9FA] sm:text-xl">
             {item.title}
           </h4>
-          <p className="text-xs text-gray-400 sm:text-sm">{item.desc}</p>
+          <p className="text-xs text-[#B0BEC5] sm:text-sm">{item.desc}</p>
           <a
             href={item.fileUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-3 inline-flex items-center text-xs text-cyan-400 transition duration-300 hover:underline sm:text-sm"
+            className="mt-3 inline-flex items-center text-xs font-medium text-[#00FFB1] transition duration-300 hover:text-[#00FFB1]/80 sm:text-sm"
           >
             {t("portfolio.certView")} <FiExternalLink className="ml-1 h-3 w-3" />
           </a>
-        </div>
+        </motion.div>
       ))}
-    </div>
+    </motion.div>
   );
 };

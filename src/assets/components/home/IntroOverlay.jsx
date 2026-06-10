@@ -205,7 +205,7 @@ export const IntroOverlay = ({ showIntro }) => {
             opacity: 0,
             transition: { duration: 1.5, ease: "easeInOut" },
           }}
-          className="from-gray-950 to-blue-950 via-slate-800 bg-linear-to-r fixed inset-0 z-50 flex items-center justify-center"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-b from-[#000000] via-[#000000] to-[#2F006F]/50"
         >
           <Section id="intro-overlay" className="pt-0 text-center">
             <div className="mx-auto max-w-4xl py-20">

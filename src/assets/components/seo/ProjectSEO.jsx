@@ -6,7 +6,7 @@ export const ProjectSEO = ({ project }) => (
     <title>{project.title} — Jalu Pradipta</title>
     <link
       rel="canonical"
-      href={`https://jalupradipta.vercel.app/project/${project.id}`}
+      href={`https://jalupradipta.pages.dev/project/${project.id}`}
     />
     <meta name="description" content={project.desc} />
     <meta name="author" content="Jalu Pradipta" />
@@ -17,14 +17,14 @@ export const ProjectSEO = ({ project }) => (
     <meta property="og:type" content="article" />
     <meta
       property="og:url"
-      content={`https://jalupradipta.vercel.app/project/${project.id}`}
+      content={`https://jalupradipta.pages.dev/project/${project.id}`}
     />
     <meta property="og:locale" content="id_ID" />
     <meta property="og:site_name" content="Jalu Pradipta" />
     {project.thumbnailUrl && (
       <meta
         property="og:image"
-        content={`https://jalupradipta.vercel.app${project.thumbnailUrl}`}
+        content={`https://jalupradipta.pages.dev${project.thumbnailUrl}`}
       />
     )}
 
@@ -34,7 +34,7 @@ export const ProjectSEO = ({ project }) => (
     {project.thumbnailUrl && (
       <meta
         name="twitter:image"
-        content={`https://jalupradipta.vercel.app${project.thumbnailUrl}`}
+        content={`https://jalupradipta.pages.dev${project.thumbnailUrl}`}
       />
     )}
   </Helmet>

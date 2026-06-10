@@ -77,7 +77,6 @@ export const AboutMe = () => {
       "RESTful API Development",
       "PHP 8.x",
       "MySQL",
-      "Chart.js",
     ],
     [t("aboutme.skillSystem")]: [
       "ERP System Design",
@@ -136,7 +135,7 @@ export const AboutMe = () => {
 
   return (
     <motion.div
-      className="from-gray-950 to-blue-950 via-slate-800 bg-linear-to-br min-h-screen px-4 pb-16 sm:px-8"
+      className="min-h-screen bg-gradient-to-b from-[#000000] via-[#000000] to-[#2F006F]/50 px-4 pb-16 sm:px-8"
       initial="hidden"
       animate="visible"
       variants={{

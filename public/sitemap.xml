@@ -12,4 +12,10 @@
     <loc>https://jalupradipta.pages.dev/project/1</loc>
     <priority>0.7</priority>
   </url>
+  <!--
+    TODO: Saat domain produksi (custom domain) sudah di-input di Cloudflare Pages,
+    ganti seluruh https://jalupradipta.pages.dev dengan domain kustom di atas.
+    Contoh: https://jalupradipta.com
+    Juga tambahkan URL proyek baru saat data portofolio bertambah.
+  -->
 </urlset>

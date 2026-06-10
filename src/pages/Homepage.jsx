@@ -110,10 +110,10 @@ const itemVariants = {
 const StatItem = ({ icon: Icon, number, label }) => (
   <div className="flex flex-col items-center p-4">
     <div className="flex items-center">
-      <Icon className="mr-2 h-5 w-5 text-cyan-400 sm:h-6 sm:w-6" />
-      <p className="text-3xl font-extrabold text-white sm:text-4xl">{number}</p>
+      <Icon className="mr-2 h-5 w-5 text-[#00FFB1] sm:h-6 sm:w-6" />
+      <p className="text-3xl font-extrabold text-[#F8F9FA] sm:text-4xl">{number}</p>
     </div>
-    <p className="mt-1 text-center text-xs uppercase tracking-widest text-gray-400">
+      <p className="mt-1 text-center text-xs uppercase tracking-widest text-[#B0BEC5]/70">
       {label}
     </p>
   </div>
@@ -302,9 +302,9 @@ export const Homepage = () => {
 
   // Active tab section portfolio
   const activeTabStyle =
-    "bg-linear-to-r from-cyan-600 to-blue-700 text-white shadow-lg shadow-cyan-900/50";
+    "border border-[#00FFB1]/30 bg-[#00FFB1]/10 text-[#00FFB1] shadow-sm";
   const inactiveTabStyle =
-    "text-gray-400 hover:bg-gray-700/50 hover:scale-105 cursor-pointer";
+    "text-[#B0BEC5]/70 hover:bg-[#2F006F]/20 hover:text-[#F8F9FA] hover:scale-105 cursor-pointer";
 
   if (isLoading) {
     return <Loading />;
@@ -312,7 +312,7 @@ export const Homepage = () => {
 
   return (
     <motion.div
-      className="from-gray-950 to-blue-950 via-slate-800 bg-linear-to-r min-h-screen font-sans"
+      className="min-h-screen bg-gradient-to-b from-[#000000] via-[#000000] to-[#2F006F]/50 font-sans"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
@@ -326,7 +326,7 @@ export const Homepage = () => {
 
         <HeroSection handleSmoothScroll={handleSmoothScroll} />
 
-        <hr className="mx-auto w-full max-w-7xl border-t border-gray-700" />
+        <hr className="mx-auto w-full max-w-7xl border-t border-[#5E00FF]/30" />
 
         {/* 3. ABOUT SECTION */}
         <Section id="about">
@@ -338,10 +338,10 @@ export const Homepage = () => {
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
             >
-                <h2 className="mb-2 text-4xl font-extrabold text-white sm:text-5xl">
+                <h2 className="mb-2 text-4xl font-extrabold text-[#F8F9FA] sm:text-5xl">
                   {t("about.title")}
                 </h2>
-                <p className="flex items-center justify-center text-xs font-semibold uppercase tracking-wider text-cyan-400 sm:text-sm">
+                <p className="flex items-center justify-center text-xs font-semibold uppercase tracking-wider text-[#B388FF]/70 sm:text-sm">
                   <FaUser className="mr-1 h-4 w-4 lg:mr-2" /> {t("about.subtitle")}
                 </p>
             </motion.div>
@@ -356,10 +356,10 @@ export const Homepage = () => {
                 viewport={{ once: true, amount: 0.3 }}
               >
                 <div className="relative h-64 w-64 sm:h-80 sm:w-80">
-                  <div className="absolute inset-0 m-auto h-full w-full animate-pulse rounded-full bg-cyan-500 opacity-20 blur-3xl filter"></div>
+                  <div className="absolute inset-0 m-auto h-full w-full animate-pulse rounded-full bg-[#E500FF] opacity-20 blur-3xl filter"></div>
 
                   {/* Container Foto Profil */}
-                  <div className="relative z-10 flex h-full w-full items-center justify-center rounded-full border-4 border-cyan-500/50 bg-gray-700 shadow-2xl shadow-cyan-500/20">
+                  <div className="relative z-10 flex h-full w-full items-center justify-center rounded-full border-4 border-[#E500FF]/50 bg-[#000000] shadow-2xl shadow-[#E500FF]/20">
                     <img
                       src={Profile}
                       alt="Foto Profil Jalu Pradipta"
@@ -377,9 +377,9 @@ export const Homepage = () => {
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.3 }}
               >
-                <p className="text-2xl font-light text-white sm:text-3xl">
+                <p className="text-2xl font-light text-[#F8F9FA] sm:text-3xl">
                   <span className="block sm:inline">{t("about.hello")} </span>
-                  <span className="font-semibold text-cyan-400">
+                  <span className="font-semibold text-[#00FFB1]">
                     {t("about.name")}
                   </span>
                 </p>
@@ -394,10 +394,10 @@ export const Homepage = () => {
                     deletingSpeed={25}
                     pauseDelay={1000}
                     initialDelay={75}
-                    className="font-serif text-4xl font-extrabold text-white sm:text-5xl"
+                    className="font-serif text-4xl font-extrabold text-[#F8F9FA] sm:text-5xl"
                   />
                 </motion.div>
-                <p className="text-base text-gray-300 sm:text-lg">
+                <p className="text-base text-[#B0BEC5] sm:text-lg">
                   {t("about.desc")}
                 </p>
 
@@ -406,13 +406,13 @@ export const Homepage = () => {
                   <a
                     href="#"
                     target="_blank"
-                    className="bg-linear-to-r inline-flex cursor-pointer items-center justify-center rounded-lg from-cyan-600 to-blue-700 px-6 py-3 font-semibold text-white shadow-lg transition duration-300 hover:scale-105"
+                    className="bg-linear-to-r inline-flex cursor-pointer items-center justify-center rounded-lg from-[#00FFB1] to-[#00FFB1]/80 px-6 py-3 font-semibold text-[#000000] shadow-lg transition duration-300 hover:scale-105"
                   >
                     <span className="mr-2">💾</span> {t("about.downloadCV")}
                   </a>
                   <a
                     href="/about-me"
-                    className="inline-flex items-center justify-center rounded-lg border border-white/30 px-6 py-3 font-semibold text-white transition duration-300 hover:scale-105 hover:bg-white/10"
+                    className="inline-flex items-center justify-center rounded-lg border border-[#E500FF]/30 px-6 py-3 font-semibold text-[#E500FF] transition duration-300 hover:scale-105 hover:bg-[#E500FF]/10"
                   >
                     <span className="mr-2">
                       <CgProfile size={20} />
@@ -425,14 +425,14 @@ export const Homepage = () => {
 
             {/* Statistik */}
             <motion.div
-              className="mt-16 border-t border-gray-700 pt-10"
+              className="mt-16 border-t border-[#5E00FF]/30 pt-10"
               variants={staggerContainerVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
             >
               <motion.div
-                className="grid grid-cols-3 divide-x divide-gray-700 rounded-xl border border-gray-600 bg-gray-800/50"
+                className="grid grid-cols-3 divide-x divide-[#5E00FF]/30 rounded-xl border border-[#5E00FF]/30 bg-[#2F006F]/15"
                 variants={staggerContainerVariants}
               >
                 {[
@@ -465,12 +465,12 @@ export const Homepage = () => {
           </div>
         </Section>
 
-        <hr className="mx-auto w-full max-w-7xl border-t border-gray-700" />
+        <hr className="mx-auto w-full max-w-7xl border-t border-[#5E00FF]/30" />
 
         {/* 4. SERVICE SECTION */}
         <ServiceSection SectionComponent={Section} />
 
-        <hr className="mx-auto w-full max-w-7xl border-t border-gray-700" />
+        <hr className="mx-auto w-full max-w-7xl border-t border-[#5E00FF]/30" />
 
         {/* 5. PORTFOLIO SECTION */}
         <Section id="portfolio">
@@ -481,13 +481,13 @@ export const Homepage = () => {
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
             >
-              <p className="mb-2 flex items-center justify-center text-xs font-semibold uppercase tracking-wider text-cyan-400 sm:text-sm">
+              <p className="mb-2 flex items-center justify-center text-xs font-semibold uppercase tracking-wider text-[#B388FF]/70 sm:text-sm">
                 <FaBriefcase className="mr-2 h-4 w-4" /> My Work
               </p>
-              <h2 className="mb-4 text-4xl font-extrabold text-white sm:text-5xl">
+              <h2 className="mb-4 text-4xl font-extrabold text-[#F8F9FA] sm:text-5xl">
                 Portfolio Showcase
               </h2>
-              <p className="mx-auto mb-8 max-w-xl text-base text-gray-400 sm:text-lg">
+              <p className="mx-auto mb-8 max-w-xl text-base text-[#B0BEC5] sm:text-lg">
                 Telusuri perjalanan karya saya melalui proyek nyata, sertifikasi
                 yang saya raih, artikel yang pernah diterbitkan, hingga keahlian
                 teknis saya. Setiap bagian adalah bukti dari semangat belajar
@@ -497,7 +497,7 @@ export const Homepage = () => {
 
             {/* TOMBOL NAVIGASI */}
             <motion.div
-              className="mx-auto mb-12 flex max-w-4xl justify-center space-x-2 rounded-xl border border-cyan-700/50 bg-gray-900/50 p-2 sm:space-x-4 sm:p-3"
+              className="mx-auto mb-12 flex max-w-4xl justify-center space-x-2 rounded-xl border border-[#5E00FF]/40 bg-[#2F006F]/20 p-2 backdrop-blur-sm sm:space-x-4 sm:p-3"
               variants={contentFadeInVariants("up")}
               initial="hidden"
               whileInView="visible"
@@ -554,7 +554,7 @@ export const Homepage = () => {
           </div>
         </Section>
 
-        <hr className="mx-auto w-full max-w-7xl border-t border-gray-700" />
+        <hr className="mx-auto w-full max-w-7xl border-t border-[#5E00FF]/30" />
 
         {/* 6. CONTACT SECTION */}
         <ContactSection SectionComponent={Section} />

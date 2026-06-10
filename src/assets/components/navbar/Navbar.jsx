@@ -50,7 +50,6 @@ export const Navbar = () => {
         });
       }
     } else {
-      // Navigasi ke homepage dan langsung ke section yang dituju
       navigate(`/#${id}`);
     }
   };
@@ -91,7 +90,6 @@ export const Navbar = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -107,29 +105,26 @@ export const Navbar = () => {
     if (id === "portfolio" && pathname.includes("/project/")) {
       return true;
     }
-
     return false;
   };
 
   return (
     <nav
-      className={`fixed left-0 top-0 z-50 w-full transform border-b border-cyan-500/30 bg-transparent shadow-lg backdrop-blur-sm transition-transform duration-300 ease-in-out ${
+      className={`fixed left-0 top-0 z-50 w-full transform border-b border-[#5E00FF]/40 bg-[#000000]/80 shadow-lg backdrop-blur-md transition-transform duration-300 ease-in-out ${
         isNavbarHidden ? "-translate-y-full" : "translate-y-0"
-      } `}
+      }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 font-sans text-white lg:px-0">
-        {/* Section Kiri */}
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 font-sans text-[#F8F9FA] lg:px-0">
         <a
           href="/"
-          className="text-2xl font-extrabold tracking-wider text-cyan-400 transition duration-300 hover:text-cyan-300"
+          className="text-2xl font-extrabold tracking-wider text-[#00FFB1] transition duration-300 hover:text-[#00FFB1]/80"
           onClick={(e) => handleLinkClick(e, "home")}
         >
           JaluDev
         </a>
 
-        {/* Responsive Hamburger */}
         <button
-          className="z-50 p-2 text-gray-300 hover:text-cyan-400 focus:outline-none lg:hidden"
+          className="z-50 p-2 text-[#B0BEC5] hover:text-[#00FFB1] focus:outline-none lg:hidden"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label={isMenuOpen ? "Tutup Menu" : "Buka Menu"}
         >
@@ -140,17 +135,16 @@ export const Navbar = () => {
           )}
         </button>
 
-        {/* Section Kanan (Desktop) */}
         <div className="hidden items-center space-x-8 lg:flex">
           {SECTION_IDS.map((id) => (
             <a
               key={id}
               href={`#${id}`}
               onClick={(e) => handleLinkClick(e, id)}
-              className={`relative text-base font-semibold uppercase tracking-wide transition duration-300 hover:text-cyan-400 ${
+              className={`relative text-base font-semibold uppercase tracking-wide transition duration-300 hover:text-[#00FFB1] ${
                 isLinkActive(id)
-                  ? "text-cyan-400 after:w-full after:bg-cyan-400"
-                  : "text-gray-300 after:w-0 after:bg-gray-500"
+                  ? "text-[#00FFB1] after:w-full after:bg-[#00FFB1]"
+                  : "text-[#B0BEC5] after:w-0 after:bg-[#5E00FF]"
               } after:absolute after:bottom-0 after:left-0 after:h-0.5 after:transition-all after:duration-300`}
             >
               {t(`nav.${id}`)}
@@ -159,20 +153,19 @@ export const Navbar = () => {
 
           <button
             onClick={toggleLang}
-            className="rounded-md border border-cyan-500/50 px-2 py-1 text-sm font-semibold text-cyan-400 transition duration-300 hover:bg-cyan-500/20"
+            className="rounded-md border border-[#00FFB1]/30 px-2 py-1 text-sm font-semibold text-[#00FFB1] transition duration-300 hover:bg-[#00FFB1]/10"
           >
             {lang === "id" ? "EN" : "ID"}
           </button>
         </div>
       </div>
 
-      {/* Tautan Navigasi Dropdown (Mobile) */}
       <div
-        className={`bg-gray-950/95 absolute w-full overflow-hidden transition-all duration-300 ease-in-out lg:hidden ${
+        className={`absolute w-full overflow-hidden bg-[#000000]/95 transition-all duration-300 ease-in-out lg:hidden ${
           isMenuOpen
-            ? "max-h-60 border-t border-cyan-500/20 py-4 opacity-100"
+            ? "max-h-60 border-t border-[#5E00FF]/30 py-4 opacity-100"
             : "max-h-0 opacity-0"
-        } `}
+        }`}
       >
         <div className="flex flex-col space-y-2 px-6">
           {SECTION_IDS.map((id) => (
@@ -181,8 +174,8 @@ export const Navbar = () => {
               href={`#${id}`}
               className={`block py-1 text-lg font-medium transition duration-300 ${
                 isLinkActive(id)
-                  ? "font-bold text-cyan-400"
-                  : "text-gray-300 hover:text-cyan-400"
+                  ? "font-bold text-[#00FFB1]"
+                  : "text-[#B0BEC5] hover:text-[#00FFB1]"
               }`}
               onClick={(e) => handleLinkClick(e, id)}
             >

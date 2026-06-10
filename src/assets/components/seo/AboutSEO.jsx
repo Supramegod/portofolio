@@ -8,7 +8,7 @@ const personSchema = {
   givenName: "Jalu",
   familyName: "Pradipta",
   email: "jluppradipta@gmail.com",
-  url: "https://jalupradipta.vercel.app",
+  url: "https://jalupradipta.pages.dev",
   sameAs: [
     "https://github.com/supramegod",
     "https://www.linkedin.com/in/jalupradipta/",
@@ -64,14 +64,14 @@ const faqSchema = {
 export const AboutSEO = () => (
   <Helmet>
     <title>Jalu Pradipta — About Me</title>
-    <link rel="canonical" href="https://jalupradipta.vercel.app/about-me" />
+    <link rel="canonical" href="https://jalupradipta.pages.dev/about-me" />
     <meta
       name="description"
-      content="Profil lengkap Jalu Pradipta — Backend Developer, lulusan D3 Teknik Telekomunikasi PENS, berpengalaman dalam pengembangan backend Laravel dan sistem ERP."
+      content="Profil lengkap Jalu Pradipta — Backend Developer Laravel 12 & ERP System, lulusan PENS. Pelajari perjalanan, keahlian backend, dan proyek CAIS ERP di sini."
     />
     <meta
       name="keywords"
-      content="Jalu Pradipta, Backend Developer, Laravel, PENS, ERP, Surabaya"
+      content="Jalu Pradipta, Backend Developer, Laravel 12, PHP 8.x, ERP, CAIS, PENS, Surabaya"
     />
     <meta name="author" content="Jalu Pradipta" />
     <meta name="robots" content="index, follow" />
@@ -79,16 +79,16 @@ export const AboutSEO = () => (
     <meta property="og:title" content="Jalu Pradipta — About Me" />
     <meta
       property="og:description"
-      content="Profil lengkap Jalu Pradipta — Backend Developer, lulusan D3 Teknik Telekomunikasi PENS."
+      content="Backend Developer spesialis Laravel 12, REST API, dan ERP System. Lulusan PENS dengan pengalaman produksi sistem enterprise."
     />
     <meta property="og:type" content="profile" />
     <meta
       property="og:url"
-      content="https://jalupradipta.vercel.app/about-me"
+      content="https://jalupradipta.pages.dev/about-me"
     />
     <meta
       property="og:image"
-      content="https://jalupradipta.vercel.app/src/assets/img/Foto.jpg"
+      content="https://jalupradipta.pages.dev/src/assets/img/Foto.jpg"
     />
     <meta property="og:locale" content="id_ID" />
     <meta property="og:site_name" content="Jalu Pradipta" />
@@ -97,11 +97,11 @@ export const AboutSEO = () => (
     <meta name="twitter:title" content="Jalu Pradipta — About Me" />
     <meta
       name="twitter:description"
-      content="Profil lengkap Jalu Pradipta — Backend Developer, lulusan D3 Teknik Telekomunikasi PENS."
+      content="Backend Developer spesialis Laravel 12, REST API, dan ERP System. Lulusan PENS dengan pengalaman produksi sistem enterprise."
     />
     <meta
       name="twitter:image"
-      content="https://jalupradipta.vercel.app/src/assets/img/Foto.jpg"
+      content="https://jalupradipta.pages.dev/src/assets/img/Foto.jpg"
     />
 
     <script type="application/ld+json">

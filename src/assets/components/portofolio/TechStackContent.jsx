@@ -1,58 +1,77 @@
 import React from "react";
+import { motion } from "framer-motion";
 
-import { FaPhp, FaGitAlt, FaGithub, FaNpm, FaDocker } from "react-icons/fa";
-import {
-  SiLaravel,
-  SiMysql,
-  SiPostman,
-  SiChartdotjs,
-  SiGitlab,
-  SiComposer,
-} from "react-icons/si";
-import { TbApi, TbBrandVscode } from "react-icons/tb";
-import { BiLogoVisualStudio } from "react-icons/bi";
-
-const skillsData = [
-  // Backend
-  { name: "Laravel 12", icon: SiLaravel, color: "text-red-500" },
-  { name: "PHP 8.x", icon: FaPhp, color: "text-indigo-400" },
-  { name: "RESTful API", icon: TbApi, color: "text-pink-500" },
-  { name: "Laravel Sanctum", icon: SiLaravel, color: "text-orange-500" },
-  { name: "MySQL", icon: SiMysql, color: "text-orange-400" },
-  { name: "Chart.js", icon: SiChartdotjs, color: "text-pink-400" },
-
-  // Tools & DevOps
-  { name: "Git", icon: FaGitAlt, color: "text-orange-700" },
-  { name: "GitHub", icon: FaGithub, color: "text-white" },
-  { name: "GitLab", icon: SiGitlab, color: "text-orange-400" },
-  { name: "Postman", icon: SiPostman, color: "text-orange-500" },
-  { name: "Docker", icon: FaDocker, color: "text-blue-500" },
-  { name: "Composer", icon: SiComposer, color: "text-yellow-500" },
-  { name: "NPM", icon: FaNpm, color: "text-red-600" },
-  { name: "VS Code", icon: BiLogoVisualStudio, color: "text-blue-600" },
+const groups = [
+  {
+    id: "01",
+    label: "RUNTIME & FRAMEWORK",
+    items: ["Laravel 12", "PHP 8.x", "Go"],
+  },
+  {
+    id: "02",
+    label: "DATA STORAGE",
+    items: ["MySQL", "PostgreSQL", "Redis"],
+  },
+  {
+    id: "03",
+    label: "TOOLS",
+    items: ["REST API", "Sanctum SSO", "Git", "Docker"],
+  },
 ];
 
-const SkillItem = ({ skill, Icon, color }) => (
-  <div
-    key={skill}
-    className="flex h-24 w-24 flex-col items-center justify-center rounded-lg border border-gray-700/50 bg-gray-900/50 p-4 text-center transition duration-300 hover:scale-110 hover:border-cyan-400 hover:shadow-lg hover:shadow-indigo-500/20 sm:h-28 sm:w-28"
-  >
-    <Icon className={`mb-2 h-8 w-8 sm:h-10 sm:w-10 ${color}`} />
-    <p className="text-xs font-semibold text-white sm:text-sm">{skill}</p>
-  </div>
-);
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { delayChildren: 0.15, staggerChildren: 0.12 },
+  },
+};
+
+const groupVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, x: -10 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.35 } },
+};
 
 export const TechStackContent = () => (
-  <div className="bg-slate-800/80 mt-4 rounded-xl border border-gray-700 p-6 shadow-xl sm:p-8">
-    <div className="grid grid-cols-3 gap-6 sm:grid-cols-4 sm:gap-8 lg:mx-auto lg:max-w-6xl lg:grid-cols-8">
-      {skillsData.map((item) => (
-        <SkillItem
-          key={item.name}
-          skill={item.name}
-          Icon={item.icon}
-          color={item.color}
-        />
+  <motion.div
+    className="mx-auto mt-4 w-full max-w-4xl"
+    variants={staggerContainer}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true, amount: 0.2 }}
+  >
+    <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+      {groups.map((group) => (
+        <motion.div
+          key={group.id}
+          className="rounded-xl border border-[#5E00FF]/30 bg-[#2F006F]/15 p-5 backdrop-blur-sm transition-all duration-300 hover:border-[#00FFB1]/25 hover:shadow-lg hover:shadow-[#00FFB1]/10"
+          variants={groupVariants}
+          whileHover={{ y: -4, transition: { duration: 0.25 } }}
+        >
+          <p className="mb-3 font-mono text-xs tracking-widest text-[#B388FF]/60">
+            {group.id} //
+          </p>
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[#B0BEC5]">
+            {group.label}
+          </p>
+          <div className="space-y-2">
+            {group.items.map((item, i) => (
+              <motion.p
+                key={i}
+                className="font-mono text-sm text-[#F8F9FA]"
+                variants={itemVariants}
+              >
+                &gt; {item}
+              </motion.p>
+            ))}
+          </div>
+        </motion.div>
       ))}
     </div>
-  </div>
+  </motion.div>
 );
