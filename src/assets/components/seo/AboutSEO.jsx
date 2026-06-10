@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import { Helmet } from "react-helmet-async";
 
 const personSchema = {
@@ -9,13 +9,24 @@ const personSchema = {
   familyName: "Pradipta",
   email: "jluppradipta@gmail.com",
   url: "https://jalupradipta.pages.dev",
+  image: "https://jalupradipta.pages.dev/images/foto-jalu.jpg",
   sameAs: [
     "https://github.com/supramegod",
     "https://www.linkedin.com/in/jalupradipta/",
     "https://www.instagram.com/jluppradipta_728/",
   ],
   jobTitle: "Backend Developer",
-  knowsAbout: ["Laravel", "PHP", "MySQL", "REST API", "ERP System"],
+  knowsAbout: [
+    "Laravel 12",
+    "PHP 8.x",
+    "MySQL",
+    "REST API",
+    "ERP System",
+    "Laravel Sanctum",
+    "Docker",
+    "GitLab CI",
+    "Chart.js",
+  ],
   alumniOf: {
     "@type": "CollegeOrUniversity",
     name: "Politeknik Elektronika Negeri Surabaya (PENS)",
@@ -63,7 +74,7 @@ const faqSchema = {
 
 export const AboutSEO = () => (
   <Helmet>
-    <title>Jalu Pradipta — About Me</title>
+    <title>About Jalu Pradipta — Backend Developer Laravel 12 & ERP Specialist</title>
     <link rel="canonical" href="https://jalupradipta.pages.dev/about-me" />
     <meta
       name="description"
@@ -71,12 +82,12 @@ export const AboutSEO = () => (
     />
     <meta
       name="keywords"
-      content="Jalu Pradipta, Backend Developer, Laravel 12, PHP 8.x, ERP, CAIS, PENS, Surabaya"
+      content="Jalu Pradipta, Backend Developer, Laravel 12, PHP 8.x, ERP, CAIS, PENS, Surabaya, About Jalu Pradipta, Backend Developer Indonesia"
     />
     <meta name="author" content="Jalu Pradipta" />
     <meta name="robots" content="index, follow" />
 
-    <meta property="og:title" content="Jalu Pradipta — About Me" />
+    <meta property="og:title" content="About Jalu Pradipta — Backend Developer Laravel 12 & ERP Specialist" />
     <meta
       property="og:description"
       content="Backend Developer spesialis Laravel 12, REST API, dan ERP System. Lulusan PENS dengan pengalaman produksi sistem enterprise."
@@ -88,21 +99,25 @@ export const AboutSEO = () => (
     />
     <meta
       property="og:image"
-      content="https://jalupradipta.pages.dev/src/assets/img/Foto.jpg"
+      content="https://jalupradipta.pages.dev/images/foto-jalu.jpg"
     />
+    <meta property="og:image:width" content="500" />
+    <meta property="og:image:height" content="500" />
+    <meta property="og:image:alt" content="Foto Jalu Pradipta" />
     <meta property="og:locale" content="id_ID" />
     <meta property="og:site_name" content="Jalu Pradipta" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Jalu Pradipta — About Me" />
+    <meta name="twitter:title" content="About Jalu Pradipta — Backend Developer Laravel 12 & ERP Specialist" />
     <meta
       name="twitter:description"
       content="Backend Developer spesialis Laravel 12, REST API, dan ERP System. Lulusan PENS dengan pengalaman produksi sistem enterprise."
     />
     <meta
       name="twitter:image"
-      content="https://jalupradipta.pages.dev/src/assets/img/Foto.jpg"
+      content="https://jalupradipta.pages.dev/images/foto-jalu.jpg"
     />
+    <meta name="twitter:image:alt" content="Foto Jalu Pradipta" />
 
     <script type="application/ld+json">
       {JSON.stringify([personSchema, faqSchema])}
