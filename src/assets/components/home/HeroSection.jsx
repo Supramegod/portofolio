@@ -59,7 +59,7 @@ export const HeroSection = ({ handleSmoothScroll }) => {
       <div className="pointer-events-none absolute right-1/4 bottom-1/3 h-80 w-80 rounded-full bg-[#00FFB1]/10 blur-[130px]" />
 
       <div className="relative z-10 mx-auto flex h-full w-full max-w-7xl grow items-center justify-center">
-        <div className="flex h-full w-full flex-col-reverse items-center gap-12 lg:flex-row lg:gap-16">
+        <div className="flex h-full w-full flex-col items-center gap-8 lg:flex-row lg:gap-16">
           {/* KOLOM KIRI — 60% */}
           <motion.div
             className="flex h-full w-full flex-col justify-center lg:w-3/5"
@@ -150,13 +150,13 @@ export const HeroSection = ({ handleSmoothScroll }) => {
             initial="hidden"
             animate="visible"
           >
-            <div className="relative w-full max-w-[400px] border border-[#2F006F] bg-[#1A0033]/60 p-4 backdrop-blur-sm">
-              <div className="absolute -left-px -top-px h-4 w-4 border-l-2 border-t-2 border-[#00FFB1]/50" />
-              <div className="absolute -right-px -top-px h-4 w-4 border-r-2 border-t-2 border-[#E500FF]/50" />
-              <div className="absolute -bottom-px -left-px h-4 w-4 border-b-2 border-l-2 border-[#E500FF]/50" />
-              <div className="absolute -bottom-px -right-px h-4 w-4 border-b-2 border-r-2 border-[#00FFB1]/50" />
+            <div className="relative w-full max-w-[220px] border border-[#2F006F] bg-[#1A0033]/60 p-3 backdrop-blur-sm sm:max-w-[280px] sm:p-4 lg:max-w-[400px]">
+              <div className="absolute -left-px -top-px h-3 w-3 border-l-2 border-t-2 border-[#00FFB1]/50 lg:h-4 lg:w-4" />
+              <div className="absolute -right-px -top-px h-3 w-3 border-r-2 border-t-2 border-[#E500FF]/50 lg:h-4 lg:w-4" />
+              <div className="absolute -bottom-px -left-px h-3 w-3 border-b-2 border-l-2 border-[#E500FF]/50 lg:h-4 lg:w-4" />
+              <div className="absolute -bottom-px -right-px h-3 w-3 border-b-2 border-r-2 border-[#00FFB1]/50 lg:h-4 lg:w-4" />
 
-              <div className="flex aspect-square items-center justify-center opacity-60 transition duration-300 hover:opacity-100">
+              <div className="flex items-center justify-center opacity-60 transition duration-300 hover:opacity-100 lg:aspect-square">
                 <Lottie
                   animationData={webDeveloperAnimation}
                   loop={true}

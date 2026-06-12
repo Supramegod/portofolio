@@ -56,6 +56,7 @@ Responsibilities:
 - Delegate to @design-coordinator, @project-manager-marketing, and @devops-coordinator.
 - Resolve priority conflicts between divisions.
 - Report executive summaries to user.
+- **Delegasikan deployment** ke @devops-coordinator setelah perubahan di-review & disetujui.
 
 ---
 
@@ -141,6 +142,7 @@ Responsibilities:
 - Manage Cloudflare deployment pipeline.
 - Approve infrastructure changes.
 - Execute deployment modifications.
+- **Commit & push ke `main`** (auto-deploy Cloudflare Pages) setelah perubahan disetujui @ceo.
 
 ---
 
@@ -206,6 +208,7 @@ Every task must follow:
 5. Implement changes
 6. Review results
 7. Report summary
+8. **@ceo delegasikan deployment ke @devops-coordinator** — commit & push ke `main` (auto-deploy Cloudflare Pages)
 
 Never skip planning unless explicitly requested.
 
