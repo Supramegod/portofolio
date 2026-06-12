@@ -1,8 +1,10 @@
 # Portofolio Jalu Pradipta
 
-Website portofolio pribadi untuk menampilkan proyek, sertifikat, artikel, dan tech stack sebagai Backend Developer.
+Website portofolio pribadi — Backend Developer Laravel 12 & ERP Specialist.
 
-**Tech Stack:** React 18 + Vite 7 + Tailwind CSS v4 + @material-tailwind/react
+**Live:** https://jalupradipta.pages.dev
+
+**Tech Stack:** React 18 + Vite 7 + Tailwind CSS v4 + @material-tailwind/react + Framer Motion + Lottie
 
 ---
 
@@ -24,6 +26,7 @@ npx prettier --write .   # Format semua file
 ```
 src/
 ├── main.jsx                                    # Entrypoint (HelmetProvider + LanguageProvider)
+├── index.html                                  # Root HTML (Google verification meta tag)
 ├── routes/App.jsx                              # Router (/, /about-me, /project/:id, *)
 ├── context/
 │   ├── LanguageContext.jsx                     # ID/EN toggle + useLanguage hook
@@ -50,9 +53,10 @@ src/
         └── seo/                                # Per-page SEO (HomeSEO, AboutSEO, ProjectSEO, NotFoundSEO)
 public/
 ├── docs/                                       # PDF
-├── images/                                     # Thumbnail proyek
+├── images/                                     # Thumbnail proyek + OG images
 ├── robots.txt                                  # SEO
-└── sitemap.xml                                 # SEO
+├── sitemap.xml                                 # SEO
+└── _redirects                                  # SPA fallback rewrite
 ```
 
 ---
@@ -92,16 +96,18 @@ public/
 
 ## 🛠️ Fitur Website
 
+- **Theme Cyber-Synthwave Tokyo Underground** — Dark purple (#2F006F) with neon cyber-teal & magenta accents
 - **Intro Overlay** — Animasi typewriter + badge saat kunjungan pertama
-- **Hero** — Animasi Lottie, sosial link, CTA ke portfolio & kontak
+- **Hero** — Split layout 60/40, HUD border, Lottie animation, sosial link
 - **About** — Bio, foto profil, statistik, skills, experience, education
-- **Services** — 4 kartu layanan (Backend, API, ERP, Deployment)
+- **Services** — 4 kartu layanan glassmorphism (Backend, API, ERP, Deployment)
 - **Portfolio Tabs** — Projects, Certificates, Tech Stack
 - **Contact** — 6 info kontak + tombol WhatsApp
-- **SEO** — react-helmet-async, meta/OG/Twitter tags per halaman, robots.txt, sitemap.xml
-- **FAQ + Person Schema** — JSON-LD di halaman About
-- **Bilingual** — ID/EN toggle via React Context (tanpa library eksternal)
-- **Animasi** — Framer Motion di seluruh halaman
+- **SEO** — react-helmet-async, meta/OG/Twitter tags per halaman, canonical URLs, robots.txt, sitemap.xml
+- **JSON-LD Structured Data** — Person, Website, SoftwareApplication, FAQPage schemas
+- **Google Search Console** — Terverifikasi (meta tag)
+- **Bilingual** — ID/EN toggle via React Context
+- **Animasi** — Framer Motion + Lottie
 
 ---
 
@@ -113,16 +119,25 @@ public/
 
 ## 🌐 Deployment
 
-**Cloudflare Pages** — `public/_redirects` me-rewrite semua rute ke `/index.html` (SPA fallback).
+**Cloudflare Pages** (auto-deploy dari GitHub) — `public/_redirects` me-rewrite semua rute ke `/index.html` (SPA fallback).
+
+### SEO Status
+- ✅ Google Search Console terverifikasi (meta tag)
+- ✅ Sitemap.xml terdaftar (5 URLs)
+- ✅ robots.txt mengizinkan crawling
+- ✅ JSON-LD schemas (Person, Website, SoftwareApplication, FAQPage)
+- ✅ Canonical URLs → `jalupradipta.pages.dev`
+- ✅ OG & Twitter Cards per halaman
+- ⏳ Menunggu indexing Google (1-2 minggu)
 
 ---
 
-## 📋 TODO (Sebelum Production)
+## 📋 TODO
 
-- [ ] Ganti `src/assets/img/Foto.jpg` dan `src/assets/img/Profile.jpg` dengan foto Jalu
-- [ ] Tambah screenshot proyek di `public/images/project-cais.jpg`
-- [x] Hapus tab Artikel (tidak relevan)
-- [x] Tambah sertifikat PDF (`public/docs/sertifikat.pdf`)
-- [x] Tambah thumbnail proyek (`public/images/project-cais.jpg`)
-- [ ] Update CV di `public/docs/`
-- [ ] Update `public/sitemap.xml` dengan domain asli
+- [ ] Kompres foto (`Profile.jpg` 1.4MB, `Foto.jpg` 2.3MB)
+- [ ] Optimasi bundle JS (939 kB → code-split)
+- [ ] Tambah lebih banyak entri sertifikat & artikel
+- [ ] Beli domain custom (`jalupradipta.com`)
+- [ ] Setup Google Analytics
+- [ ] Tambah halaman blog/artikel
+- [ ] Register backlink dari LinkedIn, GitHub, dsb.
