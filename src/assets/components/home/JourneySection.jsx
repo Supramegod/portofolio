@@ -50,7 +50,7 @@ const getMilestones = (t) => [
     icon: FaCode,
     title: t("journey.2023.title"),
     desc: t("journey.2023.desc"),
-    tags: ["Programming", "Automation", "System Integration"],
+    tags: ["Programming", "KRTI", "Fixed Wing", "Electrical Systems"],
     gradient: "from-[#7C3AED]/20 to-[#9333EA]/20",
     iconColor: "text-[#C084FC]",
     ring: "ring-[#7C3AED]/30",

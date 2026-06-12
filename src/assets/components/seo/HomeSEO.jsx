@@ -28,9 +28,10 @@ const journeySchema = {
   description: "Perjalanan karir Jalu Pradipta dari mahasiswa hingga backend developer",
   itemListElement: [
     { "@type": "ListItem", position: 1, item: { "@type": "Event", name: "Mulai D3 Teknik Telekomunikasi PENS", startDate: "2022" } },
-    { "@type": "ListItem", position: 2, item: { "@type": "Event", name: "Eksplorasi Software Development", startDate: "2023" } },
-    { "@type": "ListItem", position: 3, item: { "@type": "Event", name: "Fokus Backend Laravel & ERP", startDate: "2024" } },
-    { "@type": "ListItem", position: 4, item: { "@type": "Event", name: "Lulus PENS & Intern PT Shelter Indonesia", startDate: "2025" } },
+    { "@type": "ListItem", position: 2, item: { "@type": "Event", name: "Finalist KRTI (Kontes Robot Terbang Indonesia) Nasional", startDate: "2023" } },
+    { "@type": "ListItem", position: 3, item: { "@type": "Event", name: "Eksplorasi Software Development", startDate: "2023" } },
+    { "@type": "ListItem", position: 4, item: { "@type": "Event", name: "Fokus Backend Laravel & ERP", startDate: "2024" } },
+    { "@type": "ListItem", position: 5, item: { "@type": "Event", name: "Lulus PENS & Intern PT Shelter Indonesia", startDate: "2025" } },
   ],
 };
 
