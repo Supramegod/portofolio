@@ -288,7 +288,7 @@ export const Homepage = () => {
 
   // Kolom Statistik Section 2
   const totalProjects = 1;
-  const totalCertificates = 1;
+  const totalCertificates = 5;
   const yearsOfExperience = 1;
 
   // Component Section Portfolio

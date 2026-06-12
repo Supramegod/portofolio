@@ -12,6 +12,38 @@ const certificateItems = (t) => [
     fileUrl: "/docs/sertifikat1.pdf",
     thumbnailUrl: "/images/sertifikat1.jpg",
   },
+  {
+    id: 2,
+    title: t("portfolio.certTitle2"),
+    desc: t("portfolio.certDesc2"),
+    category: "Sertifikat",
+    fileUrl: "/images/sertifikat2.jpg",
+    thumbnailUrl: "/images/sertifikat2.jpg",
+  },
+  {
+    id: 3,
+    title: t("portfolio.certTitle3"),
+    desc: t("portfolio.certDesc3"),
+    category: "Sertifikat",
+    fileUrl: "/images/sertifikat3.jpg",
+    thumbnailUrl: "/images/sertifikat3.jpg",
+  },
+  {
+    id: 4,
+    title: t("portfolio.certTitle4"),
+    desc: t("portfolio.certDesc4"),
+    category: "Sertifikat",
+    fileUrl: "/images/sertifikat4.jpg",
+    thumbnailUrl: "/images/sertifikat4.jpg",
+  },
+  {
+    id: 5,
+    title: t("portfolio.certTitle5"),
+    desc: t("portfolio.certDesc5"),
+    category: "Sertifikat",
+    fileUrl: "/images/sertifikat5.jpg",
+    thumbnailUrl: "/images/sertifikat5.jpg",
+  },
 ];
 
 const staggerContainer = {
