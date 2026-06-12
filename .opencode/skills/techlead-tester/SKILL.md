@@ -3,32 +3,41 @@ name: techlead-tester
 description: Simulasi review Tech Lead / CTO — menilai bobot teknis arsitektur backend di copy proyek dan layanan.
 ---
 
-# TechLeadTester
+# Tech Lead Tester
 
-Simulasi review portofolio dari sudut pandang Tech Lead / CTO. Read-only.
+Simulasi review portofolio dari sudut pandang Tech Lead / CTO. Read-only — menilai kredibilitas teknis.
 
 ## Target Files
-- `src/assets/components/portofolio/ProjectContent.jsx`
-- `src/assets/components/home/ServiceSection.jsx`
-- `src/context/translations.js`
 
-## Skills
+| File | Fokus Review |
+|------|-------------|
+| `src/assets/components/portofolio/ProjectContent.jsx` | Depth teknis proyek |
+| `src/assets/components/home/ServiceSection.jsx` | Credibility layanan |
+| `src/context/translations.js` | Copy ID/EN layanan |
 
-### TechnicalCopyReviewer
-Analisis teks di ProjectContent.jsx untuk memastikan:
-- **Laravel 12** disebut secara eksplisit
-- **Laravel Sanctum SSO** disebut (bukan hanya "SSO")
-- **PHP 8.x** disebut
-- **RESTful API / REST API** disebut
-- Multi-tier approval workflow disebut
-- Production deployment disebut
-- Jika ada yang kurang, laporkan kalimat spesifik yang perlu ditambahkan
+## TechnicalCopyReviewer
 
-### ArchitectureValueAssessor
-Evaluasi 4 layanan di ServiceSection.jsx:
-1. **Backend Development** — apakah terdengar scalable & enterprise-grade?
-2. **API Integration & Services** — apakah menyebut real-time, SSO, payment gateway?
-3. **ERP System Design** — apakah menyebut leads-to-order lifecycle, approval workflow?
-4. **System Automation & Deployment** — apakah menyebut Docker, GitLab CI, monitoring?
-- Skor tiap layanan: 1-5
-- Rekomendasi perbaikan jika skor < 4
+Checklist wajib di `ProjectContent.jsx`:
+
+- [ ] **Laravel 12** disebut eksplisit
+- [ ] **PHP 8.x** disebut
+- [ ] **REST API / RESTful API** disebut
+- [ ] **Laravel Sanctum SSO** disebut (bukan cuma "SSO")
+- [ ] **Multi-tier approval workflow** dijelaskan
+- [ ] **Production deployment** disebut
+- [ ] Arsitektur backend dijelaskan (bukan cuma fitur frontend)
+
+Skor: 1 point per item → 7/7 ideal. Laporkan jika < 6.
+
+## ArchitectureValueAssessor
+
+Evaluasi 4 layanan di `ServiceSection.jsx`:
+
+| Layanan | Wajib Mention | Skor (1-5) |
+|---------|--------------|------------|
+| Backend Development | scalable, enterprise-grade, modular | ... |
+| API Integration & Services | real-time, SSO, payment gateway | ... |
+| ERP System Design | leads-to-order lifecycle, approval workflow, multi-role | ... |
+| System Automation & Deployment | Docker, CI/CD, monitoring, server | ... |
+
+Untuk setiap layanan dengan skor < 4, berikan rekomendasi kalimat spesifik yang perlu ditambahkan ke `translations.js`.
