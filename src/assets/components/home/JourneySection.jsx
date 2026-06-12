@@ -191,13 +191,13 @@ const TimelineItem = ({ milestone, index, isLast }) => {
 
       {/* Mobile: stacked left timeline */}
       <div className="flex md:hidden items-start gap-4 w-full pb-8">
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center self-stretch">
           <div
             className={`z-10 flex h-5 w-5 items-center justify-center rounded-full border-2 backdrop-blur-sm ${milestone.nodeColor} ${milestone.ring} ring-2`}
           >
             <Icon className={`h-2.5 w-2.5 ${milestone.iconColor}`} />
           </div>
-          {!isLast && <div className={`w-0.5 min-h-[100px] flex-1 ${milestone.lineColor}`} />}
+          {!isLast && <div className={`w-0.5 flex-1 ${milestone.lineColor}`} />}
         </div>
         <motion.div className="flex-1" variants={mobileCardVariants}>
           <MilestoneCard milestone={milestone} />
