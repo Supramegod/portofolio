@@ -46,6 +46,36 @@ src/
   assets/css/index.css  — global CSS (just @import "tailwindcss")
 ```
 
+## Available Agents
+
+Gunakan `@agent-name` di prompt untuk memicu agent.
+
+### Marketing Team (10)
+
+| Agent | Role | File |
+|-------|------|------|
+| `@seo-master` | Technical & On-Page SEO | `.opencode/agent/seo-master.md` |
+| `@keyword-strategist` | Keyword research & competitor analysis | `.opencode/agent/keyword-strategist.md` |
+| `@content-writer` | SEO copywriter & blogger | `.opencode/agent/content-writer.md` |
+| `@link-builder` | Backlink & outreach specialist | `.opencode/agent/link-builder.md` |
+| `@social-media-strategist` | Content planner TikTok, IG, LinkedIn | `.opencode/agent/social-media-strategist.md` |
+| `@ad-copywriter` | Google Ads, Meta Ads, TikTok Ads | `.opencode/agent/ad-copywriter.md` |
+| `@conversion-rate-expert` | CRO & UX analyst | `.opencode/agent/conversion-rate-expert.md` |
+| `@analytics-translator` | GA4 & Search Console expert | `.opencode/agent/analytics-translator.md` |
+| `@frontend-seo` | Speed, Core Web Vitals, HTML optimization | `.opencode/agent/frontend-seo.md` |
+| `@project-manager-marketing` | Orchestrator — koordinasi 9 agent di atas | `.opencode/agent/project-manager-marketing.md` |
+
+### Design Team (6)
+
+| Agent | Role | File |
+|-------|------|------|
+| `@design-coordinator` | Orchestrator tim desain | `.opencode/agent/design-coordinator.md` |
+| `@ui-designer` | Layout, tipografi, Tailwind v4, tema synthwave | `.opencode/agent/ui-designer.md` |
+| `@motion-expert` | Framer Motion, Lottie, mikro-interaksi | `.opencode/agent/motion-expert.md` |
+| `@code-viewer` | QA & reviewer JSX, bundle size | `.opencode/agent/code-viewer.md` |
+| `@hrd-tester` | Simulasi review HRD (6 detik scan) | `.opencode/agent/hrd-tester.md` |
+| `@techlead-tester` | Simulasi review Tech Lead / CTO | `.opencode/agent/techlead-tester.md` |
+
 ## Owner
 
 - **Name:** Jalu Pradipta
@@ -67,5 +97,15 @@ src/
 
 - **Certificate PDF path**: `CertificateContent.jsx` references `/docs/sertifikat1.pdf` — if you rename/replace the file, update the path there too.
 - **ESLint**: requires `eslint-plugin-react` to be installed (`npm install eslint-plugin-react --save-dev`).
+
+## SEO Status
+
+- ✅ Google Search Console verified (meta tag)
+- ✅ Sitemap.xml submitted (5 URLs)
+- ✅ robots.txt allows crawling
+- ✅ JSON-LD schemas (Person, Website, SoftwareApplication, FAQPage)
+- ✅ Canonical URLs → `jalupradipta.pages.dev`
+- ✅ OG & Twitter Cards per page (Home, About, Project, 404)
+- ⏳ Waiting for Google indexing (1-2 weeks)
 
 No CI, no pre-commit hooks, no tests.
