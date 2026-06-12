@@ -15,6 +15,7 @@ import { ProjectContent } from "../assets/components/portofolio/ProjectContent";
 import { CertificateContent } from "../assets/components/portofolio/CertificateContent";
 import { TechStackContent } from "../assets/components/portofolio/TechStackContent";
 import { ServiceSection } from "../assets/components/home/ServiceSection";
+import { JourneySection } from "../assets/components/home/JourneySection";
 import { ContactSection } from "../assets/components/home/ContactSection";
 
 // Icons
@@ -467,12 +468,17 @@ export const Homepage = () => {
 
         <hr className="mx-auto w-full max-w-7xl border-t border-[#5E00FF]/30" />
 
-        {/* 4. SERVICE SECTION */}
+        {/* 4. ENGINEERING JOURNEY SECTION */}
+        <JourneySection SectionComponent={Section} />
+
+        <hr className="mx-auto w-full max-w-7xl border-t border-[#5E00FF]/30" />
+
+        {/* 5. SERVICE SECTION */}
         <ServiceSection SectionComponent={Section} />
 
         <hr className="mx-auto w-full max-w-7xl border-t border-[#5E00FF]/30" />
 
-        {/* 5. PORTFOLIO SECTION */}
+        {/* 6. PORTFOLIO SECTION */}
         <Section id="portfolio">
           <div className="w-full max-w-7xl pt-0 text-center lg:pt-10">
             <motion.div
@@ -556,7 +562,7 @@ export const Homepage = () => {
 
         <hr className="mx-auto w-full max-w-7xl border-t border-[#5E00FF]/30" />
 
-        {/* 6. CONTACT SECTION */}
+        {/* 7. CONTACT SECTION */}
         <ContactSection SectionComponent={Section} />
       </main>
 
