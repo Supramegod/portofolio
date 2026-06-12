@@ -25,7 +25,7 @@ const socialLinks = [
     href: "https://www.instagram.com/jluppradipta_728/",
     label: "Instagram",
   },
-  { icon: FaWhatsapp, href: "https://wa.me/+6281937385652", label: "WhatsApp" },
+  { icon: FaWhatsapp, href: "https://wa.me/+6282131575147", label: "WhatsApp" },
   { icon: SiGmail, href: "mailto:jluppradipta@gmail.com", label: "Email" },
 ];
 
@@ -141,7 +141,7 @@ export const HeroSection = ({ handleSmoothScroll }) => {
                 </motion.a>
               ))}
             </motion.div>
-            {/* Mobile animation — visible only on mobile */}
+            {/* Mobile animation ï¿½ visible only on mobile */}
             <motion.div
               className="mt-8 flex w-full items-center justify-center lg:hidden"
               variants={fadeInLeft}

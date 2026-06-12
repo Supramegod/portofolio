@@ -66,7 +66,7 @@ const faqSchema = {
       name: "Bagaimana cara menghubungi Jalu Pradipta?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Jalu dapat dihubungi melalui email di jluppradipta@gmail.com, LinkedIn di jalupradipta, atau WhatsApp di +62 819-3738-5652.",
+        text: "Jalu dapat dihubungi melalui email di jluppradipta@gmail.com, LinkedIn di jalupradipta, atau WhatsApp di +62 821-3157-5147.",
       },
     },
   ],

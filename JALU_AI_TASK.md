@@ -33,7 +33,7 @@ Patuhi aturan teknis di `AGENTS.md` (port 3000, Tailwind v4, Material Tailwind, 
 - Email: jluppradipta@gmail.com
 - LinkedIn:jalupradipta 
 - GitHub: supramegod 
-- WhatsApp: +62 819-3738-5652
+- WhatsApp: +62 821-3157-5147
 - Instagram: jluppradipta_728
 
 **Proyek Unggulan (wajib ditampilkan di tab Projects):**  

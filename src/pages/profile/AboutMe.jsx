@@ -195,7 +195,7 @@ export const AboutMe = () => {
                 </p>
                 <p className="flex justify-between border-b border-gray-700 pb-2">
                   <span className="font-medium text-cyan-400">Telepon:</span>
-                  <span className="text-right">+62 819-3738-5652</span>
+                  <span className="text-right">+62 821-3157-5147</span>
                 </p>
                 <p className="flex justify-between">
                   <span className="font-medium text-cyan-400">Lokasi:</span>

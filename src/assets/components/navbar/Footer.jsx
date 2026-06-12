@@ -36,7 +36,7 @@ export const Footer = () => {
               <FaLinkedin />
             </a>
             <a
-              href="https://wa.me/+6281937385652"
+              href="https://wa.me/+6282131575147"
               target="_blank"
               rel="noopener noreferrer"
               className="text-lg text-[#B388FF]/70 transition duration-200 hover:scale-150 hover:text-[#00FFB1] sm:text-2xl"

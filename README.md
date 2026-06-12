@@ -322,7 +322,7 @@ npx prettier --write .
 | **LinkedIn** | [jalupradipta](https://www.linkedin.com/in/jalupradipta/) |
 | **GitHub** | [supramegod](https://github.com/supramegod) |
 | **Instagram** | [jluppradipta_728](https://www.instagram.com/jluppradipta_728/) |
-| **WhatsApp** | [+62 819-3738-5652](https://wa.me/+6281937385652) |
+| **WhatsApp** | [+62 821-3157-5147](https://wa.me/+6282131575147) |
 
 ---
 

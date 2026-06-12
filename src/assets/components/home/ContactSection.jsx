@@ -14,7 +14,7 @@ import { BiLogoGmail } from "react-icons/bi";
 
 const contactInfo = [
   { icon: BiLogoGmail, label: "Email", value: "jluppradipta@gmail.com" },
-  { icon: FaPhoneAlt, label: "No Telepon", value: "+62 819-3738-5652" },
+  { icon: FaPhoneAlt, label: "No Telepon", value: "+62 821-3157-5147" },
   { icon: FaGithub, label: "GitHub", value: "supramegod" },
   { icon: FaLinkedin, label: "LinkedIn", value: "jalupradipta" },
   { icon: FaInstagram, label: "Instagram", value: "jluppradipta_728" },
@@ -113,7 +113,7 @@ export const ContactSection = ({ SectionComponent }) => {
               <div className="absolute inset-0 h-full w-full animate-ping rounded-full border border-[#E500FF]/30 opacity-40" />
               <div className="absolute inset-0 h-full w-full rounded-full border-4 border-[#E500FF]/50 bg-[#1A0033]/50 shadow-2xl shadow-[#E500FF]/15 backdrop-blur-md" />
               <a
-                href="https://wa.me/+6281937385652"
+                href="https://wa.me/+6282131575147"
                 title="Hubungi Saya"
                 className="relative z-10"
               >
