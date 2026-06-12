@@ -141,11 +141,34 @@ export const HeroSection = ({ handleSmoothScroll }) => {
                 </motion.a>
               ))}
             </motion.div>
+            {/* Mobile animation — visible only on mobile */}
+            <motion.div
+              className="mt-8 flex w-full items-center justify-center lg:hidden"
+              variants={fadeInLeft}
+              initial="hidden"
+              animate="visible"
+            >
+              <div className="relative w-full max-w-[220px] border border-[#2F006F] bg-[#1A0033]/60 p-3 backdrop-blur-sm sm:max-w-[280px] sm:p-4 lg:max-w-[400px]">
+                <div className="absolute -left-px -top-px h-3 w-3 border-l-2 border-t-2 border-[#00FFB1]/50 lg:h-4 lg:w-4" />
+                <div className="absolute -right-px -top-px h-3 w-3 border-r-2 border-t-2 border-[#E500FF]/50 lg:h-4 lg:w-4" />
+                <div className="absolute -bottom-px -left-px h-3 w-3 border-b-2 border-l-2 border-[#E500FF]/50 lg:h-4 lg:w-4" />
+                <div className="absolute -bottom-px -right-px h-3 w-3 border-b-2 border-r-2 border-[#00FFB1]/50 lg:h-4 lg:w-4" />
+
+                <div className="flex items-center justify-center opacity-60 transition duration-300 hover:opacity-100 lg:aspect-square">
+                  <Lottie
+                    animationData={webDeveloperAnimation}
+                    loop={true}
+                    autoplay={true}
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+              </div>
+            </motion.div>
           </motion.div>
 
           {/* KOLOM KANAN â€” 40% */}
           <motion.div
-            className="flex w-full items-center justify-center lg:w-2/5"
+            className="hidden lg:flex w-full items-center justify-center lg:w-2/5"
             variants={fadeInRight}
             initial="hidden"
             animate="visible"
