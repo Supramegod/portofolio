@@ -23,13 +23,23 @@ const staggerContainerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { delayChildren: 0.15, staggerChildren: 0.15 },
+    transition: { delayChildren: 0.15, staggerChildren: 0.2 },
   },
 };
 
-const itemVariants = {
-  hidden: { opacity: 0, x: -50 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.6 } },
+const leftCardVariants = {
+  hidden: { opacity: 0, x: -80 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
+
+const rightCardVariants = {
+  hidden: { opacity: 0, x: 80 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
+
+const mobileCardVariants = {
+  hidden: { opacity: 0, x: -40 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 
 const getMilestones = (t) => [
@@ -107,55 +117,95 @@ const getMilestones = (t) => [
   },
 ];
 
-const TimelineNode = ({ milestone, index, isLast, variants }) => (
-  <motion.div
-    className="relative flex gap-6"
-    variants={variants}
-  >
-    <div className="flex flex-col items-center">
-      <div
-        className={`z-10 flex h-12 w-12 items-center justify-center rounded-full border-2 backdrop-blur-sm ${milestone.nodeColor} ${milestone.ring} ring-2`}
-      >
-        <milestone.icon className={`h-5 w-5 ${milestone.iconColor}`} />
-      </div>
-      {!isLast && (
-        <div className={`mt-1 h-full w-0.5 ${milestone.lineColor}`} />
-      )}
-    </div>
-
-    <div className="flex-1 pb-12">
-      <div
-        className={`relative overflow-hidden rounded-xl border border-[#5E00FF]/40 bg-[#2F006F]/20 p-5 backdrop-blur-md transition-all duration-500 hover:scale-[1.02] hover:border-[#00FFB1]/20 hover:shadow-lg hover:shadow-[#00FFB1]/10`}
-      >
-        <div
-          className={`absolute inset-0 bg-gradient-to-br ${milestone.gradient} opacity-20 blur-xl`}
-        />
-
-        <div className="relative z-10">
-          <span className="mb-1 inline-block text-sm font-bold tracking-wider text-[#B388FF]/70">
-            {milestone.year}
+const MilestoneCard = ({ milestone }) => (
+  <div className="relative overflow-hidden rounded-xl border border-[#5E00FF]/40 bg-[#2F006F]/20 p-5 backdrop-blur-md transition-all duration-500 hover:scale-[1.02] hover:border-[#00FFB1]/20 hover:shadow-lg hover:shadow-[#00FFB1]/10">
+      <div className={`absolute inset-0 bg-gradient-to-br ${milestone.gradient} opacity-20 blur-xl`} />
+    <div className="relative z-10">
+      <span className="mb-1 inline-block text-sm font-bold tracking-wider text-[#B388FF]/70">
+        {milestone.year}
+      </span>
+      <h3 className="mb-2 text-lg font-bold text-[#F8F9FA]">
+        {milestone.title}
+      </h3>
+      <p className="mb-3 text-sm leading-relaxed text-[#B0BEC5]">
+        {milestone.desc}
+      </p>
+      <div className="flex flex-wrap gap-2">
+        {milestone.tags.map((tag, i) => (
+          <span
+            key={i}
+            className="rounded-full border border-[#00FFB1]/20 bg-[#00FFB1]/5 px-2.5 py-0.5 text-[10px] font-medium text-[#00FFB1]/80"
+          >
+            {tag}
           </span>
-          <h3 className="mb-2 text-lg font-bold text-[#F8F9FA]">
-            {milestone.title}
-          </h3>
-          <p className="mb-3 text-sm leading-relaxed text-[#B0BEC5]">
-            {milestone.desc}
-          </p>
-          <div className="flex flex-wrap gap-2">
-            {milestone.tags.map((tag, i) => (
-              <span
-                key={i}
-                className="rounded-full border border-[#00FFB1]/20 bg-[#00FFB1]/5 px-2.5 py-0.5 text-[10px] font-medium text-[#00FFB1]/80"
-              >
-                {tag}
-              </span>
-            ))}
+        ))}
+      </div>
+    </div>
+  </div>
+);
+
+const TimelineItem = ({ milestone, index, isLast }) => {
+  const isLeft = index % 2 === 0;
+  const Icon = milestone.icon;
+  const cardVariants = isLeft ? leftCardVariants : rightCardVariants;
+
+  return (
+    <div className="flex items-stretch w-full">
+      {/* Desktop: alternating left-right */}
+      <div className="hidden md:flex w-full items-stretch">
+        {/* Left panel */}
+        <div className="w-[calc(50%-12px)]">
+          {isLeft && (
+            <motion.div className="h-full" variants={cardVariants}>
+              <MilestoneCard milestone={milestone} />
+            </motion.div>
+          )}
+        </div>
+
+        {/* Center panel: node + pipe */}
+        <div className="flex flex-col items-center shrink-0 w-6">
+          <div className="relative flex items-center justify-center w-full h-5 shrink-0">
+            <div
+              className={`absolute top-1/2 -translate-y-1/2 h-0.5 w-4 ${
+                isLeft ? "right-1/2" : "left-1/2"
+              } ${milestone.lineColor}`}
+            />
+            <div
+              className={`z-10 flex h-5 w-5 items-center justify-center rounded-full border-2 backdrop-blur-sm ${milestone.nodeColor} ${milestone.ring} ring-2`}
+            >
+              <Icon className={`h-2.5 w-2.5 ${milestone.iconColor}`} />
+            </div>
           </div>
+          {!isLast && <div className={`w-0.5 flex-1 ${milestone.lineColor}`} />}
+        </div>
+
+        {/* Right panel */}
+        <div className="w-[calc(50%-12px)]">
+          {!isLeft && (
+            <motion.div className="h-full" variants={cardVariants}>
+              <MilestoneCard milestone={milestone} />
+            </motion.div>
+          )}
         </div>
       </div>
+
+      {/* Mobile: stacked left timeline */}
+      <div className="flex md:hidden items-start gap-4 w-full pb-8">
+        <div className="flex flex-col items-center">
+          <div
+            className={`z-10 flex h-5 w-5 items-center justify-center rounded-full border-2 backdrop-blur-sm ${milestone.nodeColor} ${milestone.ring} ring-2`}
+          >
+            <Icon className={`h-2.5 w-2.5 ${milestone.iconColor}`} />
+          </div>
+          {!isLast && <div className={`w-0.5 min-h-[100px] flex-1 ${milestone.lineColor}`} />}
+        </div>
+        <motion.div className="flex-1" variants={mobileCardVariants}>
+          <MilestoneCard milestone={milestone} />
+        </motion.div>
+      </div>
     </div>
-  </motion.div>
-);
+  );
+};
 
 export const JourneySection = ({ SectionComponent }) => {
   const { t } = useLanguage();
@@ -185,19 +235,18 @@ export const JourneySection = ({ SectionComponent }) => {
         </motion.div>
 
         <motion.div
-          className="mx-auto max-w-2xl"
+          className="relative mx-auto"
           variants={staggerContainerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
         >
           {data.map((milestone, index) => (
-            <TimelineNode
+            <TimelineItem
               key={index}
               milestone={milestone}
               index={index}
               isLast={index === data.length - 1}
-              variants={itemVariants}
             />
           ))}
         </motion.div>

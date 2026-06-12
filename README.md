@@ -1,143 +1,350 @@
-# Portofolio Jalu Pradipta
+﻿# Portofolio Jalu Pradipta
 
-Website portofolio pribadi — Backend Developer Laravel 12 & ERP Specialist.
+[![Live Site](https://img.shields.io/badge/Live-jalupradipta.pages.dev-00E5FF?style=flat-square)](https://jalupradipta.pages.dev)
+[![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react)](https://react.dev)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-06B6D4?style=flat-square&logo=tailwindcss)](https://tailwindcss.com)
+[![Framer Motion](https://img.shields.io/badge/Framer_Motion-12-0055FF?style=flat-square&logo=framer)](https://www.framer.com/motion/)
+[![Cloudflare Pages](https://img.shields.io/badge/Cloudflare_Pages-F38020?style=flat-square&logo=cloudflare)](https://pages.cloudflare.com)
 
-**Live:** https://jalupradipta.pages.dev
+**Website portofolio pribadi -- Backend Developer Laravel 12 & ERP Specialist.**  
+Dibangun dengan tema **Cyber-Synthwave Tokyo Underground** -- dark purple dengan aksen neon cyber-teal & magenta.
 
-**Tech Stack:** React 18 + Vite 7 + Tailwind CSS v4 + @material-tailwind/react + Framer Motion + Lottie
+**Live:** [jalupradipta.pages.dev](https://jalupradipta.pages.dev)
 
 ---
 
-## 🚀 Memulai
+## Daftar Isi
+
+- [Tech Stack](#tech-stack)
+- [Fitur Website](#fitur-website)
+- [Multi-Agent System](#multi-agent-system)
+- [Struktur Folder](#struktur-folder)
+- [Rute](#rute)
+- [Proyek Unggulan](#proyek-unggulan)
+- [Cara Menjalankan](#cara-menjalankan)
+- [Deployment](#deployment)
+- [SEO Status](#seo-status)
+- [Tentang Pemilik](#tentang-pemilik)
+- [TODO](#todo)
+
+---
+
+## Tech Stack
+
+| Kategori | Teknologi |
+|----------|-----------|
+| **Framework** | React 18, Vite 7 |
+| **UI & Styling** | Tailwind CSS v4, @material-tailwind/react, PostCSS |
+| **Animasi** | Framer Motion, Lottie (lottie-react) |
+| **Routing** | React Router DOM v7 |
+| **SEO** | react-helmet-async, JSON-LD structured data |
+| **Icons** | react-icons |
+| **Responsive** | react-responsive |
+| **Skeleton** | react-loading-skeleton |
+| **Linting & Formatting** | ESLint 9, Prettier 3, prettier-plugin-tailwindcss |
+| **Deployment** | Cloudflare Pages (auto-deploy dari GitHub) |
+
+---
+
+## Fitur Website
+
+- **Theme Cyber-Synthwave Tokyo Underground** -- Dark purple (#2F006F) dengan neon cyber-teal & magenta accents
+- **Intro Overlay** -- Animasi typewriter + badge saat kunjungan pertama
+- **Hero** -- Split layout 60/40, HUD border, Lottie animation, sosial link
+- **About** -- Bio, foto profil, statistik, skills, experience, education
+- **Services** -- 4 kartu layanan glassmorphism (Backend, API, ERP, Deployment)
+- **Portfolio Tabs** -- Projects, Certificates, Tech Stack
+- **Contact** -- 6 info kontak + tombol WhatsApp
+- **SEO** -- react-helmet-async, meta/OG/Twitter tags per halaman, canonical URLs, robots.txt, sitemap.xml
+- **JSON-LD Structured Data** -- Person, Website, SoftwareApplication, FAQPage schemas
+- **Google Search Console** -- Terverifikasi (meta tag)
+- **Bilingual (ID/EN)** -- Toggle bahasa via React Context (100+ key-value pairs)
+- **Animasi** -- Framer Motion (scroll, stagger, hover) + Lottie JSON animations
+- **Aksesibilitas** -- Semantic HTML, ARIA labels, focus management
+
+---
+
+## Multi-Agent System
+
+Project ini menggunakan **AI Multi-Agent System** berbasis [OpenCode](https://opencode.ai) dengan 3 tim yang saling terkoordinasi untuk pengembangan, optimasi, dan deployment.
+
+### Struktur Tim
+
+```
+                     +-------------+
+                     |   @ceo      |  Eksekutif -- pemecah goal strategis
+                     +------+------+
+                            |
+            +---------------+---------------+
+            |               |               |
+            v               v               v
+   +----------------+ +----------+ +--------------+
+   | @design-       | | @project-| | @devops-     |
+   | coordinator    | | manager- | | coordinator  |
+   |                | | marketing| |              |
+   +-------+--------+ +----+-----+ +------+-------+
+           |               |              |
+           v               v              v
+   +------------+    +----------+   +--------------+
+   | ui-designer|    | seo-master|   | cloudflare   |
+   | motion-    |    | keyword-  |   | specialist   |
+   |   expert   |    | strategist|   |              |
+   | code-      |    | content-  |   |              |
+   |   viewer   |    | writer    |   |              |
+   | hrd-       |    | link-     |   |              |
+   |   tester   |    | builder   |   |              |
+   | techlead-  |    | social-   |   |              |
+   |   tester   |    | media-    |   |              |
+   |            |    | strategist|   |              |
+   |            |    | ad-       |   |              |
+   |            |    | copywriter|   |              |
+   |            |    | conversion|   |              |
+   |            |    | rate-     |   |              |
+   |            |    | expert    |   |              |
+   |            |    | analytics-|   |              |
+   |            |    | translator|   |              |
+   |            |    | frontend- |   |              |
+   |            |    | seo       |   |              |
+   +------------+    +----------+   +--------------+
+```
+
+### Tim Desain (Design Team)
+| Agent | Role |
+|-------|------|
+| **@design-coordinator** | Technical Lead -- mengoordinasi seluruh agent desain, menyetujui strategi implementasi |
+| **@ui-designer** | Layout, Tailwind CSS v4, tipografi, responsive design, design system |
+| **@motion-expert** | Framer Motion, Lottie animation, hover effects, scroll animations, micro interactions |
+| **@code-viewer** | React 18 audit, JSX review, accessibility, bundle size, code quality |
+| **@hrd-tester** | Simulasi screening HRD -- first impression, portfolio presentation |
+| **@techlead-tester** | Simulasi review CTO -- arsitektur, maintainability |
+
+### Tim Marketing (Marketing Team)
+| Agent | Role |
+|-------|------|
+| **@project-manager-marketing** | Orchestrator -- mengoordinasi seluruh agent marketing |
+| **@seo-master** | Technical SEO specialist |
+| **@keyword-strategist** | Keyword research & competitor analysis |
+| **@content-writer** | SEO copywriting & blog articles |
+| **@link-builder** | Backlink strategy & outreach |
+| **@social-media-strategist** | Social media content planning |
+| **@ad-copywriter** | High-conversion ad copy (Google, Meta, TikTok) |
+| **@conversion-rate-expert** | CRO & UX optimization |
+| **@analytics-translator** | GA4 & Search Console data analyst |
+| **@frontend-seo** | Core Web Vitals & frontend performance |
+
+### Tim DevOps (DevOps Team)
+| Agent | Role |
+|-------|------|
+| **@devops-coordinator** | Infrastructure Orchestrator -- mengelola deployment pipeline |
+| **@cloudflare-specialist** | Cloudflare Workers, Pages, DNS, SSL, CI/CD |
+
+### Alur Kerja
+1. **@ceo** menerima visi dari user, memecah goal menjadi task
+2. Task didelegasikan ke **@design-coordinator**, **@project-manager-marketing**, atau **@devops-coordinator**
+3. Masing-masing koordinator memicu agent spesialis sesuai kebutuhan
+4. Hasil direview dan digabungkan oleh koordinator masing-masing
+5. **@ceo** melaporkan ringkasan eksekutif ke user
+
+---
+
+## Struktur Folder
+
+```
+portofolio/
++-- src/                          # Source code utama
+|   +-- main.jsx                  # Entrypoint (HelmetProvider + LanguageProvider)
+|   +-- index.html                # Root HTML (Google verification meta tag)
+|   +-- routes/
+|   |   +-- App.jsx               # Router (/, /about-me, /project/:id, *)
+|   +-- context/
+|   |   +-- LanguageContext.jsx    # ID/EN toggle + useLanguage hook
+|   |   +-- translations.js       # 100+ key-value pairs (id & en)
+|   +-- pages/
+|   |   +-- Homepage.jsx          # Halaman utama (Hero, About, Services, Portfolio, Contact)
+|   |   +-- profile/
+|   |   |   +-- AboutMe.jsx       # Halaman tentang saya
+|   |   +-- portofolio/
+|   |   |   +-- Portofolio.jsx    # Detail proyek
+|   |   +-- errors/
+|   |       +-- Error404.jsx      # Halaman 404
+|   +-- assets/
+|       +-- css/
+|       |   +-- index.css         # @import "tailwindcss"
+|       +-- img/                  # Foto profil
+|       +-- animation/            # Lottie JSON animations
+|       +-- components/
+|           +-- navbar/
+|           |   +-- Navbar.jsx    # Navigasi + language toggle
+|           |   +-- Footer.jsx    # Footer
+|           +-- home/
+|           |   +-- HeroSection.jsx     # Hero + Lottie + sosial
+|           |   +-- IntroOverlay.jsx    # Overlay kunjungan pertama
+|           |   +-- ServiceSection.jsx  # 4 layanan
+|           |   +-- ContactSection.jsx  # 6 kontak
+|           +-- portofolio/
+|           |   +-- ProjectContent.jsx       # Proyek (CAIS ERP + placeholder)
+|           |   +-- CertificateContent.jsx   # Sertifikat (PDF viewer)
+|           |   +-- TechStackContent.jsx     # Tech stack
+|           +-- seo/                      # Per-page SEO components
+|               +-- HomeSEO.jsx
+|               +-- AboutSEO.jsx
+|               +-- ProjectSEO.jsx
+|               +-- NotFoundSEO.jsx
+|
++-- public/                       # Aset statis
+|   +-- docs/                     # PDF (sertifikat, dll)
+|   +-- images/                   # Thumbnail proyek + OG images
+|   +-- robots.txt                # SEO -- izinkan crawling
+|   +-- sitemap.xml               # SEO -- 5 URLs
+|   +-- _redirects                # SPA fallback rewrite
+|
++-- .opencode/                    # Konfigurasi AI Multi-Agent
+|   +-- opencode.json             # Registrasi agent & permissions
+|   +-- agent/                    # Definisi 19 agent (19 file .md)
+|   +-- skills/                   # 28 skill spesifik (AIDA, SEO, CRO, dll)
+|   +-- AGENTS.md                 # Matriks otoritas & workflow
+|
++-- package.json                  # Dependencies & scripts
++-- vite.config.js                # Konfigurasi Vite 7
++-- eslint.config.js              # Konfigurasi ESLint 9
++-- prettier.config.js            # Konfigurasi Prettier
++-- tailwind.config.js            # Konfigurasi Tailwind
++-- vercel.json                   # (Opsional) Konfigurasi Vercel
++-- .gitignore
++-- AGENTS.md                     # Multi-agent system documentation
+```
+
+---
+
+## Rute
+
+| Rute | Halaman | SEO Component |
+|------|---------|---------------|
+| `/` | Homepage (Hero, About, Services, Portfolio, Contact) | HomeSEO |
+| `/about-me` | Halaman profil detail | AboutSEO |
+| `/project/:id` | Detail proyek (id=1: CAIS ERP) | ProjectSEO |
+| `*` | 404 Not Found | NotFoundSEO |
+
+---
+
+## Proyek Unggulan
+
+**CAIS ERP System** -- ERP Laravel 12 dengan modul Leads, Quotation, SPK, PKS, custom SSO (Laravel Sanctum), dashboard approval & sales activity.
+
+> Lihat README khusus: [`CAIS_README.md`](./CAIS_README.md)
+
+---
+
+## Cara Menjalankan
+
+### Prasyarat
+- Node.js 18+
+- npm 9+
+
+### Instalasi & Development
 
 ```bash
+# Clone repository
+git clone https://github.com/supramegod/portofolio.git
+cd portofolio
+
+# Install dependencies
 npm install
-npm run dev        # http://localhost:3000
-npm run build      # Build produksi
-npm run preview    # Preview build
-npm run lint       # ESLint
-npx prettier --write .   # Format semua file
+
+# Jalankan dev server (http://localhost:3000)
+npm run dev
+
+# Build produksi
+npm run build
+
+# Preview hasil build
+npm run preview
+
+# Linting
+npm run lint
+
+# Format semua file dengan Prettier
+npx prettier --write .
 ```
 
 ---
 
-## 📁 Struktur Project
+## Deployment
 
-```
-src/
-├── main.jsx                                    # Entrypoint (HelmetProvider + LanguageProvider)
-├── index.html                                  # Root HTML (Google verification meta tag)
-├── routes/App.jsx                              # Router (/, /about-me, /project/:id, *)
-├── context/
-│   ├── LanguageContext.jsx                     # ID/EN toggle + useLanguage hook
-│   └── translations.js                        # 100+ key-value pairs (id & en)
-├── pages/
-│   ├── Homepage.jsx                            # Halaman utama
-│   ├── profile/AboutMe.jsx                     # Halaman tentang saya
-│   ├── portofolio/Portofolio.jsx               # Detail proyek
-│   └── errors/Error404.jsx                     # Halaman 404
-└── assets/
-    ├── css/index.css                           # @import "tailwindcss"
-    ├── img/                                    # Foto profil
-    ├── animation/                              # Lottie JSON animations
-    └── components/
-        ├── navbar/Navbar.jsx                   # Navigasi + language toggle
-        ├── navbar/Footer.jsx                   # Footer
-        ├── home/HeroSection.jsx                # Hero + Lottie + sosial
-        ├── home/IntroOverlay.jsx               # Overlay kunjungan pertama
-        ├── home/ServiceSection.jsx              # 4 layanan
-        ├── home/ContactSection.jsx              # 6 kontak
-        ├── portofolio/ProjectContent.jsx       # Proyek (CAIS ERP + placeholder)
-        ├── portofolio/CertificateContent.jsx   # Sertifikat (PDF viewer)
-        ├── portofolio/TechStackContent.jsx     # Tech stack
-        └── seo/                                # Per-page SEO (HomeSEO, AboutSEO, ProjectSEO, NotFoundSEO)
-public/
-├── docs/                                       # PDF
-├── images/                                     # Thumbnail proyek + OG images
-├── robots.txt                                  # SEO
-├── sitemap.xml                                 # SEO
-└── _redirects                                  # SPA fallback rewrite
-```
+**Cloudflare Pages** -- Auto-deploy dari GitHub repository.
+
+- Setiap push ke branch `main` otomatis memicu build & deploy
+- File `public/_redirects` me-rewrite semua rute ke `/index.html` (SPA fallback)
+- Domain kustom: **jalupradipta.pages.dev**
+
+### Konfigurasi Build di Cloudflare Pages
+| Setting | Value |
+|---------|-------|
+| **Build command** | `npm run build` |
+| **Build output** | `dist/` |
+| **Root directory** | `/` |
 
 ---
 
-## 🧭 Rute
+## SEO Status
 
-| Rute | Halaman |
-|------|---------|
-| `/` | Homepage (Hero, About, Services, Portfolio, Contact) |
-| `/about-me` | Halaman profil detail |
-| `/project/:id` | Detail proyek (1 = CAIS ERP) |
-| `*` | 404 |
+- Google Search Console terverifikasi (meta tag)
+- Sitemap.xml terdaftar (5 URLs)
+- robots.txt mengizinkan crawling
+- JSON-LD structured data (Person, Website, SoftwareApplication, FAQPage)
+- Canonical URLs ke `jalupradipta.pages.dev`
+- OG & Twitter Cards per halaman
+- Semantic HTML & heading hierarchy
+- react-helmet-async untuk per-page meta tags
+- Menunggu indexing Google (1-2 minggu)
 
 ---
 
-## 👤 Tentang Pemilik
+## Tentang Pemilik
 
 **Jalu Pradipta**
-- D3 Teknik Telekomunikasi (PENS)
-- Backend Developer — CAIS ERP (Laravel 12)
+- D3 Teknik Telekomunikasi -- PENS (Politeknik Elektronika Negeri Surabaya)
+- Backend Developer -- CAIS ERP (Laravel 12)
 - Minat: Teknologi, desain sistem, otomatisasi cerdas, integrasi hardware-software
 
 ### Skill Utama
-- **Backend:** Laravel 12, PHP 8.x, REST API, Laravel Sanctum (SSO)
-- **Database:** MySQL
-- **System:** ERP Design, Dashboard & Data Visualization, Production Deployment
-- **Tools:** Git, Docker, Postman, Composer
+| Kategori | Teknologi |
+|----------|-----------|
+| **Backend** | Laravel 12, PHP 8.x, REST API, Laravel Sanctum (SSO) |
+| **Database** | MySQL |
+| **System** | ERP Design, Dashboard & Data Visualization, Production Deployment |
+| **Tools** | Git, Docker, Postman, Composer |
 
 ### Sosial & Kontak
-- **Email:** jluppradipta@gmail.com
-- **LinkedIn:** [jalupradipta](https://www.linkedin.com/in/jalupradipta/)
-- **GitHub:** [supramegod](https://github.com/supramegod)
-- **Instagram:** [jluppradipta_728](https://www.instagram.com/jluppradipta_728/)
-- **WhatsApp:** [+62 819-3738-5652](https://wa.me/+6281937385652)
+| Platform | Link |
+|----------|------|
+| **Email** | [jluppradipta@gmail.com](mailto:jluppradipta@gmail.com) |
+| **LinkedIn** | [jalupradipta](https://www.linkedin.com/in/jalupradipta/) |
+| **GitHub** | [supramegod](https://github.com/supramegod) |
+| **Instagram** | [jluppradipta_728](https://www.instagram.com/jluppradipta_728/) |
+| **WhatsApp** | [+62 819-3738-5652](https://wa.me/+6281937385652) |
 
 ---
 
-## 🛠️ Fitur Website
-
-- **Theme Cyber-Synthwave Tokyo Underground** — Dark purple (#2F006F) with neon cyber-teal & magenta accents
-- **Intro Overlay** — Animasi typewriter + badge saat kunjungan pertama
-- **Hero** — Split layout 60/40, HUD border, Lottie animation, sosial link
-- **About** — Bio, foto profil, statistik, skills, experience, education
-- **Services** — 4 kartu layanan glassmorphism (Backend, API, ERP, Deployment)
-- **Portfolio Tabs** — Projects, Certificates, Tech Stack
-- **Contact** — 6 info kontak + tombol WhatsApp
-- **SEO** — react-helmet-async, meta/OG/Twitter tags per halaman, canonical URLs, robots.txt, sitemap.xml
-- **JSON-LD Structured Data** — Person, Website, SoftwareApplication, FAQPage schemas
-- **Google Search Console** — Terverifikasi (meta tag)
-- **Bilingual** — ID/EN toggle via React Context
-- **Animasi** — Framer Motion + Lottie
-
----
-
-## 🎯 Proyek Unggulan
-
-**CAIS ERP System** — ERP Laravel 12 dengan modul Leads, Quotation, SPK, PKS, custom SSO (Laravel Sanctum), dashboard approval & sales activity.
-
----
-
-## 🌐 Deployment
-
-**Cloudflare Pages** (auto-deploy dari GitHub) — `public/_redirects` me-rewrite semua rute ke `/index.html` (SPA fallback).
-
-### SEO Status
-- ✅ Google Search Console terverifikasi (meta tag)
-- ✅ Sitemap.xml terdaftar (5 URLs)
-- ✅ robots.txt mengizinkan crawling
-- ✅ JSON-LD schemas (Person, Website, SoftwareApplication, FAQPage)
-- ✅ Canonical URLs → `jalupradipta.pages.dev`
-- ✅ OG & Twitter Cards per halaman
-- ⏳ Menunggu indexing Google (1-2 minggu)
-
----
-
-## 📋 TODO
+## TODO
 
 - [ ] Kompres foto (`Profile.jpg` 1.4MB, `Foto.jpg` 2.3MB)
-- [ ] Optimasi bundle JS (939 kB → code-split)
+- [ ] Optimasi bundle JS (939 kB -- code-split)
 - [ ] Tambah lebih banyak entri sertifikat & artikel
 - [ ] Beli domain custom (`jalupradipta.com`)
 - [ ] Setup Google Analytics
 - [ ] Tambah halaman blog/artikel
 - [ ] Register backlink dari LinkedIn, GitHub, dsb.
+
+---
+
+## Lisensi
+
+Hak cipta (c) 2026 **Jalu Pradipta**. Seluruh hak cipta dilindungi.
+
+Project ini bersifat pribadi -- tidak untuk didistribusikan atau digunakan tanpa izin pemilik.
+
+---
+
+> Dibuat dengan menggunakan React 18 + Tailwind CSS v4 + Framer Motion + OpenCode AI Agents  
+> [jalupradipta.pages.dev](https://jalupradipta.pages.dev)

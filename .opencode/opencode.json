@@ -47,6 +47,12 @@
       "mode": "subagent",
       "permission": { "edit": "allow", "bash": "allow", "read": "allow", "glob": "allow" }
     },
+    "ceo": {
+      "description": "Top-level orchestrator — memecah goals strategis ke @design-coordinator & @project-manager-marketing. Kasta tertinggi tim.",
+      "mode": "subagent",
+      "permission": { "edit": "deny", "bash": "ask", "task": "allow", "read": "allow", "glob": "allow" }
+    },
+
     "project-manager-marketing": {
       "description": "Orchestrator & team leader — coordinates the 9 specialist agents so campaigns run in sync.",
       "mode": "subagent",
@@ -80,6 +86,17 @@
     },
     "techlead-tester": {
       "description": "Simulasi review Tech Lead / CTO — menilai bobot teknis arsitektur backend di copy proyek dan layanan.",
+      "mode": "subagent",
+      "permission": { "edit": "deny", "bash": "ask", "read": "allow", "glob": "allow" }
+    },
+
+    "devops-coordinator": {
+      "description": "Infrastructure Orchestrator & Deployment Coordinator — manage Cloudflare deployment, approve infrastructure changes.",
+      "mode": "subagent",
+      "permission": { "edit": "deny", "bash": "ask", "task": "allow", "read": "allow", "glob": "allow" }
+    },
+    "cloudflare-specialist": {
+      "description": "Cloudflare Workers & Pages deployment specialist — Wrangler, DNS, SSL, CI/CD, edge optimization.",
       "mode": "subagent",
       "permission": { "edit": "deny", "bash": "ask", "read": "allow", "glob": "allow" }
     }

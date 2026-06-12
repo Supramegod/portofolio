@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { FiExternalLink, FiGithub } from "react-icons/fi";
 import { useLanguage } from "../../../context/LanguageContext";
 
@@ -205,13 +206,13 @@ export const ProjectContent = () => {
                 {item.desc}
               </p>
               <div className="flex items-center justify-end text-sm">
-                <a
-                  href={`/project/${item.id}`}
+                <Link
+                  to={`/project/${item.id}`}
                   className="flex items-center font-medium text-[#00FFB1] transition duration-300 hover:text-[#00FFB1]/80"
                 >
                   {t("portfolio.detail")}{" "}
                   <FiExternalLink className="ml-1 h-3 w-3" />
-                </a>
+                </Link>
               </div>
             </motion.div>
           ))}

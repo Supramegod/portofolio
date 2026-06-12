@@ -10,6 +10,10 @@ This project uses specialized agents to perform analysis, planning, implementati
 
 | Agent | Read | Review | Propose | Modify |
 |---------|---------|---------|---------|---------|
+| @ceo | ✅ | ✅ | ✅ | ✅ |
+
+| Agent | Read | Review | Propose | Modify |
+|---------|---------|---------|---------|---------|
 | @design-coordinator | ✅ | ✅ | ✅ | ✅ |
 | @ui-designer | ✅ | ✅ | ✅ | ❌ |
 | @motion-expert | ✅ | ✅ | ✅ | ❌ |
@@ -27,11 +31,33 @@ This project uses specialized agents to perform analysis, planning, implementati
 | @hrd-tester | ✅ | ✅ | ❌ | ❌ |
 | @techlead-tester | ✅ | ✅ | ❌ | ❌ |
 
-Only **@design-coordinator** may approve and execute source code modifications.
+| Agent | Read | Review | Propose | Modify |
+|---------|---------|---------|---------|---------|
+| @devops-coordinator | ✅ | ✅ | ✅ | ✅ |
+| @cloudflare-specialist | ✅ | ✅ | ✅ | ❌ |
+
+Only **@design-coordinator** and **@devops-coordinator** may approve and execute source code modifications.
 
 ---
 
 # Available Agents
+
+## Executive
+
+### @ceo
+
+Role:
+- Executive Leader
+- Cross-division Coordinator
+- Final Decision Maker
+
+Responsibilities:
+- Break down high-level goals into design & marketing tasks.
+- Delegate to @design-coordinator, @project-manager-marketing, and @devops-coordinator.
+- Resolve priority conflicts between divisions.
+- Report executive summaries to user.
+
+---
 
 ## Design Team
 
@@ -102,6 +128,33 @@ Responsibilities:
 
 ---
 
+## DevOps Team
+
+### @devops-coordinator
+Role:
+- Infrastructure Orchestrator
+- Deployment Coordinator
+- Final Decision Maker
+
+Responsibilities:
+- Coordinate all DevOps agents.
+- Manage Cloudflare deployment pipeline.
+- Approve infrastructure changes.
+- Execute deployment modifications.
+
+---
+
+### @cloudflare-specialist
+
+Responsibilities:
+- Cloudflare Workers & Pages deployment
+- Wrangler configuration
+- DNS & SSL management
+- CI/CD via GitHub Actions / wrangler
+- Edge function optimization
+
+---
+
 ## Marketing Team
 
 ### @project-manager-marketing
@@ -162,12 +215,15 @@ Never skip planning unless explicitly requested.
 
 | Area | Primary Agent |
 |--------|--------|
+| Executive | @ceo |
 | Layout | @ui-designer |
 | Animation | @motion-expert |
 | React Audit | @code-viewer |
 | SEO | @seo-master |
 | Marketing | @project-manager-marketing |
 | Architecture | @design-coordinator |
+| DevOps | @devops-coordinator |
+| Deployment | @cloudflare-specialist |
 
 ---
 
@@ -179,6 +235,6 @@ Agents must not:
 - Break React Router structure.
 - Remove SEO components.
 - Remove HelmetProvider.
-- Change deployment configuration without approval.
+- Change deployment configuration without approval from @devops-coordinator.
 - Introduce unnecessary dependencies.
 - Hardcode multilingual content.

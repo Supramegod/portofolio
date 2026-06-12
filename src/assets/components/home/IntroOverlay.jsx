@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "../../../context/LanguageContext";
 
-// --- Komponen Internal: Section ---
 const Section = ({ id, children, className = "" }) => {
   return (
     <section
@@ -14,12 +13,10 @@ const Section = ({ id, children, className = "" }) => {
   );
 };
 
-// --- Komponen TypewriterText (Kursor Cyan Tunggal) ---
 const TypewriterText = ({ text, delay = 0, speed, initialDelay = 0 }) => {
   const [displayedText, setDisplayedText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Efek untuk menangani proses pengetikan
   useEffect(() => {
     if (currentIndex < text.length) {
       const startTyping = setTimeout(() => {
@@ -34,7 +31,6 @@ const TypewriterText = ({ text, delay = 0, speed, initialDelay = 0 }) => {
     }
   }, [text, currentIndex, speed, initialDelay]);
 
-  // Reset state jika teks berubah
   useEffect(() => {
     setDisplayedText("");
     setCurrentIndex(0);
@@ -42,17 +38,15 @@ const TypewriterText = ({ text, delay = 0, speed, initialDelay = 0 }) => {
 
   return (
     <motion.p
-      className="text-xl font-semibold text-cyan-300 sm:text-2xl"
+      className="text-base font-semibold text-[#00FFB1] sm:text-xl"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: delay, duration: 0.5 }}
     >
       {displayedText}
-      {/* Kursor Berkedip (Garis Tipis Cyan) */}
       <motion.span
         aria-hidden="true"
-        // w-1: Lebar tipis; h-6: Tinggi sesuai baris teks; bg-cyan-300: Warna sesuai teks
-        className="ml-0.5 inline-block h-6 w-1 bg-cyan-300 align-text-bottom"
+        className="ml-0.5 inline-block h-5 w-0.5 bg-[#00FFB1] align-text-bottom sm:h-6 sm:w-1"
         animate={{ opacity: [0, 1, 1, 0] }}
         transition={{
           duration: 0.8,
@@ -65,7 +59,6 @@ const TypewriterText = ({ text, delay = 0, speed, initialDelay = 0 }) => {
   );
 };
 
-// Framer Motion Variants
 const textVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
@@ -104,9 +97,9 @@ const badgeAnimationVariants = {
   animateLife: (i) => ({
     scale: [1, 1.01, 1],
     boxShadow: [
-      "0 0 8px rgba(6, 182, 212, 0.4)",
-      "0 0 16px rgba(6, 182, 212, 0.6)",
-      "0 0 8px rgba(6, 182, 212, 0.4)",
+      "0 0 8px rgba(0, 255, 177, 0.3)",
+      "0 0 16px rgba(0, 255, 177, 0.5)",
+      "0 0 8px rgba(0, 255, 177, 0.3)",
     ],
     transition: {
       duration: 2.5,
@@ -117,14 +110,13 @@ const badgeAnimationVariants = {
   }),
 };
 
-// Komponen Badge Animasi
 const AnimatedBadges = () => {
   const { t } = useLanguage();
   const badges = [t("intro.badge1"), t("intro.badge2"), t("intro.badge3")];
 
   return (
     <motion.div
-      className="mt-20 flex flex-wrap justify-center gap-3"
+      className="mt-10 flex flex-wrap justify-center gap-2 sm:mt-20 sm:gap-3"
       variants={staggerContainerVariants}
       initial="hidden"
       animate="visible"
@@ -141,16 +133,16 @@ const AnimatedBadges = () => {
           whileHover={{
             y: -6,
             scale: 1.08,
-            boxShadow: "0 0 20px rgba(6, 182, 212, 0.8)",
+            boxShadow: "0 0 20px rgba(0, 255, 177, 0.6)",
           }}
-          className="cursor-pointer rounded-lg border border-cyan-500/40 bg-gray-900/40 px-4 py-2 text-sm text-white shadow-md transition-all duration-300 hover:border-cyan-400/70 sm:text-base"
+          className="cursor-pointer rounded-lg border border-[#00FFB1]/30 bg-[#00FFB1]/5 px-3 py-1.5 text-xs text-[#F8F9FA] shadow-md backdrop-blur-sm transition-all duration-300 hover:border-[#00FFB1]/60 sm:px-4 sm:py-2 sm:text-sm"
         >
           <motion.span
             animate={{
               textShadow: [
-                "0 0 4px rgba(6, 182, 212, 0.4)",
-                "0 0 8px rgba(6, 182, 212, 0.7)",
-                "0 0 4px rgba(6, 182, 212, 0.4)",
+                "0 0 4px rgba(0, 255, 177, 0.3)",
+                "0 0 8px rgba(0, 255, 177, 0.6)",
+                "0 0 4px rgba(0, 255, 177, 0.3)",
               ],
             }}
             transition={{
@@ -168,7 +160,6 @@ const AnimatedBadges = () => {
   );
 };
 
-// Komponen Intro Overlay Utama
 export const IntroOverlay = ({ showIntro }) => {
   const { t } = useLanguage();
   const EXIT_DURATION_MS = 1500;
@@ -192,7 +183,6 @@ export const IntroOverlay = ({ showIntro }) => {
 
   const tagline = t("intro.tagline");
 
-  // Menghitung kecepatan ketik
   const typingSpeed = EXIT_DURATION_MS / tagline.length;
 
   return (
@@ -207,20 +197,23 @@ export const IntroOverlay = ({ showIntro }) => {
           }}
           className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-b from-[#000000] via-[#000000] to-[#2F006F]/50"
         >
-          <Section id="intro-overlay" className="pt-0 text-center">
-            <div className="mx-auto max-w-4xl py-20">
+          <div className="pointer-events-none absolute left-1/4 top-1/4 h-60 w-60 rounded-full bg-[#E500FF]/10 blur-[130px] sm:h-80 sm:w-80" />
+          <div className="pointer-events-none absolute right-1/4 bottom-1/4 h-60 w-60 rounded-full bg-[#00FFB1]/10 blur-[130px] sm:h-80 sm:w-80" />
+
+          <Section id="intro-overlay" className="relative z-10 pt-0 text-center">
+            <div className="mx-auto max-w-4xl px-2 py-10 sm:py-20">
               <motion.p
-                className="mb-4 text-3xl font-light tracking-widest text-white opacity-80 sm:text-5xl"
+                className="mb-3 text-lg font-light tracking-widest text-[#B388FF]/70 sm:mb-4 sm:text-3xl"
                 variants={textVariants}
               >
                 {t("intro.welcome")}
               </motion.p>
               <motion.h1
-                className="text-slate-500 text-5xl font-extrabold leading-tight tracking-tighter sm:text-7xl lg:text-9xl"
+                className="text-3xl font-extrabold leading-tight tracking-tighter sm:text-5xl md:text-7xl lg:text-9xl"
                 variants={textVariants}
                 animate={{
-                  scale: [1, 1.05, 1],
-                  opacity: [1, 0.8, 1],
+                  scale: [1, 1.03, 1],
+                  opacity: [1, 0.85, 1],
                 }}
                 transition={{
                   duration: 3,
@@ -228,25 +221,17 @@ export const IntroOverlay = ({ showIntro }) => {
                   ease: "easeInOut",
                 }}
               >
-                <span
-                  className="bg-linear-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent"
-                  style={{
-                    textShadow:
-                      "0 0 10px rgba(6, 182, 212, 0.8), 0 0 20px rgba(6, 182, 212, 0.5)",
-                  }}
-                >
+                <span className="bg-gradient-to-r from-[#00FFB1] to-[#E500FF] bg-clip-text text-transparent">
                   {t("intro.portfolio")}
-                </span>
-                <span
-                  style={{
-                    textShadow:
-                      "0 0 10px rgba(6, 182, 212, 0.3), 0 0 20px rgba(6, 182, 212, 0.1)",
-                  }}
-                >
+                </span>{" "}
+                <span className="text-[#F8F9FA]">
                   {t("intro.website")}
                 </span>
               </motion.h1>
-              <motion.div variants={textVariants} className="mt-20">
+              <motion.div
+                variants={textVariants}
+                className="mt-10 sm:mt-20"
+              >
                 <TypewriterText
                   text={tagline}
                   initialDelay={0}

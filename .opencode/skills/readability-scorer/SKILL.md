@@ -7,16 +7,30 @@ description: Checks text readability using Flesch Reading Ease and provides a gr
 
 Given a block of text:
 
-1. Count total sentences, words, and syllables (approximate).
-2. Calculate **Flesch Reading Ease**: `206.835 – 1.015 × (words/sentences) – 84.6 × (syllables/words)`.
-3. Grade:
-   - 90-100: Very Easy (5th grade)
-   - 80-89: Easy (6th grade)
-   - 70-79: Fairly Easy (7th grade)
-   - 60-69: Standard (8th-9th grade)
-   - 50-59: Fairly Difficult (10th-12th grade)
-   - 30-49: Difficult (college)
-   - 0-29: Very Difficult (college graduate)
-4. Output the score + interpretation.
+## Cara Hitung Manual
 
-For Indonesian text, note that syllable counting is approximate; give the score as a guideline.
+1. **Hitung jumlah kalimat** — pisahkan berdasarkan `.`, `!`, `?`
+2. **Hitung jumlah kata** — gunakan `echo "$text" | wc -w`
+3. **Hitung suku kata** — tiap grup vokal dalam kata (approximate: jumlah suku kata ≈ jumlah karakter / 3)
+4. **Rumus Flesch Reading Ease**: `206.835 - 1.015 × (kata/kalimat) - 84.6 × (suku kata/kata)`
+
+## Perintah Bantuan
+
+```bash
+# Hitung kata dalam file JSX (strip HTML tags first)
+grep -oP '>[^<]+<' path/to/file.jsx | tr -d '<>' | wc -w
+```
+
+## Grade
+
+| Score | Level | Target Audience |
+|-------|-------|-----------------|
+| 90-100 | Very Easy (5th grade) | Anak-anak |
+| 80-89 | Easy (6th grade) | Umum |
+| 70-79 | Fairly Easy (7th grade) | Remaja |
+| 60-69 | Standard (8th-9th grade) | Dewasa umum |
+| 50-59 | Fairly Difficult (10th-12th) | Pelajar SMA |
+| 30-49 | Difficult (college) | Akademik |
+| 0-29 | Very Difficult (graduate) | Spesialis |
+
+For Indonesian text, syllable counting is approximate; give the score as a guideline.

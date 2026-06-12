@@ -7,6 +7,21 @@ description: Checks keyword density in a given text. Use when the user wants to 
 
 Given a target keyword and text content:
 
+## Perintah Cepat
+
+```bash
+# Hitung total kata dalam file
+total_words=$(grep -oP '>[^<]+<' path/to/file.jsx | tr ' ' '\n' | wc -w)
+
+# Hitung kemunculan keyword (case-insensitive)
+keyword_count=$(grep -oP '>[^<]+<' path/to/file.jsx | grep -oi 'keyword' | wc -l)
+
+# Hitung density
+echo "scale=2; $keyword_count * 100 / $total_words" | bc
+```
+
+## Metode Manual
+
 1. Count total words in the text.
 2. Count occurrences of the exact keyword (single word) or phrase (multi-word).
 3. Calculate: `(keyword occurrences / total words) × 100`.

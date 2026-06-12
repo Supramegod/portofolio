@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { HomeSEO } from "../assets/components/seo/HomeSEO";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "../context/LanguageContext";
@@ -411,15 +411,15 @@ export const Homepage = () => {
                   >
                     <span className="mr-2">💾</span> {t("about.downloadCV")}
                   </a>
-                  <a
-                    href="/about-me"
+                  <Link
+                    to="/about-me"
                     className="inline-flex items-center justify-center rounded-lg border border-[#E500FF]/30 px-6 py-3 font-semibold text-[#E500FF] transition duration-300 hover:scale-105 hover:bg-[#E500FF]/10"
                   >
                     <span className="mr-2">
                       <CgProfile size={20} />
                     </span>{" "}
                     {t("about.learnMore")}
-                  </a>
+                  </Link>
                 </div>
               </motion.div>
             </div>
