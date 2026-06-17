@@ -98,7 +98,7 @@
     "cloudflare-specialist": {
       "description": "Cloudflare Workers & Pages deployment specialist — Wrangler, DNS, SSL, CI/CD, edge optimization.",
       "mode": "subagent",
-      "permission": { "edit": "deny", "bash": "ask", "read": "allow", "glob": "allow" }
+      "permission": { "edit": "deny", "bash": "allow", "read": "allow", "glob": "allow" }
     }
   }
 }

@@ -3,7 +3,7 @@ description: Technical & On-Page SEO specialist — analyzes website audits and 
 mode: subagent
 permission:
   edit: deny
-  bash: ask
+  bash: allow
   webfetch: allow
   websearch: allow
   read: allow

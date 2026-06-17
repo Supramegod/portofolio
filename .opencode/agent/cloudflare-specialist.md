@@ -3,7 +3,7 @@ description: Cloudflare Workers & Pages deployment specialist — Wrangler, DNS,
 mode: subagent
 permission:
   edit: deny
-  bash: ask
+  bash: allow
   read: allow
   glob: allow
 ---
