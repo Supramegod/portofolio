@@ -8,20 +8,20 @@ export const portfolioItems = [
   {
     id: 1,
     title: "CAIS ERP System",
-    desc: "ERP Laravel 12 | PHP 8.x | REST API | Laravel Sanctum SSO — modul Leads, Quotation, SPK, PKS, dashboard approval & sales activity.",
+    desc: "ERP Laravel 12 | PHP 8.3 | REST API | Laravel Sanctum SSO — modul Leads, Quotation, SPK, PKS, dashboard approval & sales activity.",
     longDesc:
       "CAIS (Customer Activity And Information System) adalah ERP enterprise yang saya bangun dari nol menggunakan Laravel 12 di atas PHP 8.x dengan arsitektur RESTful API dan Laravel Sanctum untuk custom SSO. Sistem ini mencakup Leads Management, multi-step Quotation Engine dengan approval workflow, PKS (Perjanjian Kerja Sama) berversion history, SPK (Surat Perintah Kerja) dengan file upload & checklist, Sales Activity tracking, dan dashboard monitoring real-time. Database menggunakan MySQL dengan query teroptimasi, visualisasi data dengan Chart.js, dan sistem dirancang multi-tenant dengan role & permissions berbasis menu. Seluruh sistem telah melalui production deployment dan digunakan secara aktif oleh tim sales.",
     challenge:
       "Perusahaan membutuhkan sistem ERP terpadu yang dapat mengelola seluruh siklus leads-to-order — dari akuisisi leads, pembuatan quotation bertingkat dengan approval, pembuatan kontrak kerja (PKS/SPK) yang berversion history, hingga monitoring aktivitas sales secara real-time. Tantangan utamanya adalah integrasi multi-modul dalam satu ekosistem dengan sistem SSO terpusat dan role-based access control.",
     solution:
-      "Dibangun dengan Laravel 12 dan PHP 8.x, arsitektur RESTful API memisahkan frontend dan backend secara clean. Laravel Sanctum diimplementasikan sebagai custom SSO yang melayani autentikasi multi-aplikasi. Multi-tier approval workflow memastikan setiap quotation melewati jalur persetujuan bertingkat sebelum menjadi kontrak. Dashboard monitoring dibangun dengan Chart.js untuk visualisasi data sales real-time. Seluruh sistem berjalan di atas Docker dengan production deployment via GitLab CI.",
+      "Dibangun dengan Laravel 12 dan PHP 8.3, arsitektur RESTful API memisahkan frontend dan backend secara clean. Laravel Sanctum diimplementasikan sebagai custom SSO yang melayani autentikasi multi-aplikasi. Multi-tier approval workflow memastikan setiap quotation melewati jalur persetujuan bertingkat sebelum menjadi kontrak. Dashboard monitoring dibangun dengan Chart.js untuk visualisasi data sales real-time. Seluruh sistem berjalan di atas Docker dengan production deployment via GitLab CI.",
     category: "Backend / ERP",
     time: "2025",
     projectUrl: "https://cais2.shelterapp2.co.id/login",
     githubUrl: "https://github.com/Supramegod/project-cais-backend",
     techStack: [
       "Laravel 12",
-      "PHP 8.2",
+      "PHP 8.3",
       "Laravel Sanctum",
       "MySQL",
       "Chart.js",
