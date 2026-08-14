@@ -172,7 +172,7 @@ export const AboutSEO = () => {
 
   const title = t("seo.about.title");
   const description = t("seo.about.description");
-  const canonical = `${BASE}/${lang}/about-me`;
+  const canonical = `${BASE}/${lang}/about-me/`;
   const ogLocale = lang === "id" ? "id_ID" : "en_US";
 
   return (
@@ -183,8 +183,8 @@ export const AboutSEO = () => {
       <meta name="robots" content="index, follow" />
 
       <link rel="canonical" href={canonical} />
-      <link rel="alternate" hrefLang="en" href={`${BASE}/en/about-me`} />
-      <link rel="alternate" hrefLang="id" href={`${BASE}/id/about-me`} />
+      <link rel="alternate" hrefLang="en" href={`${BASE}/en/about-me/`} />
+      <link rel="alternate" hrefLang="id" href={`${BASE}/id/about-me/`} />
       <link rel="alternate" hrefLang="x-default" href={`${BASE}/`} />
 
       <meta property="og:title" content={title} />

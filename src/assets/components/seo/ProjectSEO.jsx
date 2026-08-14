@@ -48,7 +48,7 @@ export const ProjectSEO = ({ project }) => {
   const title = `${project.title} — ${t("seo.project.titleSuffix")}`;
   const description = project.desc ?? t("seo.home.description");
   const path = `/project/${project.id}`;
-  const canonical = `${BASE}/${lang}${path}`;
+  const canonical = `${BASE}/${lang}${path}/`;
   const ogLocale = lang === "id" ? "id_ID" : "en_US";
   const image = project.thumbnailUrl
     ? `${BASE}${project.thumbnailUrl}`
@@ -62,8 +62,8 @@ export const ProjectSEO = ({ project }) => {
       <meta name="robots" content="index, follow" />
 
       <link rel="canonical" href={canonical} />
-      <link rel="alternate" hrefLang="en" href={`${BASE}/en${path}`} />
-      <link rel="alternate" hrefLang="id" href={`${BASE}/id${path}`} />
+      <link rel="alternate" hrefLang="en" href={`${BASE}/en${path}/`} />
+      <link rel="alternate" hrefLang="id" href={`${BASE}/id${path}/`} />
       <link rel="alternate" hrefLang="x-default" href={`${BASE}/`} />
 
       <meta property="og:title" content={title} />

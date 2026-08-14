@@ -24,5 +24,7 @@ services:
       context: .
       target: prod
     ports:
-      - "8080:80"
+      # Overridable because 8080 is a popular port — the CAIS local stack in
+      # this workspace already binds it. `PORT=8099 docker compose up prod`.
+      - "${PORT:-8080}:80"
     restart: unless-stopped

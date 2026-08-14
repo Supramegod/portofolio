@@ -145,7 +145,7 @@ const websiteSchema = (lang, description) => ({
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: SITE_NAME,
-  url: `${BASE}/${lang}`,
+  url: `${BASE}/${lang}/`,
   inLanguage: bcp47(lang),
   description,
   about: personSchema,
@@ -207,7 +207,7 @@ function buildRoutes({ dicts, portfolioItems, resolveProject }) {
     for (const item of portfolioItems) {
       const project = resolveProject(item, lang);
       const path = `/project/${project.id}`;
-      const url = `${BASE}/${lang}${path}`;
+      const url = `${BASE}/${lang}${path}/`;
       routes.push({
         lang,
         path,
@@ -256,11 +256,11 @@ function stripDefaults(html) {
 }
 
 function headBlock(route) {
-  const canonical = `${BASE}/${route.lang}${route.path}`;
+  const canonical = `${BASE}/${route.lang}${route.path}/`;
   const alternates = [
     ...LANGS.map(
       (l) =>
-        `    <link rel="alternate" hreflang="${l}" href="${BASE}/${l}${route.path}" />`,
+        `    <link rel="alternate" hreflang="${l}" href="${BASE}/${l}${route.path}/" />`,
     ),
     `    <link rel="alternate" hreflang="x-default" href="${BASE}/" />`,
   ].join("\n");

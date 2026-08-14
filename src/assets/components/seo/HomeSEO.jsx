@@ -47,7 +47,7 @@ const websiteSchema = (lang, description) => ({
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: "Jalu Pradipta",
-  url: `${BASE}/${lang}`,
+  url: `${BASE}/${lang}/`,
   inLanguage: lang === "id" ? "id-ID" : "en-US",
   description,
   about: personSchema,
@@ -58,7 +58,7 @@ export const HomeSEO = () => {
 
   const title = t("seo.home.title");
   const description = t("seo.home.description");
-  const canonical = `${BASE}/${lang}`;
+  const canonical = `${BASE}/${lang}/`;
   const ogLocale = lang === "id" ? "id_ID" : "en_US";
 
   return (
@@ -69,8 +69,8 @@ export const HomeSEO = () => {
       <meta name="robots" content="index, follow" />
 
       <link rel="canonical" href={canonical} />
-      <link rel="alternate" hrefLang="en" href={`${BASE}/en`} />
-      <link rel="alternate" hrefLang="id" href={`${BASE}/id`} />
+      <link rel="alternate" hrefLang="en" href={`${BASE}/en/`} />
+      <link rel="alternate" hrefLang="id" href={`${BASE}/id/`} />
       <link rel="alternate" hrefLang="x-default" href={`${BASE}/`} />
 
       <meta property="og:title" content={title} />

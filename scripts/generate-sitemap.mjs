@@ -37,7 +37,7 @@ const alternates = (path) =>
   [
     ...LANGS.map(
       (l) =>
-        `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE}/${l}${path}" />`,
+        `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE}/${l}${path}/" />`,
     ),
     `    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE}/" />`,
   ].join("\n");
@@ -45,7 +45,7 @@ const alternates = (path) =>
 const urls = paths.flatMap(({ path, priority, changefreq }) =>
   LANGS.map(
     (lang) => `  <url>
-    <loc>${BASE}/${lang}${path}</loc>
+    <loc>${BASE}/${lang}${path}/</loc>
 ${alternates(path)}
     <lastmod>${today}</lastmod>
     <changefreq>${changefreq}</changefreq>
