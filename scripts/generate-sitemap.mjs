@@ -44,12 +44,18 @@ const alternates = (path) =>
 
 const urls = paths.flatMap(({ path, priority, changefreq }) =>
   LANGS.map(
+    // Element order is not cosmetic. sitemap.xsd declares <url> as a strict
+    // sequence — loc, lastmod, changefreq, priority — with <xsd:any
+    // namespace="##other"> LAST. xhtml:link is a foreign namespace, so putting
+    // the alternates before <lastmod> breaks the sequence and a strict
+    // validator rejects the whole file ("couldn't read sitemap"), even though
+    // the XML itself parses fine.
     (lang) => `  <url>
     <loc>${BASE}/${lang}${path}/</loc>
-${alternates(path)}
     <lastmod>${today}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
+${alternates(path)}
   </url>`,
   ),
 );

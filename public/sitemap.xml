@@ -2,111 +2,111 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://jalupradipta.pages.dev/en</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jalupradipta.pages.dev/en" />
-    <xhtml:link rel="alternate" hreflang="id" href="https://jalupradipta.pages.dev/id" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jalupradipta.pages.dev/" />
+    <loc>https://jalupradipta.pages.dev/en/</loc>
     <lastmod>2026-08-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jalupradipta.pages.dev/en/" />
+    <xhtml:link rel="alternate" hreflang="id" href="https://jalupradipta.pages.dev/id/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jalupradipta.pages.dev/" />
   </url>
   <url>
-    <loc>https://jalupradipta.pages.dev/id</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jalupradipta.pages.dev/en" />
-    <xhtml:link rel="alternate" hreflang="id" href="https://jalupradipta.pages.dev/id" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jalupradipta.pages.dev/" />
+    <loc>https://jalupradipta.pages.dev/id/</loc>
     <lastmod>2026-08-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jalupradipta.pages.dev/en/" />
+    <xhtml:link rel="alternate" hreflang="id" href="https://jalupradipta.pages.dev/id/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jalupradipta.pages.dev/" />
   </url>
   <url>
-    <loc>https://jalupradipta.pages.dev/en/about-me</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jalupradipta.pages.dev/en/about-me" />
-    <xhtml:link rel="alternate" hreflang="id" href="https://jalupradipta.pages.dev/id/about-me" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jalupradipta.pages.dev/" />
+    <loc>https://jalupradipta.pages.dev/en/about-me/</loc>
     <lastmod>2026-08-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jalupradipta.pages.dev/en/about-me/" />
+    <xhtml:link rel="alternate" hreflang="id" href="https://jalupradipta.pages.dev/id/about-me/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jalupradipta.pages.dev/" />
   </url>
   <url>
-    <loc>https://jalupradipta.pages.dev/id/about-me</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jalupradipta.pages.dev/en/about-me" />
-    <xhtml:link rel="alternate" hreflang="id" href="https://jalupradipta.pages.dev/id/about-me" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jalupradipta.pages.dev/" />
+    <loc>https://jalupradipta.pages.dev/id/about-me/</loc>
     <lastmod>2026-08-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jalupradipta.pages.dev/en/about-me/" />
+    <xhtml:link rel="alternate" hreflang="id" href="https://jalupradipta.pages.dev/id/about-me/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jalupradipta.pages.dev/" />
   </url>
   <url>
-    <loc>https://jalupradipta.pages.dev/en/project/1</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jalupradipta.pages.dev/en/project/1" />
-    <xhtml:link rel="alternate" hreflang="id" href="https://jalupradipta.pages.dev/id/project/1" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jalupradipta.pages.dev/" />
+    <loc>https://jalupradipta.pages.dev/en/project/1/</loc>
     <lastmod>2026-08-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jalupradipta.pages.dev/en/project/1/" />
+    <xhtml:link rel="alternate" hreflang="id" href="https://jalupradipta.pages.dev/id/project/1/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jalupradipta.pages.dev/" />
   </url>
   <url>
-    <loc>https://jalupradipta.pages.dev/id/project/1</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jalupradipta.pages.dev/en/project/1" />
-    <xhtml:link rel="alternate" hreflang="id" href="https://jalupradipta.pages.dev/id/project/1" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jalupradipta.pages.dev/" />
+    <loc>https://jalupradipta.pages.dev/id/project/1/</loc>
     <lastmod>2026-08-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jalupradipta.pages.dev/en/project/1/" />
+    <xhtml:link rel="alternate" hreflang="id" href="https://jalupradipta.pages.dev/id/project/1/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jalupradipta.pages.dev/" />
   </url>
   <url>
-    <loc>https://jalupradipta.pages.dev/en/project/2</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jalupradipta.pages.dev/en/project/2" />
-    <xhtml:link rel="alternate" hreflang="id" href="https://jalupradipta.pages.dev/id/project/2" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jalupradipta.pages.dev/" />
+    <loc>https://jalupradipta.pages.dev/en/project/2/</loc>
     <lastmod>2026-08-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jalupradipta.pages.dev/en/project/2/" />
+    <xhtml:link rel="alternate" hreflang="id" href="https://jalupradipta.pages.dev/id/project/2/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jalupradipta.pages.dev/" />
   </url>
   <url>
-    <loc>https://jalupradipta.pages.dev/id/project/2</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jalupradipta.pages.dev/en/project/2" />
-    <xhtml:link rel="alternate" hreflang="id" href="https://jalupradipta.pages.dev/id/project/2" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jalupradipta.pages.dev/" />
+    <loc>https://jalupradipta.pages.dev/id/project/2/</loc>
     <lastmod>2026-08-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jalupradipta.pages.dev/en/project/2/" />
+    <xhtml:link rel="alternate" hreflang="id" href="https://jalupradipta.pages.dev/id/project/2/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jalupradipta.pages.dev/" />
   </url>
   <url>
-    <loc>https://jalupradipta.pages.dev/en/project/3</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jalupradipta.pages.dev/en/project/3" />
-    <xhtml:link rel="alternate" hreflang="id" href="https://jalupradipta.pages.dev/id/project/3" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jalupradipta.pages.dev/" />
+    <loc>https://jalupradipta.pages.dev/en/project/3/</loc>
     <lastmod>2026-08-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jalupradipta.pages.dev/en/project/3/" />
+    <xhtml:link rel="alternate" hreflang="id" href="https://jalupradipta.pages.dev/id/project/3/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jalupradipta.pages.dev/" />
   </url>
   <url>
-    <loc>https://jalupradipta.pages.dev/id/project/3</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jalupradipta.pages.dev/en/project/3" />
-    <xhtml:link rel="alternate" hreflang="id" href="https://jalupradipta.pages.dev/id/project/3" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jalupradipta.pages.dev/" />
+    <loc>https://jalupradipta.pages.dev/id/project/3/</loc>
     <lastmod>2026-08-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jalupradipta.pages.dev/en/project/3/" />
+    <xhtml:link rel="alternate" hreflang="id" href="https://jalupradipta.pages.dev/id/project/3/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jalupradipta.pages.dev/" />
   </url>
   <url>
-    <loc>https://jalupradipta.pages.dev/en/project/4</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jalupradipta.pages.dev/en/project/4" />
-    <xhtml:link rel="alternate" hreflang="id" href="https://jalupradipta.pages.dev/id/project/4" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jalupradipta.pages.dev/" />
+    <loc>https://jalupradipta.pages.dev/en/project/4/</loc>
     <lastmod>2026-08-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jalupradipta.pages.dev/en/project/4/" />
+    <xhtml:link rel="alternate" hreflang="id" href="https://jalupradipta.pages.dev/id/project/4/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jalupradipta.pages.dev/" />
   </url>
   <url>
-    <loc>https://jalupradipta.pages.dev/id/project/4</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jalupradipta.pages.dev/en/project/4" />
-    <xhtml:link rel="alternate" hreflang="id" href="https://jalupradipta.pages.dev/id/project/4" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jalupradipta.pages.dev/" />
+    <loc>https://jalupradipta.pages.dev/id/project/4/</loc>
     <lastmod>2026-08-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jalupradipta.pages.dev/en/project/4/" />
+    <xhtml:link rel="alternate" hreflang="id" href="https://jalupradipta.pages.dev/id/project/4/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jalupradipta.pages.dev/" />
   </url>
 </urlset>
