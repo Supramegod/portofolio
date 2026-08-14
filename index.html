@@ -2,29 +2,49 @@
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="./src/assets/img/portfolio.png"
-    />
+    <!-- The file is a PNG; declaring it as SVG makes some browsers skip it. -->
+    <link rel="icon" type="image/png" href="./src/assets/img/portfolio.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0f172a" />
+    <meta name="theme-color" content="#0a0a0a" />
+
+    <!-- Fonts loaded via <link>, not a CSS @import: @import is
+         render-blocking and delays first paint. Instrument Serif
+         carries headings, Inter Tight carries body. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
     <meta name="google-site-verification" content="BA1AhhQpx4inO8L5S9qoYvEH0e8dBJQIcRTBH88KXN0" />
-    <meta name="description" content="Portofolio Jalu Pradipta — Backend Developer spesialis Laravel 12, PHP 8.x, REST API & ERP System. Lulusan PENS dengan pengalaman production deployment." />
-    <meta name="keywords" content="Jalu Pradipta, Backend Developer, Laravel 12, PHP, REST API, ERP, PENS, Portofolio Surabaya" />
-    <meta name="author" content="Jalu Pradipta" />
-    <meta name="robots" content="index, follow" />
-    <meta property="og:title" content="Jalu Pradipta — Backend Developer | Laravel 12 & ERP Specialist" />
-    <meta property="og:description" content="Backend Developer spesialis Laravel 12 & ERP System. Bangun sistem enterprise scalable bersama saya." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://jalupradipta.pages.dev" />
-    <meta property="og:image" content="https://jalupradipta.pages.dev/images/profile-jalu.jpg" />
-    <meta property="og:locale" content="id_ID" />
-    <meta property="og:site_name" content="Jalu Pradipta" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Jalu Pradipta — Backend Developer | Laravel 12 & ERP Specialist" />
-    <meta name="twitter:description" content="Backend Developer spesialis Laravel 12 & ERP System. Bangun sistem enterprise scalable, aman, dan production-ready." />
-    <title>Jalu Pradipta — Backend Developer | Laravel 12 & ERP Specialist</title>
+
+    <!-- SEO defaults for the x-default shell, which is what a URL outside the
+         12 prerendered routes gets served.
+
+         data-rh="true" hands ownership to react-helmet-async. Without it
+         Helmet cannot see these tags, so on hydration it appends its own set
+         beside them: two robots directives, two canonicals, six hreflang
+         links. On a 404 the two disagree — the shell says "index, follow"
+         while Helmet says "noindex". scripts/generate-static-head.mjs strips
+         and rewrites these per route, and stamps the same attribute. -->
+    <link data-rh="true" rel="alternate" hreflang="x-default" href="https://jalupradipta.pages.dev/" />
+    <link data-rh="true" rel="alternate" hreflang="en" href="https://jalupradipta.pages.dev/en" />
+    <link data-rh="true" rel="alternate" hreflang="id" href="https://jalupradipta.pages.dev/id" />
+    <meta data-rh="true" name="description" content="Backend developer in Surabaya. Main contributor on an internal ERP at SHELTER — 1,203 of 1,305 commits — plus a Go and Flutter finance stack built solo." />
+    <meta data-rh="true" name="author" content="Jalu Pradipta" />
+    <meta data-rh="true" name="robots" content="index, follow" />
+    <meta data-rh="true" property="og:title" content="Jalu Pradipta — Backend developer, Laravel and Go" />
+    <meta data-rh="true" property="og:description" content="Four projects written up with real numbers: an ERP in production, and a finance stack across Go, React and Flutter." />
+    <meta data-rh="true" property="og:type" content="website" />
+    <meta data-rh="true" property="og:url" content="https://jalupradipta.pages.dev" />
+    <meta data-rh="true" property="og:image" content="https://jalupradipta.pages.dev/images/profile-jalu.jpg" />
+    <meta data-rh="true" property="og:locale" content="en_US" />
+    <meta data-rh="true" property="og:site_name" content="Jalu Pradipta" />
+    <meta data-rh="true" name="twitter:card" content="summary_large_image" />
+    <meta data-rh="true" name="twitter:title" content="Jalu Pradipta — Backend developer, Laravel and Go" />
+    <meta data-rh="true" name="twitter:description" content="Four projects written up with real numbers: an ERP in production, and a finance stack across Go, React and Flutter." />
+    <title>Jalu Pradipta — Backend developer, Laravel and Go</title>
   </head>
   <body>
     <div id="root"></div>

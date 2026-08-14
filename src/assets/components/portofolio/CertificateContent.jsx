@@ -1,104 +1,162 @@
 import React from "react";
-import { FiExternalLink } from "react-icons/fi";
-import { motion } from "framer-motion";
+import { Reveal } from "../ui/Section";
 import { useLanguage } from "../../../context/LanguageContext";
 
-const certificateItems = (t) => [
+/**
+ * Single source of truth for certificates shown on /about-me.
+ *
+ * Consumed by:
+ *   - src/pages/profile/AboutMe.jsx  (section 03, "Certificates")
+ *
+ * Language-specific prose is nested under `en` / `id` so no display string is
+ * hardcoded in one language (AGENTS.md). `num`, `year`, and `fileUrl` are
+ * language-neutral.
+ *
+ * `num` — not `id` — carries the identifier: `id` is already the Indonesian
+ * language key, and a second `id` in the same object literal would overwrite it.
+ *
+ * Every `fileUrl` below was checked against `public/` before being linked:
+ *   public/docs/sertifikat1.pdf
+ *   public/images/sertifikat1.jpg … sertifikat5.jpg
+ * Do not add a row whose file is not on disk — a dead certificate link is
+ * worse than no row.
+ */
+export const certificateItems = [
   {
-    id: 1,
-    title: t("portfolio.certTitle"),
-    desc: t("portfolio.certDesc"),
-    category: "Sertifikat",
+    num: "01",
+    year: "2025",
     fileUrl: "/docs/sertifikat1.pdf",
-    thumbnailUrl: "/images/sertifikat1.jpg",
+    en: {
+      title: "Competency Certificate",
+      note: "Software development and information systems.",
+      format: "PDF",
+    },
+    id: {
+      title: "Sertifikat Kompetensi",
+      note: "Pengembangan perangkat lunak dan sistem informasi.",
+      format: "PDF",
+    },
   },
   {
-    id: 2,
-    title: t("portfolio.certTitle2"),
-    desc: t("portfolio.certDesc2"),
-    category: "Sertifikat",
+    num: "02",
+    year: "2025",
     fileUrl: "/images/sertifikat2.jpg",
-    thumbnailUrl: "/images/sertifikat2.jpg",
+    en: {
+      title: "Competency Certificate 2",
+      note: "Supporting software development competencies.",
+      format: "JPG",
+    },
+    id: {
+      title: "Sertifikat Kompetensi 2",
+      note: "Pendukung kompetensi pengembangan perangkat lunak.",
+      format: "JPG",
+    },
   },
   {
-    id: 3,
-    title: t("portfolio.certTitle3"),
-    desc: t("portfolio.certDesc3"),
-    category: "Sertifikat",
+    num: "03",
+    year: "2025",
     fileUrl: "/images/sertifikat3.jpg",
-    thumbnailUrl: "/images/sertifikat3.jpg",
+    en: {
+      title: "Competency Certificate 3",
+      note: "Supporting software development competencies.",
+      format: "JPG",
+    },
+    id: {
+      title: "Sertifikat Kompetensi 3",
+      note: "Pendukung kompetensi pengembangan perangkat lunak.",
+      format: "JPG",
+    },
   },
   {
-    id: 4,
-    title: t("portfolio.certTitle4"),
-    desc: t("portfolio.certDesc4"),
-    category: "Sertifikat",
+    num: "04",
+    year: "2025",
     fileUrl: "/images/sertifikat4.jpg",
-    thumbnailUrl: "/images/sertifikat4.jpg",
+    en: {
+      title: "Competency Certificate 4",
+      note: "Supporting software development competencies.",
+      format: "JPG",
+    },
+    id: {
+      title: "Sertifikat Kompetensi 4",
+      note: "Pendukung kompetensi pengembangan perangkat lunak.",
+      format: "JPG",
+    },
   },
   {
-    id: 5,
-    title: t("portfolio.certTitle5"),
-    desc: t("portfolio.certDesc5"),
-    category: "Sertifikat",
+    num: "05",
+    year: "2025",
     fileUrl: "/images/sertifikat5.jpg",
-    thumbnailUrl: "/images/sertifikat5.jpg",
+    en: {
+      title: "Competency Certificate 5",
+      note: "Supporting software development competencies.",
+      format: "JPG",
+    },
+    id: {
+      title: "Sertifikat Kompetensi 5",
+      note: "Pendukung kompetensi pengembangan perangkat lunak.",
+      format: "JPG",
+    },
   },
 ];
 
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { delayChildren: 0.15, staggerChildren: 0.1 },
-  },
+/**
+ * Flattens one entry for the active language.
+ * Falls back to English prose so a missing translation renders real text
+ * rather than `undefined`. Mirrors `resolveProject` in ProjectContent.jsx.
+ */
+export const resolveEntry = (item, lang) => {
+  if (!item) return null;
+  const copy = item[lang] ?? item.en;
+  const { en, id: idCopy, ...rest } = item;
+  return { ...rest, ...copy };
 };
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-};
-
+/**
+ * Hairline table rows — no thumbnails, no cards. Five image cards was the
+ * heaviest, least readable block on the old page. The table scrolls inside
+ * its own container so the page body never gains a horizontal scrollbar.
+ */
 export const CertificateContent = () => {
-  const { t } = useLanguage();
-  const items = certificateItems(t);
-  return (
-    <motion.div
-      className="grid w-full grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3"
-      variants={staggerContainer}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.1 }}
-    >
-      {items.map((item) => (
-        <motion.div
-          key={item.id}
-          className="group rounded-xl border border-[#5E00FF]/30 bg-[#2F006F]/15 p-5 backdrop-blur-sm transition-all duration-500 hover:scale-[1.02] hover:border-[#00FFB1]/25 hover:shadow-lg hover:shadow-[#00FFB1]/10 sm:p-6"
-          variants={cardVariants}
-          whileHover={{ y: -6, transition: { duration: 0.3 } }}
-        >
-          <div className="relative mb-4 flex h-48 items-center justify-center overflow-hidden rounded-lg bg-[#000000] sm:h-64">
-            <img
-              src={item.thumbnailUrl}
-              alt={`Thumbnail ${item.title}`}
-              className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
-            />
-          </div>
+  const { t, lang } = useLanguage();
+  const items = certificateItems.map((item) => resolveEntry(item, lang));
 
-          <h4 className="mb-1 text-lg font-bold text-[#F8F9FA] sm:text-xl">
-            {item.title}
-          </h4>
-          <p className="text-xs text-[#B0BEC5] sm:text-sm">{item.desc}</p>
-          <a
-            href={item.fileUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-3 inline-flex items-center text-xs font-medium text-[#00FFB1] transition duration-300 hover:text-[#00FFB1]/80 sm:text-sm"
-          >
-            {t("portfolio.certView")} <FiExternalLink className="ml-1 h-3 w-3" />
-          </a>
-        </motion.div>
-      ))}
-    </motion.div>
+  return (
+    <Reveal className="mt-10 md:mt-14">
+      <div className="overflow-x-auto">
+        {/* min-width only from sm up. At 360px a hard 34rem min-width pushes
+            the layout viewport wider than the screen even though the wrapper
+            scrolls, which gives the whole page a horizontal scrollbar. */}
+        <table className="w-full border-collapse text-left sm:min-w-[34rem]">
+          <caption className="sr-only">{t("aboutPage.certLabel")}</caption>
+          <tbody>
+            {items.map((item) => (
+              <tr key={item.num} className="border-b border-bone">
+                <td className="meta py-5 pr-6 align-top">{item.year}</td>
+                <td className="py-5 pr-6 align-top">
+                  <p className="text-base text-ink">{item.title}</p>
+                  <p className="measure mt-1 text-xs text-slate">{item.note}</p>
+                </td>
+                {/* Format is the least useful column; drop it on phones so the
+                    remaining three fit 360px without sideways scrolling. */}
+                <td className="meta hidden py-5 pr-6 align-top sm:table-cell">
+                  {item.format}
+                </td>
+                <td className="py-5 align-top">
+                  <a
+                    href={item.fileUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="border-b border-mist pb-1 text-xs text-ink transition-colors hover:border-ink"
+                  >
+                    {t("aboutPage.certView")}
+                    <span className="sr-only"> — {item.title}</span>
+                  </a>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </Reveal>
   );
 };

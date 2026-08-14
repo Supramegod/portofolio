@@ -1,284 +1,201 @@
-import React, { useCallback, useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { ProjectSEO } from "../../assets/components/seo/ProjectSEO";
-import { useLanguage } from "../../context/LanguageContext";
-import { FiExternalLink } from "react-icons/fi";
-import { FaCode, FaStar, FaGithub, FaClock } from "react-icons/fa";
-import { portfolioItems } from "../../assets/components/portofolio/ProjectContent";
+import React from "react";
+import { Link, useParams } from "react-router-dom";
+
+import { useLanguage, useLocalizedPath } from "../../context/LanguageContext";
+import {
+  portfolioItems,
+  resolveProject,
+} from "../../assets/components/portofolio/ProjectContent";
+import { Section, Reveal, SectionLabel } from "../../assets/components/ui/Section";
 import { Navbar } from "../../assets/components/navbar/Navbar";
-import { Loading } from "../../assets/components/loading/Loading";
-import { motion } from "framer-motion";
+import { Footer } from "../../assets/components/navbar/Footer";
+import { ProjectSEO } from "../../assets/components/seo/ProjectSEO";
+import { Error404 } from "../errors/Error404";
 
-const contentFadeInVariants = (direction = "up") => ({
-  hidden: {
-    opacity: 0,
-    x: direction === "left" ? -100 : direction === "right" ? 100 : 0,
-    y: direction === "up" ? 100 : 0,
-  },
-  visible: {
-    opacity: 1,
-    x: 0,
-    y: 0,
-    transition: {
-      duration: 1,
-      ease: "easeOut",
-      delay: 0.2,
-    },
-  },
-});
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: "easeOut" },
-  },
-};
-
-const staggerContainerVariants = {
-  visible: {
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-export const Portofolio = () => {
-  const { t } = useLanguage();
-  const { id } = useParams();
-  const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(true);
-  const project = portfolioItems.find((item) => item.id === parseInt(id));
-
-  useEffect(() => {
-    const minimumLoadTime = 700;
-    const startTime = Date.now();
-    let timer;
-
-    setTimeout(() => {
-      const elapsedTime = Date.now() - startTime;
-      const remainingTime = minimumLoadTime - elapsedTime;
-
-      timer = setTimeout(
-        () => {
-          setIsLoading(false);
-          if (!project) {
-            navigate("/404", { replace: true });
-          }
-        },
-        Math.max(0, remainingTime),
-      );
-    }, 50);
-
-    return () => clearTimeout(timer);
-  }, [id, navigate, project]);
-
-  const featuresList = project?.features || [];
-  const technologiesList = project?.techStack || [];
-  const githubLink = project?.githubUrl || "#";
-  const mainDescription = project?.longDesc || project?.desc;
-
-  const handleProjectLinkClickBreadcrumb = useCallback(
-    (e, sectionId) => {
-      e.preventDefault();
-      navigate("/");
-      setTimeout(() => {
-        window.history.replaceState(null, null, `/#${sectionId}`);
-        const targetElement = document.getElementById(sectionId);
-        if (targetElement) {
-          targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
-        } else {
-          // Logika retry untuk memastikan scroll
-          setTimeout(() => {
-            const retryElement = document.getElementById(sectionId);
-            if (retryElement) {
-              retryElement.scrollIntoView({
-                behavior: "smooth",
-                block: "start",
-              });
-            }
-          }, 300);
-        }
-      }, 100);
-    },
-    [navigate],
+/**
+ * A labelled prose block: mono label, then one column of text at 68ch.
+ * Used three times (overview / problem / what I did) so the three read as
+ * the same object rather than three ad-hoc layouts.
+ */
+const ProseBlock = ({ label, body, delay = 0 }) => {
+  if (!body) return null;
+  return (
+    <Reveal className="border-t border-bone pt-6" delay={delay}>
+      <SectionLabel>{label}</SectionLabel>
+      <p className="measure whitespace-pre-line text-base text-graphite">{body}</p>
+    </Reveal>
   );
+};
 
-  if (isLoading || !project) {
-    return <Loading />;
-  }
+/**
+ * Project detail. Route is `/:lang/project/:id`, so every internal link has
+ * to go through `useLocalizedPath()` — a bare "/" would silently drop the
+ * language prefix and bounce the reader through the root redirect.
+ *
+ * A missing project renders <Error404 /> in place rather than navigating:
+ * no effect, no redirect, and no flash of empty layout before it resolves.
+ */
+export const Portofolio = () => {
+  const { t, lang } = useLanguage();
+  const { id } = useParams();
+  const path = useLocalizedPath();
 
-  if (!project) {
-    return null;
-  }
+  // `Number("about")` is NaN, so a non-numeric segment simply fails to match.
+  const item = portfolioItems.find((entry) => entry.id === Number(id));
+  const project = resolveProject(item, lang);
+
+  if (!project) return <Error404 />;
+
+  const hasLiveSite = project.projectUrl && project.projectUrl !== "#";
+  const hasThumbnail = Boolean(project.thumbnailUrl);
+  const metaLine = [project.year, project.role, project.category].filter(Boolean);
+  const features = project.features ?? [];
+  const techStack = project.techStack ?? [];
 
   return (
-    <>
+    <div className="min-h-screen bg-paper text-ink">
       <ProjectSEO project={project} />
+      <div className="grain" aria-hidden="true" />
 
       <Navbar />
 
-      <motion.div
-        className="from-gray-950 to-blue-950 via-slate-800 bg-linear-to-r min-h-screen px-4 pb-16 pt-20 sm:px-8"
-        initial="hidden"
-        animate="visible"
-        variants={{
-          hidden: { opacity: 0 },
-          visible: { opacity: 1, transition: { duration: 0.5 } },
-        }}
-      >
-        <div className="mx-auto max-w-7xl pt-4">
-          <motion.div
-            className="mb-8 flex items-center space-x-2 text-sm text-gray-400"
-            variants={itemVariants}
-          >
-            <a
-              href="/"
-              onClick={(e) => handleProjectLinkClickBreadcrumb(e, "home")}
-              className="hover:text-cyan-400"
+      <main id="main">
+        {/* 1 — return path, then the masthead: metadata, title, lead. */}
+        <Section rhythm={2}>
+          <Reveal>
+            <Link
+              to={`${path("/")}#work`}
+              className="meta inline-block border-b border-mist pb-1 transition-colors hover:border-ink hover:text-ink"
             >
-              {t("project.breadcrumbHome")}
-            </a>
-            <span>/</span>
-            <a
-              href="/#portfolio"
-              onClick={(e) => handleProjectLinkClickBreadcrumb(e, "portfolio")}
-              className="hover:text-cyan-400"
-            >
-              {t("project.breadcrumbProject")}
-            </a>
-            <span>/</span>
-            <span className="cursor-default font-medium text-cyan-400 underline">
+              &larr;&nbsp;{t("project.back")}
+            </Link>
+          </Reveal>
+
+          <Reveal className="mt-12 md:mt-16" delay={0.05}>
+            <p className="meta flex flex-wrap items-baseline gap-x-3 gap-y-1">
+              {metaLine.map((entry, index) => (
+                <span key={entry} className="flex items-baseline gap-x-3">
+                  {index > 0 ? <span aria-hidden="true">&middot;</span> : null}
+                  <span>{entry}</span>
+                </span>
+              ))}
+            </p>
+
+            <h1 className="mt-5 max-w-[24ch] text-xl md:text-2xl">
               {project.title}
-            </span>
-          </motion.div>
+            </h1>
 
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-5">
-            <motion.div
-              className="order-1 space-y-8 lg:col-span-3"
-              variants={contentFadeInVariants("left")}
-            >
-              <div className="space-y-3">
-                <h1 className="text-4xl font-extrabold text-white sm:text-5xl">
+            {project.desc ? (
+              <p className="measure mt-8 text-md text-graphite">{project.desc}</p>
+            ) : null}
+          </Reveal>
+        </Section>
+
+        {/* 2 — the image runs wider than the text column: a deliberate break
+            in the grid, and the only place on the page that does it. */}
+        <Section rhythm={2} bleed>
+          <Reveal className="mx-auto w-full max-w-[88rem] px-6 md:px-10">
+            {hasThumbnail ? (
+              <img
+                src={project.thumbnailUrl}
+                alt={project.title}
+                loading="lazy"
+                className="plate w-full border border-bone object-cover"
+              />
+            ) : (
+              <div className="flex min-h-[15rem] items-center justify-center border border-bone px-6 py-20 md:min-h-[26rem]">
+                <p className="font-display max-w-[18ch] text-center text-xl leading-tight text-mist md:text-2xl">
                   {project.title}
-                </h1>
-                <div className="flex flex-wrap items-center justify-between gap-y-2">
-                  <p className="text-lg text-gray-300">{project.category}</p>
-
-                  {project.time && (
-                    <p className="text-md flex items-center text-cyan-400">
-                      <FaClock className="mr-2 h-4 w-4 text-gray-400" />
-                      {project.time}
-                    </p>
-                  )}
-                </div>
-              </div>
-
-              <div className="block lg:hidden">
-                <motion.div
-                  className="overflow-hidden rounded-xl border border-gray-700 shadow-2xl"
-                  variants={itemVariants}
-                >
-                  <img
-                    src={project.thumbnailUrl}
-                    alt={project.title}
-                    className="h-auto w-full object-cover"
-                  />
-                </motion.div>
-              </div>
-
-              <div className="space-y-8">
-                <p className="whitespace-pre-wrap pt-0 text-xl leading-relaxed text-gray-400">
-                  {mainDescription}
                 </p>
-
-                <motion.div
-                  className="flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0"
-                  variants={staggerContainerVariants}
-                >
-                  <motion.a
-                    href={project.projectUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-linear-to-r inline-flex flex-1 items-center justify-center rounded-lg from-cyan-600 to-blue-700 px-6 py-3 text-lg font-bold text-white shadow-lg transition duration-300 hover:scale-[1.02] hover:bg-cyan-500"
-                    variants={itemVariants}
-                  >
-                    {t("project.liveDemo")}
-                    <FiExternalLink className="ml-2 h-5 w-5" />
-                  </motion.a>
-                  <motion.a
-                    href={githubLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex flex-1 items-center justify-center rounded-lg border border-gray-600 px-6 py-3 text-lg font-bold text-gray-300 shadow transition duration-300 hover:bg-gray-800 hover:text-white"
-                    variants={itemVariants}
-                  >
-                    {t("project.github")}
-                    <FaGithub className="ml-2 h-5 w-5" />
-                  </motion.a>
-                </motion.div>
-
-                <motion.div
-                  className="bg-slate-800/60 rounded-xl border border-gray-700 p-6"
-                  variants={staggerContainerVariants}
-                >
-                  <h2 className="mb-4 flex items-center text-xl font-bold text-white">
-                    <FaCode className="mr-2 text-cyan-400" />                     {t("project.techUsed")}
-                  </h2>
-                  <div className="flex flex-wrap gap-2">
-                    {technologiesList.map((tech, index) => (
-                      <motion.span
-                        key={index}
-                        className="rounded-full bg-gray-700/70 px-3 py-1 text-sm font-medium text-cyan-300"
-                        variants={itemVariants}
-                      >
-                        {tech}
-                      </motion.span>
-                    ))}
-                  </div>
-                </motion.div>
               </div>
-            </motion.div>
+            )}
+          </Reveal>
+        </Section>
 
-            <motion.div
-              className="order-2 space-y-8 lg:col-span-2"
-              variants={contentFadeInVariants("right")}
-            >
-              <div className="hidden overflow-hidden rounded-xl border border-gray-700 shadow-2xl lg:block">
-                <img
-                  src={project.thumbnailUrl}
-                  alt={project.title}
-                  className="h-auto w-full object-cover"
-                />
-              </div>
-
-              <motion.div
-                className="bg-slate-800/60 rounded-xl border border-gray-700 p-8 shadow-xl"
-                variants={staggerContainerVariants}
-              >
-                <h2 className="mb-5 flex items-center text-2xl font-bold text-white">
-                  <FaStar className="mr-3 text-yellow-400" />                   {t("project.features")}
-                </h2>
-                <ul className="list-none space-y-3 pl-0">
-                  {featuresList.map((feature, index) => (
-                    <motion.li
-                      key={index}
-                      className="flex items-start text-lg text-gray-300"
-                      variants={itemVariants}
-                    >
-                      <span className="mr-3 mt-1 font-bold text-cyan-400">
-                        &#9679;
-                      </span>{" "}
-                      {feature}
-                    </motion.li>
-                  ))}
-                </ul>
-              </motion.div>
-            </motion.div>
+        {/* 3 — the write-up. Three prose blocks, hairline-separated. */}
+        <Section rhythm={1}>
+          <div className="flex flex-col gap-14 md:gap-20">
+            <ProseBlock label={t("project.overview")} body={project.longDesc} />
+            <ProseBlock
+              label={t("project.challenge")}
+              body={project.challenge}
+              delay={0.05}
+            />
+            <ProseBlock
+              label={t("project.solution")}
+              body={project.solution}
+              delay={0.1}
+            />
           </div>
-        </div>
-      </motion.div>
-    </>
+        </Section>
+
+        {/* 4 — what is actually in the build: a hairline list, not cards. */}
+        {features.length > 0 ? (
+          <Section rhythm={2}>
+            <Reveal>
+              <SectionLabel>{t("project.features")}</SectionLabel>
+              <ul className="mt-6 border-t border-bone">
+                {features.map((feature, index) => (
+                  <li
+                    key={feature}
+                    className="flex items-baseline gap-5 border-b border-bone py-4"
+                  >
+                    <span className="meta shrink-0" aria-hidden="true">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <span className="measure text-xs text-graphite md:text-base">
+                      {feature}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          </Section>
+        ) : null}
+
+        {/* 5 — stack, then the two outbound links. */}
+        <Section rhythm={4}>
+          {techStack.length > 0 ? (
+            <Reveal className="border-t border-bone pt-6">
+              <SectionLabel>{t("project.stack")}</SectionLabel>
+              <ul className="flex flex-wrap items-baseline gap-x-3 gap-y-2">
+                {techStack.map((tech, index) => (
+                  <li key={tech} className="meta flex items-baseline gap-x-3">
+                    {index > 0 ? <span aria-hidden="true">&middot;</span> : null}
+                    <span>{tech}</span>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          ) : null}
+
+          <Reveal className="mt-14 flex flex-col gap-5 sm:flex-row sm:flex-wrap sm:gap-10">
+            {hasLiveSite ? (
+              <a
+                href={project.projectUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-display text-lg leading-none text-ink underline decoration-mist decoration-1 underline-offset-[6px] transition-colors hover:decoration-ink"
+              >
+                {t("project.live")}&nbsp;&rarr;
+              </a>
+            ) : null}
+
+            {project.githubUrl ? (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-display text-lg leading-none text-ink underline decoration-mist decoration-1 underline-offset-[6px] transition-colors hover:decoration-ink"
+              >
+                {t("project.repo")}&nbsp;&rarr;
+              </a>
+            ) : null}
+          </Reveal>
+        </Section>
+      </main>
+
+      <Footer />
+    </div>
   );
 };

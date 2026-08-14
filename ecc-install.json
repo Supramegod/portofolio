@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "target": "claude-project",
+  "modules": [
+    "rules-core",
+    "agents-core",
+    "commands-core",
+    "platform-configs",
+    "framework-language"
+  ],
+  "include": [
+    "framework:react",
+    "lang:typescript"
+  ],
+  "exclude": [],
+  "options": {
+    "notes": {
+      "lang:typescript": "This repo is plain JavaScript (22 .jsx, 5 .js, 0 .ts/.tsx). ECC has no lang:javascript component, so lang:typescript is kept solely as the carrier for the JS/ESLint rules. The type-system-specific rule files are demoted to .claude/library/rules/typescript/ - do not restore them to .claude/rules/ecc/typescript/ unless this project adopts TypeScript.",
+      "modules": "Pinned to the set resolved on 2026-08-14 so reinstalls do not pull database, security, machine-learning, or domain modules this static site cannot use.",
+      "library": "Off-stack agents, skills, and commands live in .claude/library/. See .claude/skills/skill-library/SKILL.md for the router."
+    }
+  }
+}

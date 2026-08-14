@@ -1,45 +1,46 @@
-﻿import React from "react";
+import React from "react";
 import { Helmet } from "react-helmet-async";
 
-export const NotFoundSEO = () => (
-  <Helmet>
-    <title>404 — Halaman Tidak Ditemukan | Jalu Pradipta</title>
-    <link rel="canonical" href="https://jalupradipta.pages.dev/404" />
-    <meta
-      name="description"
-      content="404 — Halaman tidak ditemukan. Kembali ke halaman utama Jalu Pradipta — Backend Developer Laravel 12 & ERP System."
-    />
-    <meta
-      name="keywords"
-      content="404, halaman tidak ditemukan, Jalu Pradipta, Backend Developer"
-    />
-    <meta name="author" content="Jalu Pradipta" />
-    <meta name="robots" content="noindex, follow" />
+import { useLanguage } from "../../../context/LanguageContext";
 
-    <meta property="og:title" content="404 — Halaman Tidak Ditemukan | Jalu Pradipta" />
-    <meta
-      property="og:description"
-      content="Halaman yang Anda cari tidak ditemukan. Kembali ke homepage Jalu Pradipta."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://jalupradipta.pages.dev/404" />
-    <meta
-      property="og:image"
-      content="https://jalupradipta.pages.dev/images/profile-jalu.jpg"
-    />
-    <meta property="og:image:alt" content="Jalu Pradipta" />
-    <meta property="og:locale" content="id_ID" />
-    <meta property="og:site_name" content="Jalu Pradipta" />
+const BASE = "https://jalupradipta.pages.dev";
+const OG_IMAGE = `${BASE}/images/profile-jalu.jpg`;
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="404 — Halaman Tidak Ditemukan | Jalu Pradipta" />
-    <meta
-      name="twitter:description"
-      content="Halaman yang Anda cari tidak ditemukan. Kembali ke homepage Jalu Pradipta."
-    />
-    <meta
-      name="twitter:image"
-      content="https://jalupradipta.pages.dev/images/profile-jalu.jpg"
-    />
-  </Helmet>
-);
+export const NotFoundSEO = () => {
+  const { lang, t } = useLanguage();
+
+  const title = t("seo.notFound.title");
+  const description = t("seo.notFound.description");
+  const ogLocale = lang === "id" ? "id_ID" : "en_US";
+
+  return (
+    <Helmet htmlAttributes={{ lang }}>
+      <title>{title}</title>
+      <meta name="description" content={description} />
+      <meta name="author" content="Jalu Pradipta" />
+      {/* noindex, follow: the address is wrong, but the links out of it are
+          not — let the crawler leave rather than dead-end. No canonical,
+          because an error page is not the canonical version of anything. */}
+      <meta name="robots" content="noindex, follow" />
+
+      <link rel="alternate" hrefLang="en" href={`${BASE}/en`} />
+      <link rel="alternate" hrefLang="id" href={`${BASE}/id`} />
+      <link rel="alternate" hrefLang="x-default" href={`${BASE}/`} />
+
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={`${BASE}/${lang}`} />
+      <meta property="og:image" content={OG_IMAGE} />
+      <meta property="og:image:alt" content="Jalu Pradipta" />
+      <meta property="og:locale" content={ogLocale} />
+      <meta property="og:site_name" content="Jalu Pradipta" />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={OG_IMAGE} />
+      <meta name="twitter:image:alt" content="Jalu Pradipta" />
+    </Helmet>
+  );
+};

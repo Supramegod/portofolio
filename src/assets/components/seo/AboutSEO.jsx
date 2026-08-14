@@ -1,5 +1,11 @@
-﻿import React from "react";
+import React from "react";
 import { Helmet } from "react-helmet-async";
+
+import { useLanguage } from "../../../context/LanguageContext";
+
+const BASE = "https://jalupradipta.pages.dev";
+const OG_IMAGE = `${BASE}/images/profile-jalu.jpg`;
+const TIMELINE_IMAGE = `${BASE}/images/profile-jalu.jpg`;
 
 const personSchema = {
   "@context": "https://schema.org",
@@ -8,8 +14,8 @@ const personSchema = {
   givenName: "Jalu",
   familyName: "Pradipta",
   email: "jluppradipta@gmail.com",
-  url: "https://jalupradipta.pages.dev",
-  image: "https://jalupradipta.pages.dev/images/foto-jalu.jpg",
+  url: BASE,
+  image: OG_IMAGE,
   sameAs: [
     "https://github.com/supramegod",
     "https://www.linkedin.com/in/jalupradipta/",
@@ -19,13 +25,14 @@ const personSchema = {
   knowsAbout: [
     "Laravel 12",
     "PHP 8.x",
+    "Go",
     "MySQL",
+    "PostgreSQL",
     "REST API",
     "ERP System",
     "Laravel Sanctum",
     "Docker",
     "GitLab CI",
-    "Chart.js",
   ],
   alumniOf: {
     "@type": "CollegeOrUniversity",
@@ -33,94 +40,173 @@ const personSchema = {
   },
 };
 
-const faqSchema = {
+/**
+ * Moved here verbatim from HomeSEO: the timeline this ItemList describes now
+ * renders on /about-me, and Event markup must sit on the page that shows it.
+ *
+ * Every `Event` keeps startDate, location, organizer, performer and image —
+ * those five fields were added specifically to clear Google Search Console
+ * validation. Do not prune them.
+ */
+const journeySchema = {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
+  "@type": "ItemList",
+  name: "Engineering Journey Timeline",
+  description:
+    "Perjalanan karir Jalu Pradipta dari mahasiswa hingga backend developer",
+  itemListElement: [
     {
-      "@type": "Question",
-      name: "Siapa Jalu Pradipta?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Jalu Pradipta adalah seorang Backend Developer lulusan D3 Teknik Telekomunikasi dari PENS yang berpengalaman dalam pengembangan sistem enterprise berbasis Laravel.",
+      "@type": "ListItem",
+      position: 1,
+      item: {
+        "@type": "Event",
+        name: "Mulai D3 Teknik Telekomunikasi PENS",
+        startDate: "2022",
+        endDate: "2025",
+        eventStatus: "https://schema.org/EventScheduled",
+        location: {
+          "@type": "Place",
+          name: "Politeknik Elektronika Negeri Surabaya",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Surabaya",
+            addressCountry: "ID",
+          },
+        },
+        organizer: {
+          "@type": "Organization",
+          name: "Politeknik Elektronika Negeri Surabaya (PENS)",
+        },
+        performer: { "@type": "Person", name: "Jalu Pradipta" },
+        image: TIMELINE_IMAGE,
       },
     },
     {
-      "@type": "Question",
-      name: "Apa proyek utama Jalu Pradipta?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Proyek utama Jalu adalah CAIS ERP System, sebuah sistem ERP berbasis Laravel 12 dengan modul Leads, Quotation, SPK, PKS, dan custom SSO menggunakan Laravel Sanctum.",
+      "@type": "ListItem",
+      position: 2,
+      item: {
+        "@type": "Event",
+        name: "Finalist KRTI (Kontes Robot Terbang Indonesia) Nasional",
+        startDate: "2023",
+        endDate: "2023",
+        eventStatus: "https://schema.org/EventScheduled",
+        location: {
+          "@type": "Place",
+          name: "Indonesia",
+          address: { "@type": "PostalAddress", addressCountry: "ID" },
+        },
+        organizer: {
+          "@type": "Organization",
+          name: "Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi",
+        },
+        performer: { "@type": "Person", name: "Jalu Pradipta" },
+        image: TIMELINE_IMAGE,
       },
     },
     {
-      "@type": "Question",
-      name: "Apa keahlian utama Jalu Pradipta?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Keahlian utama Jalu meliputi Laravel 12, Laravel Sanctum, REST API, MySQL, ERP System Design, Dashboard & Data Visualization, dan Production Deployment.",
+      "@type": "ListItem",
+      position: 3,
+      item: {
+        "@type": "Event",
+        name: "Eksplorasi Software Development",
+        startDate: "2023",
+        endDate: "2023",
+        eventStatus: "https://schema.org/EventScheduled",
+        location: {
+          "@type": "Place",
+          name: "Indonesia",
+          address: { "@type": "PostalAddress", addressCountry: "ID" },
+        },
+        organizer: { "@type": "Person", name: "Jalu Pradipta" },
+        performer: { "@type": "Person", name: "Jalu Pradipta" },
+        image: TIMELINE_IMAGE,
       },
     },
     {
-      "@type": "Question",
-      name: "Bagaimana cara menghubungi Jalu Pradipta?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Jalu dapat dihubungi melalui email di jluppradipta@gmail.com, LinkedIn di jalupradipta, atau WhatsApp di +62 821-3157-5147.",
+      "@type": "ListItem",
+      position: 4,
+      item: {
+        "@type": "Event",
+        name: "Fokus Backend Laravel & ERP",
+        startDate: "2024",
+        endDate: "2024",
+        eventStatus: "https://schema.org/EventScheduled",
+        location: {
+          "@type": "Place",
+          name: "Indonesia",
+          address: { "@type": "PostalAddress", addressCountry: "ID" },
+        },
+        organizer: { "@type": "Person", name: "Jalu Pradipta" },
+        performer: { "@type": "Person", name: "Jalu Pradipta" },
+        image: TIMELINE_IMAGE,
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 5,
+      item: {
+        "@type": "Event",
+        name: "Lulus PENS & Intern PT Shelter Indonesia",
+        startDate: "2025",
+        endDate: "2025",
+        eventStatus: "https://schema.org/EventScheduled",
+        location: {
+          "@type": "Place",
+          name: "PT Shelter Indonesia",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Surabaya",
+            addressCountry: "ID",
+          },
+        },
+        organizer: { "@type": "Organization", name: "PT Shelter Indonesia" },
+        performer: { "@type": "Person", name: "Jalu Pradipta" },
+        image: TIMELINE_IMAGE,
       },
     },
   ],
 };
 
-export const AboutSEO = () => (
-  <Helmet>
-    <title>About Jalu Pradipta — Backend Developer Laravel 12 & ERP Specialist</title>
-    <link rel="canonical" href="https://jalupradipta.pages.dev/about-me" />
-    <meta
-      name="description"
-      content="Profil lengkap Jalu Pradipta — Backend Developer Laravel 12 & ERP System, lulusan PENS. Pelajari perjalanan, keahlian backend, dan proyek CAIS ERP di sini."
-    />
-    <meta
-      name="keywords"
-      content="Jalu Pradipta, Backend Developer, Laravel 12, PHP 8.x, ERP, CAIS, PENS, Surabaya, About Jalu Pradipta, Backend Developer Indonesia"
-    />
-    <meta name="author" content="Jalu Pradipta" />
-    <meta name="robots" content="index, follow" />
+export const AboutSEO = () => {
+  const { lang, t } = useLanguage();
 
-    <meta property="og:title" content="About Jalu Pradipta — Backend Developer Laravel 12 & ERP Specialist" />
-    <meta
-      property="og:description"
-      content="Backend Developer spesialis Laravel 12, REST API, dan ERP System. Lulusan PENS dengan pengalaman produksi sistem enterprise."
-    />
-    <meta property="og:type" content="profile" />
-    <meta
-      property="og:url"
-      content="https://jalupradipta.pages.dev/about-me"
-    />
-    <meta
-      property="og:image"
-      content="https://jalupradipta.pages.dev/images/foto-jalu.jpg"
-    />
-    <meta property="og:image:width" content="500" />
-    <meta property="og:image:height" content="500" />
-    <meta property="og:image:alt" content="Foto Jalu Pradipta" />
-    <meta property="og:locale" content="id_ID" />
-    <meta property="og:site_name" content="Jalu Pradipta" />
+  const title = t("seo.about.title");
+  const description = t("seo.about.description");
+  const canonical = `${BASE}/${lang}/about-me`;
+  const ogLocale = lang === "id" ? "id_ID" : "en_US";
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="About Jalu Pradipta — Backend Developer Laravel 12 & ERP Specialist" />
-    <meta
-      name="twitter:description"
-      content="Backend Developer spesialis Laravel 12, REST API, dan ERP System. Lulusan PENS dengan pengalaman produksi sistem enterprise."
-    />
-    <meta
-      name="twitter:image"
-      content="https://jalupradipta.pages.dev/images/foto-jalu.jpg"
-    />
-    <meta name="twitter:image:alt" content="Foto Jalu Pradipta" />
+  return (
+    <Helmet htmlAttributes={{ lang }}>
+      <title>{title}</title>
+      <meta name="description" content={description} />
+      <meta name="author" content="Jalu Pradipta" />
+      <meta name="robots" content="index, follow" />
 
-    <script type="application/ld+json">
-      {JSON.stringify([personSchema, faqSchema])}
-    </script>
-  </Helmet>
-);
+      <link rel="canonical" href={canonical} />
+      <link rel="alternate" hrefLang="en" href={`${BASE}/en/about-me`} />
+      <link rel="alternate" hrefLang="id" href={`${BASE}/id/about-me`} />
+      <link rel="alternate" hrefLang="x-default" href={`${BASE}/`} />
+
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:type" content="profile" />
+      <meta property="og:url" content={canonical} />
+      <meta property="og:image" content={OG_IMAGE} />
+      <meta property="og:image:width" content="500" />
+      <meta property="og:image:height" content="500" />
+      <meta property="og:image:alt" content="Jalu Pradipta" />
+      <meta property="og:locale" content={ogLocale} />
+      <meta property="og:site_name" content="Jalu Pradipta" />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={OG_IMAGE} />
+      <meta name="twitter:image:alt" content="Jalu Pradipta" />
+
+      <script type="application/ld+json">
+        {JSON.stringify([personSchema, journeySchema])}
+      </script>
+    </Helmet>
+  );
+};

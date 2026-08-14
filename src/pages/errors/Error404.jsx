@@ -1,49 +1,56 @@
-﻿import React, { useState, useEffect } from "react";
-import { NotFoundSEO } from "../../assets/components/seo/NotFoundSEO";
-import { Loading } from "../../assets/components/loading/Loading";
-import { useLanguage } from "../../context/LanguageContext";
+import React from "react";
+import { Link } from "react-router-dom";
 
+import { NotFoundSEO } from "../../assets/components/seo/NotFoundSEO";
+import { Navbar } from "../../assets/components/navbar/Navbar";
+import { Footer } from "../../assets/components/navbar/Footer";
+import { Section } from "../../assets/components/ui/Section";
+import { useLanguage, useLocalizedPath } from "../../context/LanguageContext";
+
+/**
+ * 404. Also the fallback when the URL carries an unknown language segment,
+ * so it reads nothing from the route — no params, no loading state.
+ */
 export const Error404 = () => {
   const { t } = useLanguage();
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const minimumLoadTime = 700;
-    const startTime = Date.now();
-
-    const timer = setTimeout(() => {
-      const elapsedTime = Date.now() - startTime;
-      const remainingTime = minimumLoadTime - elapsedTime;
-
-      setTimeout(
-        () => {
-          setIsLoading(false);
-        },
-        Math.max(0, remainingTime),
-      );
-    }, 100);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (isLoading) {
-    return <Loading />;
-  }
+  const path = useLocalizedPath();
 
   return (
-    <>
+    <div className="min-h-screen bg-paper text-ink">
       <NotFoundSEO />
-      <div className="bg-linear-to-r from-gray-950 via-slate-800 to-blue-950 flex min-h-screen flex-col items-center justify-center gap-8">
-        <div className="flex flex-col items-center justify-center gap-4">
-          <div className="text-9xl font-bold text-white" aria-hidden="true">404</div>
-          <h1 className="text-2xl font-semibold tracking-wider text-white">
-            {t("404.title")}
+      <div className="grain" aria-hidden="true" />
+
+      <Navbar />
+
+      <main id="main">
+        <Section id="not-found" rhythm={1} labelledBy="not-found-title">
+          <p
+            className="font-display text-2xl leading-none text-mist"
+            aria-hidden="true"
+          >
+            {t("notFound.code")}
+          </p>
+
+          <h1 id="not-found-title" className="mt-6 text-xl">
+            {t("notFound.title")}
           </h1>
-        </div>
-        <div className="hover:text-zinc-900 cursor-pointer rounded-xl border-2 px-3 py-2 text-lg font-semibold text-white transition-all hover:border-white hover:bg-white">
-          <a href="/">{t("404.back")}</a>
-        </div>
-      </div>
-    </>
+
+          <p className="measure mt-5 text-base text-slate">
+            {t("notFound.body")}
+          </p>
+
+          <p className="mt-10">
+            <Link
+              to={path("/")}
+              className="meta border-b border-ink pb-1 transition-opacity hover:opacity-60"
+            >
+              {t("notFound.home")}
+            </Link>
+          </p>
+        </Section>
+      </main>
+
+      <Footer />
+    </div>
   );
 };

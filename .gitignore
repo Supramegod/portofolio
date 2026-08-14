@@ -14,6 +14,10 @@ dist-ssr
 yarn.lock
 .gitignore
 
+# ECC project install (vendored, reproducible from ecc-install.json)
+.claude/*
+!.claude/settings.local.json
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

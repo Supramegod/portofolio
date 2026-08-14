@@ -1,257 +1,230 @@
-export const id = {
-  "nav.home": "Home",
-  "nav.about": "About",
-  "nav.services": "Services",
-  "nav.portfolio": "Portfolio",
-  "nav.contact": "Contact",
-
-  "intro.welcome": "Welcome To My",
-  "intro.portfolio": "Portfolio",
-  "intro.website": "Website",
-  "intro.tagline": "Membangun Sistem Enterprise yang Andal.",
-  "intro.badge1": "Backend Developer",
-  "intro.badge2": "System Designer",
-  "intro.badge3": "Tech Enthusiast",
-
-  "hero.title1": "Backend",
-  "hero.title2": "Developer",
-  "hero.tagline": "Membangun Sistem Backend Enterprise yang Scalable & Secure.",
-  "hero.desc": "Backend Developer spesialis Laravel 12, PHP 8.x, RESTful API, dan ERP System. Saya membangun infrastruktur digital yang kokoh, aman, dan siap diskalakan — dari desain database hingga production deployment.",
-  "hero.btnPortfolio": "Lihat Portfolio",
-  "hero.btnContact": "Hubungi Saya",
-
-  "about.title": "About Me",
-  "about.subtitle": "Transforming ideas into functional code.",
-  "about.hello": "Hello, I'm",
-  "about.name": "Jalu Pradipta",
-  "about.typewriter1": "Backend Developer",
-  "about.typewriter2": "System Designer",
-  "about.typewriter3": "Tech Enthusiast",
-  "about.desc": "Lulusan D3 Teknik Telekomunikasi PENS — Backend Developer berpengalaman dalam Laravel 12, PHP 8.x, RESTful API, dan ERP System. Merancang dan membangun sistem enterprise berbasis web yang fungsional, aman, dan sesuai kebutuhan operasional. Terbiasa dengan production deployment, Docker, GitLab CI, dan arsitektur multi-tenant.",
-  "about.downloadCV": "Download CV",
-  "about.learnMore": "Learn More About Me",
-  "about.statProjects": "PROJECTS",
-  "about.statCertificates": "CERTIFICATES",
-  "about.statExperience": "YEARS OF EXPERIENCE",
-
-  "services.title": "My Expertise & Services",
-  "services.subtitle": "Membangun Solusi Digital dengan Presisi & Performa Tinggi.",
-  "services.cta": "Layanan ini dapat disesuaikan dengan kebutuhan unik proyek Anda. Hubungi saya untuk diskusi lebih lanjut!",
-  "services.svc1Title": "Backend Development",
-  "services.svc1Desc": "Membangun sistem backend scalable & aman menggunakan Laravel 12, PHP 8.x, dan arsitektur RESTful API dengan otentikasi modern (Sanctum), business logic terstruktur, serta standar production-ready.",
-  "services.svc2Title": "API Integration & Services",
-  "services.svc2Desc": "Integrasi sistem dengan layanan pihak ketiga secara real-time — payment gateway, Laravel Sanctum SSO, dan sinkronasi data multi-platform dengan keamanan enterprise.",
-  "services.svc3Title": "ERP System Design",
-  "services.svc3Desc": "Merancang ERP enterprise dari leads-to-order lifecycle: quotation engine multi-step, contract management (PKS/SPK), approval workflow, dan dashboard real-time.",
-  "services.svc4Title": "System Automation & Deployment",
-  "services.svc4Desc": "Production deployment & otomatisasi infrastruktur menggunakan Docker, GitLab CI, environment management, serta monitoring untuk performa optimal 24/7.",
-
-  "portfolio.header": "Portfolio Showcase",
-  "portfolio.subtitle": "Telusuri perjalanan karya saya melalui proyek nyata, sertifikasi yang saya raih, hingga keahlian teknis saya. Setiap bagian adalah bukti dari semangat belajar dan perkembangan saya.",
-  "portfolio.tabProjects": "Projects",
-  "portfolio.tabCertificates": "Certificates",
-  "portfolio.tabTechStack": "Tech Stack",
-  "portfolio.detail": "Detail Project",
-  "portfolio.seeMore": "See More Projects",
-  "portfolio.certTitle": "Sertifikat Kompetensi",
-  "portfolio.certDesc": "Sertifikat kompetensi yang menunjang keahlian di bidang pengembangan perangkat lunak dan sistem informasi.",
-  "portfolio.certView": "Lihat Sertifikat",
-  "portfolio.certTitle2": "Sertifikat Kompetensi 2",
-  "portfolio.certDesc2": "Sertifikat pendukung kompetensi pengembangan perangkat lunak.",
-  "portfolio.certTitle3": "Sertifikat Kompetensi 3",
-  "portfolio.certDesc3": "Sertifikat pendukung kompetensi pengembangan perangkat lunak.",
-  "portfolio.certTitle4": "Sertifikat Kompetensi 4",
-  "portfolio.certDesc4": "Sertifikat pendukung kompetensi pengembangan perangkat lunak.",
-  "portfolio.certTitle5": "Sertifikat Kompetensi 5",
-  "portfolio.certDesc5": "Sertifikat pendukung kompetensi pengembangan perangkat lunak.",
-
-  "contact.header": "Let's Collaborate",
-  "contact.subtitle": "Tertarik untuk berdiskusi tentang peluang kerja, proyek, atau kolaborasi? Anda dapat menghubungi saya melalui platform-platform di bawah ini.",
-  "contact.click": "Klik ikon di bawah ini untuk menghubungi saya.",
-
-  "journey.title": "Perjalanan Engineering",
-  "journey.subtitle": "Dari mahasiswa telekomunikasi ke backend developer — setiap langkah adalah bukti nyata pertumbuhan.",
-  "journey.2022.title": "Awal Perjalanan",
-  "journey.2022.desc": "Memulai D3 Teknik Telekomunikasi di PENS. Membangun fondasi kuat di jaringan, sistem telekomunikasi, dan teknologi informasi.",
-  "journey.2023.title": "Eksplorasi Coding",
-  "journey.2023.desc": "Mendalami software development dan programming. Mengikuti KRTI (Kontes Robot Terbang Indonesia) nasional di ITERA Lampung — cabang Fixed Wing sebagai Electrical, memastikan seluruh komponen pesawat berfungsi optimal. Menemukan passion di automation, system integration, dan problem solving.",
-  "journey.2024.title": "Fokus Backend",
-  "journey.2024.desc": "Mendalami ekosistem Laravel, REST API, dan arsitektur web modern. Mulai membangun aplikasi ERP dan sistem berbasis bisnis.",
-  "journey.2025.title": "Terjun ke Industri",
-  "journey.2025.desc": "Lulus dari PENS dan langsung berkontribusi di PT Shelter Indonesia sebagai intern Backend Developer. Mengembangkan CAIS ERP dengan Laravel 12 dan meneliti Smart Warehouse menggunakan Genetic Algorithm & MQTT.",
-  "journey.current.title": "Fokus Saat Ini",
-  "journey.current.desc": "Memperdalam backend development, arsitektur ERP, API design, dan integrasi sistem untuk solusi enterprise yang scalable.",
-  "journey.future.title": "Visi Masa Depan",
-  "journey.future.desc": "Bercita-cita menjadi Senior Backend Developer, AI Engineer, System Architect, dan Tech Entrepreneur yang membangun solusi teknologi berdampak.",
-  "journey.cta.portfolio": "Lihat Portfolio →",
-  "journey.cta.contact": "Hubungi Saya",
-  "journey.cta.cv": "Download CV",
-
-  "aboutme.title": "About Me",
-  "aboutme.subtitle": "A deep dive into my journey, skills, and goals.",
-  "aboutme.summary": "Summary",
-  "aboutme.summary1": "Saya lulusan D3 Teknik Telekomunikasi PENS — Backend Developer berpengalaman dalam Laravel 12, PHP 8.x, RESTful API, dan Laravel Sanctum (SSO). Terbiasa membangun sistem enterprise dari perancangan database, pengembangan RESTful API, hingga production deployment dengan Docker dan GitLab CI. Menangani proyek secara end-to-end: analisis kebutuhan, perancangan arsitektur, pengembangan, testing, hingga implementasi.",
-  "aboutme.summary2": "Saya memiliki minat pada teknologi, desain sistem, otomatisasi cerdas, dan integrasi hardware-software. Saya merupakan individu yang praktis, kreatif, kolaboratif, dan adaptif. Fokus saya adalah merancang solusi teknologi yang fungsional, aman, dan sesuai dengan kebutuhan operasional pengguna. Saya berkomitmen untuk terus belajar dan beradaptasi dengan perkembangan teknologi guna memberikan kontribusi terbaik dalam lingkungan kerja profesional.",
-  "aboutme.experience": "Work Experience",
-  "aboutme.education": "Education",
-  "aboutme.hobbies": "Hobbies",
-  "aboutme.interests": "Career Interests",
-  "aboutme.expertise": "Technical Expertise",
-  "aboutme.future": "Future Goals & Aspirations",
-  "aboutme.futureText": "Saya berambisi untuk terus berkembang di dunia teknologi informasi melalui peningkatan kompetensi di bidang pengembangan backend, desain sistem, serta integrasi hardware-software. Ke depannya, saya ingin memperdalam pemahaman terkait arsitektur sistem enterprise, optimalisasi proses bisnis berbasis teknologi, serta pemanfaatan layanan cloud untuk mendukung efisiensi operasional. Saya berharap dapat berkontribusi dalam menciptakan solusi teknologi yang bermanfaat, berkelanjutan, dan mampu memberikan dampak positif bagi pengguna maupun organisasi.",
-  "aboutme.expTitle": "Backend Developer",
-  "aboutme.expCompany": "CAIS (Customer Acquisition & Integrated Services)",
-  "aboutme.expDuration": "Saat Ini",
-  "aboutme.expTask1": "Mengembangkan ERP system (Laravel 12, PHP 8.x, REST API) dengan modul Leads, Quotation, SPK, PKS.",
-  "aboutme.expTask2": "Mengimplementasikan custom SSO menggunakan Laravel Sanctum (multi-tenant, role-based).",
-  "aboutme.expTask3": "Membangun dashboard approval & sales activity monitoring real-time (Chart.js).",
-  "aboutme.expTask4": "Menangani production deployment (Docker, GitLab CI) dan integrasi sistem.",
-  "aboutme.eduDegree": "D3 Teknik Telekomunikasi",
-  "aboutme.eduInstitution": "Politeknik Elektronika Negeri Surabaya (PENS)",
-  "aboutme.skillBackend": "Backend",
-  "aboutme.skillSystem": "System",
-  "aboutme.skillTools": "Tools",
-
-  "404.title": "HALAMAN TIDAK DITEMUKAN",
-  "404.back": "Kembali ke Homepage",
-
-  "footer.copyright": "All Rights Reserved.",
-  "project.placeholder": "Segera diupdate — proyek selanjutnya akan ditampilkan di sini.",
-  "project.placeholderLong": "Proyek ini akan segera diupdate dengan informasi lengkap mengenai teknologi, fitur, dan detail pengembangan.",
-  "project.noImage": "Image placeholder",
-  "project.liveDemo": "Live Demo",
-  "project.github": "GitHub",
-  "project.techUsed": "Technologies Used",
-  "project.features": "Key Features",
-  "project.breadcrumbHome": "Home",
-  "project.breadcrumbProject": "Project",
-};
+/**
+ * Flat, dot-namespaced keys. `t()` returns the key itself when a string is
+ * missing, so a gap shows up on screen as "hero.role" rather than blank.
+ *
+ * `en` and `id` MUST stay key-for-key identical.
+ *
+ * Copy rules (plan §5): no "passionate", "crafting", "seamless",
+ * "solutions", "journey", "elevate". Prefer numbers, dates, and what
+ * actually broke over adjectives. The Indonesian is written natively —
+ * it is not a line-by-line translation of the English.
+ */
 
 export const en = {
-  "nav.home": "Home",
+  // --- Navigation ------------------------------------------------------
+  "nav.work": "Work",
   "nav.about": "About",
-  "nav.services": "Services",
-  "nav.portfolio": "Portfolio",
   "nav.contact": "Contact",
+  "nav.skipToContent": "Skip to content",
+  "nav.langSwitch": "Read this in Indonesian",
+  "nav.menuOpen": "Open menu",
+  "nav.menuClose": "Close menu",
 
-  "intro.welcome": "Welcome To My",
-  "intro.portfolio": "Portfolio",
-  "intro.website": "Website",
-  "intro.tagline": "Building Reliable Enterprise Systems.",
-  "intro.badge1": "Backend Developer",
-  "intro.badge2": "System Designer",
-  "intro.badge3": "Tech Enthusiast",
+  // --- Hero ------------------------------------------------------------
+  "hero.name": "Jalu Pradipta",
+  "hero.role": "Backend developer",
+  "hero.location": "Surabaya, Indonesia",
+  "hero.availability": "Open to work",
+  "hero.lead":
+    "I build backends. Mostly Laravel and Go, for systems a sales team opens every morning and complains about by lunch.",
+  "hero.ctaWork": "See the work",
+  "hero.ctaContact": "Get in touch",
 
-  "hero.title1": "Backend",
-  "hero.title2": "Developer",
-  "hero.tagline": "Building Scalable & Secure Enterprise Backend Systems.",
-  "hero.desc": "Backend Developer specializing in Laravel 12, PHP 8.x, RESTful APIs, and ERP Systems. I build robust, secure, and scalable digital infrastructure — from database design to production deployment.",
-  "hero.btnPortfolio": "View Portfolio",
-  "hero.btnContact": "Contact Me",
+  // --- Selected work ---------------------------------------------------
+  "work.label": "Selected work",
+  "work.title": "Four things I built",
+  "work.note":
+    "Two in depth, two in passing. Line counts and commit numbers come from the repositories, not from memory.",
+  "work.readCase": "Read the case",
+  "work.colYear": "Year",
+  "work.colProject": "Project",
+  "work.colRole": "Role",
+  "work.colStack": "Stack",
+  "work.viewDetail": "Detail",
 
-  "about.title": "About Me",
-  "about.subtitle": "Transforming ideas into functional code.",
-  "about.hello": "Hello, I'm",
-  "about.name": "Jalu Pradipta",
-  "about.typewriter1": "Backend Developer",
-  "about.typewriter2": "System Designer",
-  "about.typewriter3": "Tech Enthusiast",
-  "about.desc": "D3 Telecommunication Engineering graduate from PENS — Backend Developer experienced with Laravel 12, PHP 8.x, RESTful APIs, and ERP Systems. Experienced in designing and building functional, secure web-based enterprise systems with production deployment, Docker, GitLab CI, and multi-tenant architecture.",
-  "about.downloadCV": "Download CV",
-  "about.learnMore": "Learn More About Me",
-  "about.statProjects": "PROJECTS",
-  "about.statCertificates": "CERTIFICATES",
-  "about.statExperience": "YEARS OF EXPERIENCE",
+  // --- About strip -----------------------------------------------------
+  "about.label": "About",
+  "about.title": "Short version",
+  "about.body":
+    "D3 in Telecommunication Engineering from PENS, Surabaya. Since 2025 I have been the main contributor on an internal ERP at SHELTER — 1,203 of its 1,305 commits, alongside six other people. Before that I mostly learned by breaking things in production and then having to explain why.",
+  "about.bodyTwo":
+    "I am most useful on the parts nobody volunteers for: document numbering that must not collide, wage rules that follow actual labour regulation, approval flows where a signed contract cannot quietly change.",
+  "about.cv": "Download CV",
+  "about.more": "More about me",
 
-  "services.title": "My Expertise & Services",
-  "services.subtitle": "Building Digital Solutions with Precision & High Performance.",
-  "services.cta": "These services can be tailored to your project's unique needs. Contact me for further discussion!",
-  "services.svc1Title": "Backend Development",
-  "services.svc1Desc": "Building scalable & secure backend systems using Laravel 12, PHP 8.x, and RESTful API architecture with modern authentication (Sanctum), structured business logic, and production-ready standards.",
-  "services.svc2Title": "API Integration & Services",
-  "services.svc2Desc": "Real-time third-party system integration — payment gateways, Laravel Sanctum SSO, and multi-platform data sync with enterprise-grade security.",
-  "services.svc3Title": "ERP System Design",
-  "services.svc3Desc": "Designing enterprise ERP systems covering the full leads-to-order lifecycle: multi-step quotation engine, contract management (PKS/SPK), approval workflows, and real-time dashboards.",
-  "services.svc4Title": "System Automation & Deployment",
-  "services.svc4Desc": "Production deployment & infrastructure automation using Docker, GitLab CI, environment management, and 24/7 performance monitoring.",
+  // --- Contact ---------------------------------------------------------
+  "contact.label": "Contact",
+  "contact.title": "Say hello",
+  "contact.lead":
+    "Email is fastest. I answer within a day, usually less unless something is on fire.",
+  "contact.emailLabel": "Email",
+  "contact.email": "jluppradipta@gmail.com",
+  "contact.githubLabel": "GitHub",
+  "contact.linkedinLabel": "LinkedIn",
+  "contact.instagramLabel": "Instagram",
 
-  "portfolio.header": "Portfolio Showcase",
-  "portfolio.subtitle": "Explore my journey through real projects, certifications I've earned, and my technical expertise. Each section is proof of my passion for learning and growth.",
-  "portfolio.tabProjects": "Projects",
-  "portfolio.tabCertificates": "Certificates",
-  "portfolio.tabTechStack": "Tech Stack",
-  "portfolio.detail": "Project Detail",
-  "portfolio.seeMore": "See More Projects",
-  "portfolio.certTitle": "Competency Certificate",
-  "portfolio.certDesc": "Competency certificate supporting software development and information systems expertise.",
-  "portfolio.certView": "View Certificate",
-  "portfolio.certTitle2": "Competency Certificate 2",
-  "portfolio.certDesc2": "Certificate supporting software development competencies.",
-  "portfolio.certTitle3": "Competency Certificate 3",
-  "portfolio.certDesc3": "Certificate supporting software development competencies.",
-  "portfolio.certTitle4": "Competency Certificate 4",
-  "portfolio.certDesc4": "Certificate supporting software development competencies.",
-  "portfolio.certTitle5": "Competency Certificate 5",
-  "portfolio.certDesc5": "Certificate supporting software development competencies.",
+  // --- Footer ----------------------------------------------------------
+  "footer.built":
+    "Built with React and Vite. Black and white on purpose — colour is a decision I did not need here.",
+  "footer.rights": "All rights reserved.",
+  "footer.backToTop": "Back to top",
 
-  "contact.header": "Let's Collaborate",
-  "contact.subtitle": "Interested in discussing job opportunities, projects, or collaborations? You can reach me through the platforms below.",
-  "contact.click": "Click the icon below to contact me.",
+  // --- About page ------------------------------------------------------
+  "aboutPage.title": "About",
+  "aboutPage.lead":
+    "The longer version, for anyone who scrolled past the summary.",
+  "aboutPage.stackLabel": "What I work in",
+  "aboutPage.stackNote":
+    "Listed by how much I have actually shipped in it, not by how it looks on a CV.",
+  "aboutPage.certLabel": "Certificates",
+  "aboutPage.certNote": "Verifiable copies, linked.",
+  "aboutPage.certView": "View",
+  "aboutPage.trackLabel": "Track record",
+  "aboutPage.trackNote": "Dates are what they are.",
+  "aboutPage.backHome": "Back to home",
 
-  "journey.title": "Engineering Journey",
-  "journey.subtitle": "From telecom student to backend developer — every step is real proof of growth.",
-  "journey.2022.title": "The Beginning",
-  "journey.2022.desc": "Started D3 Telecommunications Engineering at PENS. Built a solid foundation in networking, telecom systems, and information technology.",
-  "journey.2023.title": "Coding Discovery",
-  "journey.2023.desc": "Dived into software development and programming. Participated in KRTI (Indonesian Flying Robot Contest) at ITERA Lampung — Fixed Wing category as Electrical Engineer, ensuring all aircraft components functioned optimally. Discovered a passion for automation, system integration, and problem solving.",
-  "journey.2024.title": "Backend Deep Dive",
-  "journey.2024.desc": "Mastered Laravel ecosystem, REST API, and modern web architecture. Started building ERP and business-driven applications.",
-  "journey.2025.title": "Industry Experience",
-  "journey.2025.desc": "Graduated from PENS and immediately contributed at PT Shelter Indonesia as a Backend Developer intern. Developing CAIS ERP with Laravel 12 and researching Smart Warehouse using Genetic Algorithm & MQTT.",
-  "journey.current.title": "Current Focus",
-  "journey.current.desc": "Deepening expertise in backend development, ERP architecture, API design, and system integration for scalable enterprise solutions.",
-  "journey.future.title": "Future Vision",
-  "journey.future.desc": "Aspiring to become a Senior Backend Developer, AI Engineer, System Architect, and Tech Entrepreneur building impactful technology solutions.",
-  "journey.cta.portfolio": "View Portfolio →",
-  "journey.cta.contact": "Contact Me",
-  "journey.cta.cv": "Download CV",
+  // --- Project detail --------------------------------------------------
+  "project.back": "Back to work",
+  "project.overview": "Overview",
+  "project.challenge": "The problem",
+  "project.solution": "What I did",
+  "project.features": "In the build",
+  "project.stack": "Stack",
+  "project.role": "Role",
+  "project.year": "Year",
+  "project.live": "Live site",
+  "project.repo": "Repository",
+  "project.notFound": "That project does not exist.",
+  "project.placeholder": "Nothing written up here yet.",
 
-  "aboutme.title": "About Me",
-  "aboutme.subtitle": "A deep dive into my journey, skills, and goals.",
-  "aboutme.summary": "Summary",
-  "aboutme.summary1": "D3 Telecommunication Engineering graduate from PENS — Backend Developer experienced with Laravel 12, PHP 8.x, RESTful APIs, and Laravel Sanctum (SSO). Proficient in building enterprise systems from database design and RESTful API development to production deployment with Docker and GitLab CI. Handles projects end-to-end: requirements analysis, architecture design, development, testing, and implementation.",
-  "aboutme.summary2": "I have a passion for technology, system design, intelligent automation, and hardware-software integration. I am a practical, creative, collaborative, and adaptive individual. My focus is on designing functional, secure technology solutions that meet user operational needs. I am committed to continuous learning and adapting to technological advancements to contribute effectively in a professional work environment.",
-  "aboutme.experience": "Work Experience",
-  "aboutme.education": "Education",
-  "aboutme.hobbies": "Hobbies",
-  "aboutme.interests": "Career Interests",
-  "aboutme.expertise": "Technical Expertise",
-  "aboutme.future": "Future Goals & Aspirations",
-  "aboutme.futureText": "I aspire to continuously grow in the information technology field by enhancing my competencies in backend development, system design, and hardware-software integration. Moving forward, I want to deepen my understanding of enterprise system architecture, technology-driven business process optimization, and cloud services to support operational efficiency. I hope to contribute to creating beneficial, sustainable technology solutions that positively impact users and organizations.",
-  "aboutme.expTitle": "Backend Developer",
-  "aboutme.expCompany": "CAIS (Customer Acquisition & Integrated Services)",
-  "aboutme.expDuration": "Present",
-  "aboutme.expTask1": "Developed ERP system (Laravel 12, PHP 8.x, REST API) with Leads, Quotation, SPK, PKS modules.",
-  "aboutme.expTask2": "Implemented custom SSO using Laravel Sanctum (multi-tenant, role-based).",
-  "aboutme.expTask3": "Built real-time approval dashboard & sales activity monitoring (Chart.js).",
-  "aboutme.expTask4": "Managed production deployment (Docker, GitLab CI) and system integration.",
-  "aboutme.eduDegree": "D3 Telecommunication Engineering",
-  "aboutme.eduInstitution": "Politeknik Elektronika Negeri Surabaya (PENS)",
-  "aboutme.skillBackend": "Backend",
-  "aboutme.skillSystem": "System",
-  "aboutme.skillTools": "Tools",
+  // --- 404 -------------------------------------------------------------
+  "notFound.code": "404",
+  "notFound.title": "Nothing at this address",
+  "notFound.body":
+    "The page moved, or the link was wrong from the start. Both happen.",
+  "notFound.home": "Go home",
 
-  "404.title": "PAGE NOT FOUND",
-  "404.back": "Back to Homepage",
+  // --- SEO -------------------------------------------------------------
+  // Single source of truth for <title> and <meta description>. Read by the
+  // SEO components at runtime AND by scripts/generate-static-head.mjs at
+  // build time, so social crawlers and Google see the same strings.
+  "seo.home.title": "Jalu Pradipta — Backend developer, Laravel and Go",
+  "seo.home.description":
+    "Backend developer in Surabaya. Main contributor on an internal ERP at SHELTER — 1,203 of 1,305 commits — plus a Go and Flutter finance stack built solo. Four projects, written up with real numbers.",
+  "seo.about.title": "About — Jalu Pradipta, backend developer",
+  "seo.about.description":
+    "The longer version: D3 in Telecommunication Engineering from PENS, the stack I actually ship in, verifiable certificates, and a dated track record.",
+  "seo.project.titleSuffix": "Jalu Pradipta",
+  "seo.notFound.title": "Nothing at this address — Jalu Pradipta",
+  "seo.notFound.description":
+    "The page moved, or the link was wrong from the start. Head back to the homepage.",
+};
 
-  "footer.copyright": "All Rights Reserved.",
-  "project.placeholder": "Coming soon — the next project will be displayed here.",
-  "project.placeholderLong": "This project will be updated soon with complete information about technologies, features, and development details.",
-  "project.noImage": "Image placeholder",
-  "project.liveDemo": "Live Demo",
-  "project.github": "GitHub",
-  "project.techUsed": "Technologies Used",
-  "project.features": "Key Features",
-  "project.breadcrumbHome": "Home",
-  "project.breadcrumbProject": "Project",
+export const id = {
+  // --- Navigation ------------------------------------------------------
+  "nav.work": "Karya",
+  "nav.about": "Tentang",
+  "nav.contact": "Kontak",
+  "nav.skipToContent": "Lewati ke konten",
+  "nav.langSwitch": "Baca dalam bahasa Inggris",
+  "nav.menuOpen": "Buka menu",
+  "nav.menuClose": "Tutup menu",
+
+  // --- Hero ------------------------------------------------------------
+  "hero.name": "Jalu Pradipta",
+  "hero.role": "Backend developer",
+  "hero.location": "Surabaya, Indonesia",
+  "hero.availability": "Terbuka untuk kerja",
+  "hero.lead":
+    "Saya bikin backend. Kebanyakan Laravel dan Go, untuk sistem yang dibuka tim sales tiap pagi dan dikeluhkan sebelum makan siang.",
+  "hero.ctaWork": "Lihat karyanya",
+  "hero.ctaContact": "Hubungi saya",
+
+  // --- Selected work ---------------------------------------------------
+  "work.label": "Karya terpilih",
+  "work.title": "Empat yang saya bangun",
+  "work.note":
+    "Dua dibahas dalam, dua sekadar disebut. Jumlah baris dan commit diambil dari repo, bukan dari ingatan.",
+  "work.readCase": "Baca ceritanya",
+  "work.colYear": "Tahun",
+  "work.colProject": "Proyek",
+  "work.colRole": "Peran",
+  "work.colStack": "Stack",
+  "work.viewDetail": "Detail",
+
+  // --- About strip -----------------------------------------------------
+  "about.label": "Tentang",
+  "about.title": "Versi singkat",
+  "about.body":
+    "D3 Teknik Telekomunikasi PENS, Surabaya. Sejak 2025 saya kontributor utama sebuah ERP internal di SHELTER — 1.203 dari 1.305 commit-nya, bareng enam orang lain. Sebelum itu belajarnya lebih banyak dari merusak yang sudah jalan, lalu harus menjelaskan kenapa.",
+  "about.bodyTwo":
+    "Saya paling kepakai di bagian yang tidak ada yang mau ambil: penomoran dokumen yang tidak boleh tabrakan, aturan pengupahan yang harus ikut regulasi asli, alur approval di mana kontrak yang sudah ditandatangani tidak bisa diam-diam berubah.",
+  "about.cv": "Unduh CV",
+  "about.more": "Selengkapnya tentang saya",
+
+  // --- Contact ---------------------------------------------------------
+  "contact.label": "Kontak",
+  "contact.title": "Sapa saya",
+  "contact.lead":
+    "Email paling cepat. Saya balas dalam sehari, biasanya lebih cepat kalau tidak sedang ada yang kebakaran.",
+  "contact.emailLabel": "Email",
+  "contact.email": "jluppradipta@gmail.com",
+  "contact.githubLabel": "GitHub",
+  "contact.linkedinLabel": "LinkedIn",
+  "contact.instagramLabel": "Instagram",
+
+  // --- Footer ----------------------------------------------------------
+  "footer.built":
+    "Dibangun dengan React dan Vite. Hitam putih memang disengaja — warna itu keputusan yang tidak saya perlukan di sini.",
+  "footer.rights": "Hak cipta dilindungi.",
+  "footer.backToTop": "Kembali ke atas",
+
+  // --- About page ------------------------------------------------------
+  "aboutPage.title": "Tentang",
+  "aboutPage.lead": "Versi panjangnya, buat yang tadi melewati ringkasannya.",
+  "aboutPage.stackLabel": "Yang saya pakai",
+  "aboutPage.stackNote":
+    "Diurutkan dari yang paling banyak saya kerjakan sungguhan, bukan dari yang paling enak dilihat di CV.",
+  "aboutPage.certLabel": "Sertifikat",
+  "aboutPage.certNote": "Salinan yang bisa diperiksa, ada tautannya.",
+  "aboutPage.certView": "Lihat",
+  "aboutPage.trackLabel": "Rekam jejak",
+  "aboutPage.trackNote": "Tanggalnya apa adanya.",
+  "aboutPage.backHome": "Kembali ke beranda",
+
+  // --- Project detail --------------------------------------------------
+  "project.back": "Kembali ke karya",
+  "project.overview": "Ringkasan",
+  "project.challenge": "Masalahnya",
+  "project.solution": "Yang saya kerjakan",
+  "project.features": "Isi pengerjaannya",
+  "project.stack": "Stack",
+  "project.role": "Peran",
+  "project.year": "Tahun",
+  "project.live": "Situsnya",
+  "project.repo": "Repositori",
+  "project.notFound": "Proyek itu tidak ada.",
+  "project.placeholder": "Belum ada yang ditulis di sini.",
+
+  // --- 404 -------------------------------------------------------------
+  "notFound.code": "404",
+  "notFound.title": "Tidak ada apa-apa di alamat ini",
+  "notFound.body":
+    "Halamannya pindah, atau tautannya memang salah sejak awal. Dua-duanya sering terjadi.",
+  "notFound.home": "Ke beranda",
+
+  // --- SEO -------------------------------------------------------------
+  // Sumber tunggal untuk <title> dan <meta description>. Dibaca komponen SEO
+  // saat runtime DAN oleh scripts/generate-static-head.mjs saat build, supaya
+  // crawler sosial dan Google melihat teks yang sama.
+  "seo.home.title": "Jalu Pradipta — Backend developer, Laravel dan Go",
+  "seo.home.description":
+    "Backend developer di Surabaya. Kontributor utama sebuah ERP internal di SHELTER — 1.203 dari 1.305 commit — plus stack keuangan Go dan Flutter yang dikerjakan sendirian. Empat proyek, ditulis dengan angka sebenarnya.",
+  "seo.about.title": "Tentang — Jalu Pradipta, backend developer",
+  "seo.about.description":
+    "Versi panjangnya: D3 Teknik Telekomunikasi PENS, stack yang benar-benar saya pakai, sertifikat yang bisa diperiksa, dan rekam jejak bertanggal.",
+  "seo.project.titleSuffix": "Jalu Pradipta",
+  "seo.notFound.title": "Tidak ada apa-apa di alamat ini — Jalu Pradipta",
+  "seo.notFound.description":
+    "Halamannya pindah, atau tautannya memang salah sejak awal. Kembali ke beranda.",
 };

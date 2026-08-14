@@ -1,189 +1,112 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { HiMenu, HiX } from "react-icons/hi";
-import { useLocation, useNavigate } from "react-router-dom";
-import { useLanguage } from "../../../context/LanguageContext";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { useLanguage, useLocalizedPath } from "../../../context/LanguageContext";
 
-const SCROLL_THRESHOLD = 100;
-const SECTION_IDS = ["home", "about", "services", "portfolio", "contact"];
+const NAV_ITEMS = [
+  { hash: "work", key: "nav.work" },
+  { hash: "about", key: "nav.about" },
+  { hash: "contact", key: "nav.contact" },
+];
 
+/**
+ * Header: wordmark, three anchors, language toggle.
+ * A single hairline under it implies print structure — no shadow, no blur.
+ */
 export const Navbar = () => {
-  const { pathname } = useLocation();
-  const navigate = useNavigate();
   const { t, lang, toggleLang } = useLanguage();
-  const isHomePage = pathname === "/";
+  const path = useLocalizedPath();
+  const [open, setOpen] = useState(false);
 
-  const [lastScrollY, setLastScrollY] = useState(0);
-  const [isNavbarHidden, setIsNavbarHidden] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
-
-  const handleScroll = useCallback(() => {
-    if (window.scrollY > lastScrollY && window.scrollY > SCROLL_THRESHOLD) {
-      setIsNavbarHidden(true);
-      setIsMenuOpen(false);
-    } else if (window.scrollY < lastScrollY) {
-      setIsNavbarHidden(false);
-    }
-    setLastScrollY(window.scrollY);
-  }, [lastScrollY]);
-
-  const handleLinkClick = (e, id) => {
-    e.preventDefault();
-    setIsMenuOpen(false);
-    setActiveSection(id);
-
-    if (id === "home") {
-      if (isHomePage) {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      } else {
-        navigate("/");
-      }
-      return;
-    }
-
-    if (isHomePage) {
-      const targetElement = document.getElementById(id);
-      if (targetElement) {
-        targetElement.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      }
-    } else {
-      navigate(`/#${id}`);
-    }
-  };
-
+  // Close the mobile sheet on Escape — expected of anything that overlays.
   useEffect(() => {
-    if (!isHomePage) return;
+    if (!open) return;
+    const onKey = (e) => e.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
 
-    const observerOptions = {
-      root: null,
-      rootMargin: "0px 0px -70% 0px",
-      threshold: 0,
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-        }
-      });
-    }, observerOptions);
-
-    SECTION_IDS.forEach((id) => {
-      const element = document.getElementById(id);
-      if (element) {
-        observer.observe(element);
-      }
-    });
-
-    return () => {
-      SECTION_IDS.forEach((id) => {
-        const element = document.getElementById(id);
-        if (element) {
-          observer.unobserve(element);
-        }
-      });
-    };
-  }, [isHomePage]);
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [handleScroll]);
-
-  const isLinkActive = (id) => {
-    if (isHomePage) {
-      return activeSection === id;
-    }
-    if (id === "about" && pathname === "/about-me") {
-      return true;
-    }
-    if (id === "portfolio" && pathname.includes("/project/")) {
-      return true;
-    }
-    return false;
-  };
+  const other = lang === "id" ? "EN" : "ID";
 
   return (
-    <nav
-      className={`fixed left-0 top-0 z-50 w-full transform border-b border-[#5E00FF]/40 bg-[#000000]/80 shadow-lg backdrop-blur-md transition-transform duration-300 ease-in-out ${
-        isNavbarHidden ? "-translate-y-full" : "translate-y-0"
-      }`}
-    >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 font-sans text-[#F8F9FA] lg:px-0">
-        <a
-          href="/"
-          className="text-2xl font-extrabold tracking-wider text-[#00FFB1] transition duration-300 hover:text-[#00FFB1]/80"
-          onClick={(e) => handleLinkClick(e, "home")}
-        >
-          JaluDev
-        </a>
+    <header className="sticky top-0 z-40 border-b border-bone bg-paper/90 backdrop-blur-[2px]">
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-6 focus:top-3 focus:bg-ink focus:px-3 focus:py-2 focus:text-xs focus:text-paper"
+      >
+        {t("nav.skipToContent")}
+      </a>
 
-        <button
-          className="z-50 p-2 text-[#B0BEC5] hover:text-[#00FFB1] focus:outline-none lg:hidden"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label={isMenuOpen ? "Tutup Menu" : "Buka Menu"}
+      <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-6 px-6 py-4 md:px-10">
+        <Link
+          to={path("/")}
+          className="font-display text-md leading-none tracking-tight text-ink"
         >
-          {isMenuOpen ? (
-            <HiX className="h-6 w-6" />
-          ) : (
-            <HiMenu className="h-6 w-6" />
-          )}
-        </button>
+          Jalu&nbsp;Pradipta
+        </Link>
 
-        <div className="hidden items-center space-x-8 lg:flex">
-          {SECTION_IDS.map((id) => (
-            <a
-              key={id}
-              href={`#${id}`}
-              onClick={(e) => handleLinkClick(e, id)}
-              className={`relative text-base font-semibold uppercase tracking-wide transition duration-300 hover:text-[#00FFB1] ${
-                isLinkActive(id)
-                  ? "text-[#00FFB1] after:w-full after:bg-[#00FFB1]"
-                  : "text-[#B0BEC5] after:w-0 after:bg-[#5E00FF]"
-              } after:absolute after:bottom-0 after:left-0 after:h-0.5 after:transition-all after:duration-300`}
-            >
-              {t(`nav.${id}`)}
-            </a>
-          ))}
+        <div className="flex items-center gap-6">
+          {/* Anchors resolve against the homepage so they work from any page. */}
+          <nav aria-label={t("nav.work")} className="hidden md:block">
+            <ul className="flex items-center gap-7">
+              {NAV_ITEMS.map((item) => (
+                <li key={item.hash}>
+                  <Link
+                    to={`${path("/")}#${item.hash}`}
+                    className="text-xs text-slate transition-colors hover:text-ink"
+                  >
+                    {t(item.key)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <span aria-hidden="true" className="hidden h-4 w-px bg-mist md:block" />
+
+          {/* Toggle navigates to the same page in the other language, so the
+              reader keeps their place instead of bouncing to the homepage. */}
+          <button
+            type="button"
+            onClick={toggleLang}
+            aria-label={t("nav.langSwitch")}
+            className="meta border border-mist px-2.5 py-1 leading-none text-ink transition-colors hover:border-ink"
+          >
+            {other}
+          </button>
 
           <button
-            onClick={toggleLang}
-            className="rounded-md border border-[#00FFB1]/30 px-2 py-1 text-sm font-semibold text-[#00FFB1] transition duration-300 hover:bg-[#00FFB1]/10"
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            className="meta text-ink md:hidden"
           >
-            {lang === "id" ? "EN" : "ID"}
+            {open ? t("nav.menuClose") : t("nav.menuOpen")}
           </button>
         </div>
       </div>
 
-      <div
-        className={`absolute w-full overflow-hidden bg-[#000000]/95 transition-all duration-300 ease-in-out lg:hidden ${
-          isMenuOpen
-            ? "max-h-60 border-t border-[#5E00FF]/30 py-4 opacity-100"
-            : "max-h-0 opacity-0"
-        }`}
-      >
-        <div className="flex flex-col space-y-2 px-6">
-          {SECTION_IDS.map((id) => (
-            <a
-              key={id}
-              href={`#${id}`}
-              className={`block py-1 text-lg font-medium transition duration-300 ${
-                isLinkActive(id)
-                  ? "font-bold text-[#00FFB1]"
-                  : "text-[#B0BEC5] hover:text-[#00FFB1]"
-              }`}
-              onClick={(e) => handleLinkClick(e, id)}
-            >
-              {t(`nav.${id}`)}
-            </a>
-          ))}
-        </div>
-      </div>
-    </nav>
+      {open ? (
+        <nav
+          id="mobile-nav"
+          aria-label={t("nav.work")}
+          className="border-t border-bone md:hidden"
+        >
+          <ul className="mx-auto max-w-6xl px-6">
+            {NAV_ITEMS.map((item) => (
+              <li key={item.hash} className="border-b border-bone last:border-0">
+                <Link
+                  to={`${path("/")}#${item.hash}`}
+                  onClick={() => setOpen(false)}
+                  className="block py-3.5 text-base text-ink"
+                >
+                  {t(item.key)}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      ) : null}
+    </header>
   );
 };

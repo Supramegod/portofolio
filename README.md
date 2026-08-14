@@ -66,84 +66,13 @@ Dibangun dengan tema **Cyber-Synthwave Tokyo Underground** -- dark purple dengan
 
 ## Multi-Agent System
 
-Project ini menggunakan **AI Multi-Agent System** berbasis [OpenCode](https://opencode.ai) dengan 3 tim yang saling terkoordinasi untuk pengembangan, optimasi, dan deployment.
+Project ini menggunakan **AI Multi-Agent System** berbasis [OpenCode](https://opencode.ai) dengan 3 tim yang saling terkoordinasi: **Design**, **Marketing**, dan **DevOps**, dikoordinasi oleh `@ceo`.
 
-### Struktur Tim
+- **Matriks otoritas, roster lengkap, workflow, dan restrictions:** [`AGENTS.md`](./AGENTS.md)
+- **Definisi agent:** `.opencode/agent/` (19 file)
+- **Skill agent:** `.opencode/skills/` (28 skill -- AIDA, SEO, CRO, dll)
 
-```
-                     +-------------+
-                     |   @ceo      |  Eksekutif -- pemecah goal strategis
-                     +------+------+
-                            |
-            +---------------+---------------+
-            |               |               |
-            v               v               v
-   +----------------+ +----------+ +--------------+
-   | @design-       | | @project-| | @devops-     |
-   | coordinator    | | manager- | | coordinator  |
-   |                | | marketing| |              |
-   +-------+--------+ +----+-----+ +------+-------+
-           |               |              |
-           v               v              v
-   +------------+    +----------+   +--------------+
-   | ui-designer|    | seo-master|   | cloudflare   |
-   | motion-    |    | keyword-  |   | specialist   |
-   |   expert   |    | strategist|   |              |
-   | code-      |    | content-  |   |              |
-   |   viewer   |    | writer    |   |              |
-   | hrd-       |    | link-     |   |              |
-   |   tester   |    | builder   |   |              |
-   | techlead-  |    | social-   |   |              |
-   |   tester   |    | media-    |   |              |
-   |            |    | strategist|   |              |
-   |            |    | ad-       |   |              |
-   |            |    | copywriter|   |              |
-   |            |    | conversion|   |              |
-   |            |    | rate-     |   |              |
-   |            |    | expert    |   |              |
-   |            |    | analytics-|   |              |
-   |            |    | translator|   |              |
-   |            |    | frontend- |   |              |
-   |            |    | seo       |   |              |
-   +------------+    +----------+   +--------------+
-```
-
-### Tim Desain (Design Team)
-| Agent | Role |
-|-------|------|
-| **@design-coordinator** | Technical Lead -- mengoordinasi seluruh agent desain, menyetujui strategi implementasi |
-| **@ui-designer** | Layout, Tailwind CSS v4, tipografi, responsive design, design system |
-| **@motion-expert** | Framer Motion, Lottie animation, hover effects, scroll animations, micro interactions |
-| **@code-viewer** | React 18 audit, JSX review, accessibility, bundle size, code quality |
-| **@hrd-tester** | Simulasi screening HRD -- first impression, portfolio presentation |
-| **@techlead-tester** | Simulasi review CTO -- arsitektur, maintainability |
-
-### Tim Marketing (Marketing Team)
-| Agent | Role |
-|-------|------|
-| **@project-manager-marketing** | Orchestrator -- mengoordinasi seluruh agent marketing |
-| **@seo-master** | Technical SEO specialist |
-| **@keyword-strategist** | Keyword research & competitor analysis |
-| **@content-writer** | SEO copywriting & blog articles |
-| **@link-builder** | Backlink strategy & outreach |
-| **@social-media-strategist** | Social media content planning |
-| **@ad-copywriter** | High-conversion ad copy (Google, Meta, TikTok) |
-| **@conversion-rate-expert** | CRO & UX optimization |
-| **@analytics-translator** | GA4 & Search Console data analyst |
-| **@frontend-seo** | Core Web Vitals & frontend performance |
-
-### Tim DevOps (DevOps Team)
-| Agent | Role |
-|-------|------|
-| **@devops-coordinator** | Infrastructure Orchestrator -- mengelola deployment pipeline |
-| **@cloudflare-specialist** | Cloudflare Workers, Pages, DNS, SSL, CI/CD |
-
-### Alur Kerja
-1. **@ceo** menerima visi dari user, memecah goal menjadi task
-2. Task didelegasikan ke **@design-coordinator**, **@project-manager-marketing**, atau **@devops-coordinator**
-3. Masing-masing koordinator memicu agent spesialis sesuai kebutuhan
-4. Hasil direview dan digabungkan oleh koordinator masing-masing
-5. **@ceo** melaporkan ringkasan eksekutif ke user
+Hanya `@ceo`, `@design-coordinator`, dan `@devops-coordinator` yang boleh mengeksekusi perubahan source code. Alur kerjanya: `@ceo` memecah goal → delegasi ke koordinator → agent spesialis mengerjakan → koordinator me-review & menggabungkan → `@ceo` melaporkan ringkasan.
 
 ---
 
@@ -153,7 +82,6 @@ Project ini menggunakan **AI Multi-Agent System** berbasis [OpenCode](https://op
 portofolio/
 +-- src/                          # Source code utama
 |   +-- main.jsx                  # Entrypoint (HelmetProvider + LanguageProvider)
-|   +-- index.html                # Root HTML (Google verification meta tag)
 |   +-- routes/
 |   |   +-- App.jsx               # Router (/, /about-me, /project/:id, *)
 |   +-- context/
@@ -195,15 +123,19 @@ portofolio/
 |   +-- docs/                     # PDF (sertifikat, dll)
 |   +-- images/                   # Thumbnail proyek + OG images
 |   +-- robots.txt                # SEO -- izinkan crawling
-|   +-- sitemap.xml               # SEO -- 5 URLs
+|   +-- sitemap.xml               # SEO -- 3 URLs (di-generate saat build)
 |   +-- _redirects                # SPA fallback rewrite
+|   +-- _headers                  # Content-Type: application/xml utk sitemap
+|
++-- scripts/
+|   +-- generate-sitemap.mjs      # prebuild -- tulis public/sitemap.xml
 |
 +-- .opencode/                    # Konfigurasi AI Multi-Agent
 |   +-- opencode.json             # Registrasi agent & permissions
 |   +-- agent/                    # Definisi 19 agent (19 file .md)
 |   +-- skills/                   # 28 skill spesifik (AIDA, SEO, CRO, dll)
-|   +-- AGENTS.md                 # Matriks otoritas & workflow
 |
++-- index.html                    # Root HTML (meta statis + Google verification)
 +-- package.json                  # Dependencies & scripts
 +-- vite.config.js                # Konfigurasi Vite 7
 +-- eslint.config.js              # Konfigurasi ESLint 9
@@ -289,7 +221,7 @@ npx prettier --write .
 ## SEO Status
 
 - Google Search Console terverifikasi (meta tag)
-- Sitemap.xml terdaftar (5 URLs)
+- Sitemap.xml terdaftar (3 URLs: `/`, `/about-me`, `/project/1`) -- di-generate otomatis oleh `scripts/generate-sitemap.mjs` saat `prebuild`; proyek placeholder sengaja dikecualikan
 - robots.txt mengizinkan crawling
 - JSON-LD structured data (Person, Website, SoftwareApplication, FAQPage)
 - Canonical URLs ke `jalupradipta.pages.dev`

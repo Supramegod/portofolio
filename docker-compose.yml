@@ -1,0 +1,28 @@
+services:
+  # Development: Vite dev server with HMR, source bind-mounted from the host.
+  #   docker compose up dev   ->  http://localhost:3000
+  dev:
+    build:
+      context: .
+      target: dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      # Keep the image's node_modules — the host bind mount must not shadow it.
+      - /app/node_modules
+    environment:
+      # Bind mounts break inotify on some hosts; polling keeps HMR reliable.
+      - CHOKIDAR_USEPOLLING=true
+    stdin_open: true
+    tty: true
+
+  # Production preview: `npm run build` output served by nginx.
+  #   docker compose up prod  ->  http://localhost:8080
+  prod:
+    build:
+      context: .
+      target: prod
+    ports:
+      - "8080:80"
+    restart: unless-stopped
