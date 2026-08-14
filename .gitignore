@@ -12,11 +12,36 @@ dist
 dist-ssr
 *.local
 yarn.lock
-.gitignore
 
-# ECC project install (vendored, reproducible from ecc-install.json)
-.claude/*
-!.claude/settings.local.json
+# --- AI/agent tooling -------------------------------------------------------
+# None of this is needed to build or run the site. Regenerate from
+# ecc-install.json if a fresh checkout needs the ECC surface back.
+.claude/
+.opencode/
+.amazonq/
+ecc-install.json
+CLAUDE.md
+AGENTS.md
+
+# --- Planning & research notes ----------------------------------------------
+# Working documents, not part of the app.
+docs/
+portfolio-plan.md
+CAIS_README.md
+
+# --- Unused source assets ---------------------------------------------------
+# Originals kept on disk for reference; nothing in src/ imports them, and
+# shipping them cost ~6 MB in the repo. Delete locally when you're sure.
+src/assets/img/Foto.jpg
+src/assets/img/Foto2.jpg
+src/assets/img/Profile.jpg
+src/assets/img/Profile2.jpg
+src/assets/img/project-finance.png
+public/images/foto-jalu.jpg
+public/images/sertifikat1.jpg
+
+# --- Local verification output ----------------------------------------------
+.preview-*.webp
 
 # Editor directories and files
 .vscode/*
