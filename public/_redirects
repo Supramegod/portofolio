@@ -1,2 +1,15 @@
-﻿/sitemap.xml   /sitemap.xml   200
+# Order matters: Cloudflare applies the first matching rule.
+
+# Never let the splat below swallow the sitemap.
+/sitemap.xml   /sitemap.xml   200
+
+# Pre-redesign URLs. These are indexed in Search Console, and without these
+# rules the splat serves them a 200 carrying the homepage shell — a soft 404,
+# which keeps them indexed under the wrong content instead of passing their
+# ranking to the new location. 301 moves that signal across permanently.
+/about-me      /en/about-me     301
+/project/:id   /en/project/:id  301
+
+# SPA fallback. Prerendered files under /en and /id are static, so Cloudflare
+# serves those directly and never reaches this rule.
 /*            /index.html     200
