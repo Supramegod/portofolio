@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   BrowserRouter,
   Navigate,
   Outlet,
   Route,
   Routes,
+  useLocation,
   useParams,
 } from "react-router-dom";
 
@@ -28,6 +29,45 @@ import { Error404 } from "../pages/errors/Error404";
 const RootRedirect = () => <Navigate to={`/${guessLang()}`} replace />;
 
 /**
+ * React Router deliberately does not act on the URL hash, and does not reset
+ * scroll between routes — both are left to the app. Without this the header's
+ * `/id#work` links change the URL and nothing moves, which reads as a dead
+ * link, and opening a page from halfway down another one lands mid-content.
+ *
+ * The rAF wait gives the target route a frame to mount before we look for the
+ * element; on a cross-page jump like `/id/about-me` → `/id#work` the section
+ * does not exist yet at the moment the location changes.
+ */
+const ScrollManager = () => {
+  const { pathname, hash } = useLocation();
+
+  useEffect(() => {
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const behavior = reduced ? "auto" : "smooth";
+
+    if (!hash) {
+      window.scrollTo({ top: 0, behavior: "auto" });
+      return;
+    }
+
+    let frame = 0;
+    const jump = (attempt = 0) => {
+      const target = document.getElementById(decodeURIComponent(hash.slice(1)));
+      if (target) {
+        target.scrollIntoView({ behavior, block: "start" });
+      } else if (attempt < 5) {
+        frame = requestAnimationFrame(() => jump(attempt + 1));
+      }
+    };
+    frame = requestAnimationFrame(() => jump());
+
+    return () => cancelAnimationFrame(frame);
+  }, [pathname, hash]);
+
+  return null;
+};
+
+/**
  * Rejects unknown language segments so `/fr` or `/assets` render a real 404
  * instead of silently falling back to English and indexing a duplicate page.
  */
@@ -42,6 +82,7 @@ export const App = () => {
     <BrowserRouter>
       {/* Inside the Router: the provider reads the language off the URL. */}
       <LanguageProvider>
+        <ScrollManager />
         <Routes>
           <Route path="/" element={<RootRedirect />} />
 

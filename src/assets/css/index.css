@@ -84,6 +84,13 @@
     font-size: 0.96em;
   }
 
+  /* The header is sticky, so an anchor target would otherwise stop underneath
+     it. Keep this a little larger than the header's own height. */
+  section[id],
+  #main {
+    scroll-margin-top: 6rem;
+  }
+
   /* Hairlines instead of shadows, everywhere. */
   hr {
     border: 0;
